@@ -4,18 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>E-Portfolio 2 PPG | [NAMA_MAHASISWA]</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>E-Portfolio PPG | [NAMA_MAHASISWA]</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ==========================
-   RESET
-========================== */
+/* =========================
+   SOFT LILAC THEME
+========================= */
+
+:root{
+--bg1:#f7f3ff;
+--bg2:#e9ddff;
+--card:rgba(255,255,255,.55);
+--text:#2b2233;
+--primary:#a855f7;
+--accent:#c084fc;
+--soft:#f3e8ff;
+}
 
 *{
 margin:0;
@@ -24,712 +31,294 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
-html{
-overflow-x:hidden;
-}
-
 body{
 font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,var(--bg1),var(--bg2));
+color:var(--text);
 overflow-x:hidden;
-background:#081b33;
-color:white;
-transition:.4s;
 }
 
-/* ==========================
-   THEME VARIABLES
-========================== */
+/* =========================
+   FLOATING SOFT PETALS
+========================= */
 
-:root{
-
---sunset-orange:#ff8c42;
---gold:#ffd166;
---deep-blue:#0d3b66;
---ocean:#08243e;
---purple:#6a4c93;
---glass:rgba(255,255,255,.12);
---glass-border:rgba(255,255,255,.25);
---shadow:0 10px 35px rgba(0,0,0,.25);
-
---text:#ffffff;
---card:rgba(255,255,255,.12);
-
-}
-
-body.light{
-
---text:#1f2937;
---card:rgba(255,255,255,.75);
-
-background:#fff7eb;
-
-}
-
-/* ==========================
-   SCROLL BAR
-========================== */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-track{
-background:#0d3b66;
-}
-
-::-webkit-scrollbar-thumb{
-background:#ffb347;
-border-radius:20px;
-}
-
-/* ==========================
-   PROGRESS BAR
-========================== */
-
-.progress-bar{
-
+.petal{
 position:fixed;
-top:0;
-left:0;
-
-height:5px;
-width:0%;
-
-z-index:99999;
-
-background:linear-gradient(
-90deg,
-#ffd166,
-#ff8c42
-);
-
+top:-10vh;
+width:8px;
+height:8px;
+background:rgba(168,85,247,.35);
+border-radius:50%;
+filter:blur(.3px);
+animation:floatDown linear infinite;
 }
 
-/* ==========================
-   NAVIGATION
-========================== */
+@keyframes floatDown{
+to{
+transform:translateY(120vh) translateX(40px) rotate(180deg);
+}
+}
+
+/* =========================
+   NAVBAR (SOFT GLASS)
+========================= */
 
 nav{
-
 position:fixed;
-
-top:20px;
+top:15px;
 left:50%;
-
 transform:translateX(-50%);
-
-width:90%;
-max-width:1200px;
-
-z-index:9999;
-
+width:92%;
+max-width:1100px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:12px 18px;
+background:rgba(255,255,255,.45);
+backdrop-filter:blur(14px);
+border-radius:50px;
+border:1px solid rgba(168,85,247,.15);
+z-index:999;
+}
 
-padding:15px 25px;
+nav a{
+margin:0 10px;
+text-decoration:none;
+color:var(--text);
+font-weight:500;
+opacity:.85;
+transition:.3s;
+}
 
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,.15);
-
-border-radius:60px;
-
-box-shadow:var(--shadow);
-
+nav a:hover{
+opacity:1;
+color:var(--primary);
 }
 
 .logo{
-
-font-size:1.2rem;
 font-weight:700;
-letter-spacing:1px;
-
+color:var(--primary);
 }
 
-.logo span{
-color:#ffd166;
-}
-
-.nav-links{
-
-display:flex;
-gap:25px;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-color:white;
-font-size:.95rem;
-transition:.3s;
-
-}
-
-.nav-links a:hover{
-
-color:#ffd166;
-
-}
-
-.nav-actions{
-
-display:flex;
-gap:10px;
-
-}
-
-.theme-btn{
-
-width:42px;
-height:42px;
-
-border:none;
-
-border-radius:50%;
-
-cursor:pointer;
-
-background:#ffd166;
-color:#222;
-
-font-size:18px;
-
-}
-
-/* ==========================
-   HERO SECTION
-========================== */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-
-position:relative;
-
 height:100vh;
-
-overflow:hidden;
-
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
-
+padding:20px;
+position:relative;
 }
 
-/* ==========================
-   SKY
-========================== */
-
-.sky{
-
+.hero::before{
+content:"";
 position:absolute;
 inset:0;
-
 background:
-
-linear-gradient(
-180deg,
-#ffb36b 0%,
-#ff8c42 20%,
-#8c5ec7 55%,
-#0d3b66 100%
-);
-
-z-index:-5;
-
+radial-gradient(circle at top,#ffffffaa,transparent 60%),
+radial-gradient(circle at bottom,#c084fc33,transparent 60%);
+z-index:-1;
 }
 
-/* ==========================
-   SUN
-========================== */
-
-.sun{
-
-position:absolute;
-
-width:280px;
-height:280px;
-
-border-radius:50%;
-
-background:
-
-radial-gradient(
-circle,
-#ffe28a,
-#ffb347,
-#ff8c42
-);
-
-bottom:18%;
-
-box-shadow:
-0 0 100px rgba(255,190,90,.7),
-0 0 200px rgba(255,150,0,.4);
-
-animation:sunsetMove 20s ease-in-out infinite alternate;
-
-}
-
-@keyframes sunsetMove{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(40px);
-}
-
-}
-
-/* ==========================
-   CLOUDS
-========================== */
-
-.cloud{
-
-position:absolute;
-
-background:rgba(255,255,255,.15);
-
-border-radius:100px;
-
-filter:blur(2px);
-
-}
-
-.cloud1{
-
-width:220px;
-height:60px;
-
-top:15%;
-left:-300px;
-
-animation:cloudMove 70s linear infinite;
-
-}
-
-.cloud2{
-
-width:320px;
-height:80px;
-
-top:25%;
-left:-500px;
-
-animation:cloudMove 100s linear infinite;
-
-}
-
-@keyframes cloudMove{
-
-from{
-transform:translateX(0);
-}
-
-to{
-transform:translateX(1800px);
-}
-
-}
-
-/* ==========================
-   BIRDS
-========================== */
-
-.bird{
-
-position:absolute;
-
-font-size:28px;
-
-opacity:.8;
-
-}
-
-.b1{
-
-top:18%;
-left:-10%;
-
-animation:flyBird 25s linear infinite;
-
-}
-
-.b2{
-
-top:22%;
-left:-20%;
-
-animation:flyBird 35s linear infinite;
-
-}
-
-@keyframes flyBird{
-
-from{
-transform:translateX(0);
-}
-
-to{
-transform:translateX(140vw);
-}
-
-}
-
-/* ==========================
-   OCEAN
-========================== */
-
-.ocean{
-
-position:absolute;
-
-bottom:0;
-
-width:100%;
-height:35%;
-
-background:
-
-linear-gradient(
-180deg,
-rgba(20,70,120,.2),
-#08243e
-);
-
-}
-
-/* ==========================
-   WAVES
-========================== */
-
-.wave{
-
-position:absolute;
-
-bottom:0;
-
-width:200%;
-height:120px;
-
-background:
-radial-gradient(
-circle at 50% 50%,
-rgba(255,255,255,.25) 8%,
-transparent 10%
-);
-
-background-size:120px 40px;
-
-animation:waveMove 12s linear infinite;
-
-}
-
-.wave2{
-
-opacity:.4;
-
-bottom:15px;
-
-animation-duration:20s;
-
-}
-
-.wave3{
-
-opacity:.25;
-
-bottom:30px;
-
-animation-duration:30s;
-
-}
-
-@keyframes waveMove{
-
-from{
-transform:translateX(0);
-}
-
-to{
-transform:translateX(-50%);
-}
-
-}
-
-/* ==========================
-   HERO CONTENT
-========================== */
-
-.hero-content{
-
-position:relative;
-z-index:100;
-
-max-width:900px;
-padding:20px;
-
-}
-
-.profile-frame{
-
-width:220px;
-height:220px;
-
-margin:auto;
-
-padding:8px;
-
-border-radius:50%;
-
-background:
-linear-gradient(
-45deg,
-#ffd166,
-#ff8c42
-);
-
-box-shadow:
-0 0 40px rgba(255,209,102,.6);
-
-}
-
-.profile-frame img{
-
-width:100%;
-height:100%;
-
+.profile{
+width:160px;
+height:160px;
 border-radius:50%;
 object-fit:cover;
-
 border:4px solid white;
-
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
 }
 
-.hero h1{
-
-font-size:4rem;
-
-margin-top:25px;
-
-font-family:'Playfair Display',serif;
-
+.profile:hover{
+transform:scale(1.03);
 }
 
-.hero p{
-
-font-size:1.1rem;
-
-margin-top:10px;
-
-}
-
-.highlight{
-
-color:#ffd166;
-
-font-weight:600;
-
+h1{
+font-size:2.6rem;
+font-family:'Playfair Display';
+margin-top:12px;
 }
 
 .typing{
-
-height:50px;
-
-margin-top:20px;
-
-font-size:1.3rem;
-
-font-weight:500;
-
-color:#ffe9b0;
-
+margin-top:10px;
+height:25px;
+color:var(--primary);
 }
 
-/* ==========================
-   BUTTONS
-========================== */
-
-.hero-buttons{
-
-margin-top:35px;
-
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-
-}
+/* BUTTON */
 
 .btn{
-
-padding:15px 32px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:.4s;
-
-}
-
-.btn-primary{
-
-background:#ffd166;
-color:#222;
-
-}
-
-.btn-secondary{
-
-background:transparent;
-border:2px solid white;
+display:inline-block;
+margin-top:18px;
+padding:11px 22px;
+border-radius:25px;
+background:var(--primary);
 color:white;
-
+text-decoration:none;
+transition:.3s;
 }
 
 .btn:hover{
-
-transform:translateY(-5px);
-
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(168,85,247,.25);
 }
 
-/* ==========================
-   PARTICLES
-========================== */
-
-.particles{
-
-position:absolute;
-inset:0;
-
-pointer-events:none;
-
-}
-
-.particle{
-
-position:absolute;
-
-width:4px;
-height:4px;
-
-background:#fff2c7;
-
-border-radius:50%;
-
-opacity:.6;
-
-animation:floatLight linear infinite;
-
-}
-
-@keyframes floatLight{
-
-from{
-transform:translateY(100vh);
-opacity:0;
-}
-
-20%{
-opacity:1;
-}
-
-80%{
-opacity:1;
-}
-
-to{
-transform:translateY(-20vh);
-opacity:0;
-}
-
-}
-
-/* ==========================
-   SCROLL INDICATOR
-========================== */
-
-.scroll-indicator{
-
-position:absolute;
-
-bottom:40px;
-left:50%;
-
-transform:translateX(-50%);
-
-font-size:14px;
-
-animation:bounce 2s infinite;
-
-}
-
-@keyframes bounce{
-
-0%,100%{
-transform:translate(-50%,0);
-}
-
-50%{
-transform:translate(-50%,10px);
-}
-
-}
-
-/* ==========================
-   SECTION DEFAULT
-========================== */
+/* =========================
+   SECTIONS
+========================= */
 
 section{
-
-padding:100px 8%;
-
-position:relative;
-
+padding:90px 10%;
 }
 
-.section-title{
-
-font-size:2.8rem;
-
+.title{
 text-align:center;
-
-margin-bottom:60px;
-
-font-family:'Playfair Display',serif;
-
+font-size:2rem;
+margin-bottom:40px;
+font-family:'Playfair Display';
 }
 
-/* ==========================
-   RESPONSIVE
-========================== */
+/* =========================
+   CARDS (SOFT LIFT)
+========================= */
 
-@media(max-width:900px){
-
-.hero h1{
-font-size:2.6rem;
+.card{
+background:var(--card);
+backdrop-filter:blur(10px);
+padding:22px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.05);
+transition:.35s;
 }
 
-.nav-links{
+.card:hover{
+transform:translateY(-6px);
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-grid{
+display:grid;
+grid-template-columns:1fr 2fr;
+gap:25px;
+}
+
+@media(max-width:768px){
+.profile-grid{grid-template-columns:1fr;}
+}
+
+/* =========================
+   TABS (SMOOTH)
+========================= */
+
+.tabs{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.tab{
+padding:9px 16px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+background:#eee;
+transition:.3s;
+}
+
+.tab.active{
+background:var(--primary);
+color:white;
+}
+
+.tab-content{
 display:none;
+animation:fade .4s ease;
 }
 
-.profile-frame{
-
-width:180px;
-height:180px;
-
+.tab-content.active{
+display:block;
 }
 
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+margin-top:20px;
+padding:18px;
+border-left:4px solid var(--primary);
+background:rgba(255,255,255,.5);
+font-style:italic;
+}
+
+/* =========================
+   VALUES
+========================= */
+
+.values{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;
+}
+
+.value{
+padding:18px;
+text-align:center;
+border-radius:15px;
+background:rgba(255,255,255,.5);
+transition:.3s;
+}
+
+.value:hover{
+transform:translateY(-5px);
+}
+
+.circle{
+width:75px;
+height:75px;
+margin:auto;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:conic-gradient(var(--primary) var(--p),#eee 0);
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+opacity:0;
+transform:translateY(25px);
+transition:1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+footer{
+text-align:center;
+padding:60px 20px;
+background:rgba(255,255,255,.4);
+margin-top:80px;
 }
 
 </style>
@@ -737,3260 +326,153 @@ height:180px;
 
 <body>
 
-<div class="progress-bar"></div>
-
 <nav>
-
-<div class="logo">
-E-Portfolio <span>PPG</span>
-</div>
-
-<div class="nav-links">
-
+<div class="logo">PPG Portfolio</div>
+<div>
 <a href="#profil">Profil</a>
 <a href="#refleksi">Refleksi</a>
 <a href="#filosofi">Filosofi</a>
-<a href="#galeri">Galeri</a>
-<a href="#komitmen">Komitmen</a>
-
+<a href="#nilai">Nilai</a>
 </div>
-
-<div class="nav-actions">
-
-<button class="theme-btn" id="themeBtn">
-🌙
-</button>
-
-</div>
-
 </nav>
 
-<header class="hero">
+<section class="hero">
 
-<div class="sky"></div>
-
-<div class="sun"></div>
-
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-
-<div class="bird b1">🕊️</div>
-<div class="bird b2">🕊️</div>
-
-<div class="ocean">
-
-<div class="wave"></div>
-<div class="wave wave2"></div>
-<div class="wave wave3"></div>
-
-</div>
-
-<div class="particles" id="particles"></div>
-
-<div class="hero-content">
-
-<div class="profile-frame">
-
-<img src="[FOTO_PROFIL]" alt="Foto Profil">
-
-</div>
-
+<div>
+<img src="[FOTO_PROFIL]" class="profile">
 <h1>[NAMA_MAHASISWA]</h1>
-
-<p class="highlight">
-[PROGRAM_STUDI]
-</p>
-
-<p>
-Praktik Pengalaman Lapangan di
-<strong>[SEKOLAH_PPL]</strong>
-</p>
-
-<div class="typing" id="typingText"></div>
-
-<div class="hero-buttons">
-
-<a href="#profil" class="btn btn-primary">
-Jelajahi Portofolio
-</a>
-
-<a href="#refleksi" class="btn btn-secondary">
-Refleksi PPL
-</a>
-
+<p>[PROGRAM_STUDI]</p>
+<div class="typing" id="typing"></div>
+<a class="btn" href="#profil">Mulai Jelajah</a>
 </div>
 
-</div>
-
-<div class="scroll-indicator">
-▼ Scroll
-</div>
-
-</header>
-
-<!--
-==================================================
-LANJUTAN BAGIAN 2 DIMULAI DARI SINI
-(PROFIL + TIMELINE + COUNTER STATISTIK)
-==================================================
--->
-  
-<!-- ==================================================
-     PROFIL MAHASISWA PPG
-================================================== -->
+</section>
 
 <section id="profil">
+<h2 class="title">Profil</h2>
 
-    <h2 class="section-title">
-        Profil Mahasiswa PPG
-    </h2>
+<div class="profile-grid">
 
-    <div class="profile-container">
+<div class="card reveal">
+<img src="[FOTO_PROFIL]" style="width:100%;border-radius:12px;">
+</div>
 
-        <div class="glass-card profile-left reveal">
+<div class="card reveal">
+<p>[ISI PROFIL]</p>
+</div>
 
-            <img src="[FOTO_PROFIL]" alt="Profil" class="profile-large">
-
-            <h3>[NAMA_MAHASISWA]</h3>
-
-            <p class="profile-badge">
-                Mahasiswa Pendidikan Profesi Guru
-            </p>
-
-        </div>
-
-        <div class="glass-card profile-right reveal">
-
-            <div class="info-item">
-                <h4>👤 Biodata Singkat</h4>
-                <p>
-                    Mahasiswa PPG yang memiliki komitmen untuk menjadi guru profesional,
-                    inovatif, dan mampu menciptakan pembelajaran yang bermakna bagi peserta didik.
-                </p>
-            </div>
-
-            <div class="info-item">
-                <h4>🎓 Riwayat Pendidikan</h4>
-
-                <ul>
-                    <li>S1 Pendidikan ............</li>
-                    <li>Program Pendidikan Profesi Guru</li>
-                    <li>Pelatihan dan Pengembangan Kompetensi Guru</li>
-                </ul>
-
-            </div>
-
-            <div class="info-item">
-
-                <h4>🌟 Minat dan Bakat</h4>
-
-                <p>
-                    Teknologi Pendidikan, Desain Pembelajaran,
-                    Public Speaking, Literasi Digital,
-                    Pengembangan Media Interaktif.
-                </p>
-
-            </div>
-
-            <div class="info-item">
-
-                <h4>🎯 Cita-Cita</h4>
-
-                <p>
-                    Menjadi guru profesional yang mampu menginspirasi,
-                    membentuk karakter peserta didik,
-                    dan menghadirkan pembelajaran abad 21.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
-
-<!-- ==================================================
-     STATISTIK PERJALANAN PPG
-================================================== -->
-
-<section id="statistik">
-
-    <h2 class="section-title">
-        Statistik Perjalanan PPG
-    </h2>
-
-    <div class="stats-grid">
-
-        <div class="glass-card stat-card reveal">
-
-            <div class="counter" data-target="120">
-                0
-            </div>
-
-            <span>Jam Mengajar</span>
-
-        </div>
-
-        <div class="glass-card stat-card reveal">
-
-            <div class="counter" data-target="35">
-                0
-            </div>
-
-            <span>Observasi Kelas</span>
-
-        </div>
-
-        <div class="glass-card stat-card reveal">
-
-            <div class="counter" data-target="20">
-                0
-            </div>
-
-            <span>Perangkat Ajar</span>
-
-        </div>
-
-        <div class="glass-card stat-card reveal">
-
-            <div class="counter" data-target="100">
-                0
-            </div>
-
-            <span>Pengalaman Baru</span>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-     TIMELINE PERJALANAN MENJADI GURU
-================================================== -->
-
-<section id="timeline">
-
-    <h2 class="section-title">
-        Perjalanan Menjadi Guru
-    </h2>
-
-    <div class="timeline-wrapper">
-
-        <div class="timeline-line"></div>
-
-        <div class="timeline-item left reveal">
-
-            <div class="timeline-content glass-card">
-
-                <div class="timeline-year">
-                    2020
-                </div>
-
-                <h3>
-                    Awal Perjalanan Pendidikan
-                </h3>
-
-                <p>
-                    Memulai perjalanan sebagai mahasiswa pendidikan
-                    dengan semangat untuk menjadi pendidik yang berdampak.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="timeline-item right reveal">
-
-            <div class="timeline-content glass-card">
-
-                <div class="timeline-year">
-                    2022
-                </div>
-
-                <h3>
-                    Penguatan Kompetensi
-                </h3>
-
-                <p>
-                    Mengikuti berbagai kegiatan akademik,
-                    organisasi, dan pelatihan pendidikan.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="timeline-item left reveal">
-
-            <div class="timeline-content glass-card">
-
-                <div class="timeline-year">
-                    2024
-                </div>
-
-                <h3>
-                    Menjadi Mahasiswa PPG
-                </h3>
-
-                <p>
-                    Mengikuti Program Pendidikan Profesi Guru
-                    untuk meningkatkan kompetensi profesional.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="timeline-item right reveal">
-
-            <div class="timeline-content glass-card">
-
-                <div class="timeline-year">
-                    2025
-                </div>
-
-                <h3>
-                    Praktik Pengalaman Lapangan
-                </h3>
-
-                <p>
-                    Melaksanakan PPL Terbimbing,
-                    observasi kelas,
-                    asistensi mengajar,
-                    dan praktik pembelajaran.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="timeline-item left reveal">
-
-            <div class="timeline-content glass-card">
-
-                <div class="timeline-year">
-                    Masa Depan
-                </div>
-
-                <h3>
-                    Guru Profesional
-                </h3>
-
-                <p>
-                    Mengabdi untuk pendidikan Indonesia
-                    melalui pembelajaran yang berpihak kepada murid.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<style>
-
-/* ==================================================
-   PROFILE
-================================================== */
-
-.profile-container{
-
-display:grid;
-grid-template-columns:350px 1fr;
-gap:35px;
-
-align-items:start;
-
-}
-
-.glass-card{
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.15);
-
-border-radius:25px;
-
-padding:30px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-
-}
-
-.profile-large{
-
-width:100%;
-max-width:240px;
-
-height:240px;
-
-object-fit:cover;
-
-border-radius:50%;
-
-display:block;
-
-margin:auto;
-
-border:5px solid rgba(255,255,255,.6);
-
-}
-
-.profile-left{
-
-text-align:center;
-
-}
-
-.profile-left h3{
-
-margin-top:20px;
-
-font-size:1.5rem;
-
-}
-
-.profile-badge{
-
-margin-top:10px;
-
-padding:10px 15px;
-
-display:inline-block;
-
-background:rgba(255,209,102,.2);
-
-border-radius:50px;
-
-}
-
-.info-item{
-
-margin-bottom:25px;
-
-}
-
-.info-item h4{
-
-margin-bottom:10px;
-
-color:#ffd166;
-
-}
-
-.info-item ul{
-
-padding-left:20px;
-
-}
-
-/* ==================================================
-   STATS
-================================================== */
-
-.stats-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-}
-
-.stat-card{
-
-text-align:center;
-
-}
-
-.counter{
-
-font-size:3rem;
-
-font-weight:700;
-
-color:#ffd166;
-
-}
-
-.stat-card span{
-
-font-size:1rem;
-
-}
-
-/* ==================================================
-   TIMELINE
-================================================== */
-
-.timeline-wrapper{
-
-position:relative;
-
-max-width:1200px;
-
-margin:auto;
-
-padding-top:30px;
-
-}
-
-.timeline-line{
-
-position:absolute;
-
-left:50%;
-
-top:0;
-
-width:4px;
-
-height:100%;
-
-background:#ffd166;
-
-transform:translateX(-50%);
-
-}
-
-.timeline-item{
-
-position:relative;
-
-width:50%;
-
-padding:20px 40px;
-
-}
-
-.timeline-item.left{
-
-left:0;
-
-}
-
-.timeline-item.right{
-
-left:50%;
-
-}
-
-.timeline-content{
-
-position:relative;
-
-}
-
-.timeline-content::before{
-
-content:'';
-
-position:absolute;
-
-top:35px;
-
-width:18px;
-height:18px;
-
-background:#ffd166;
-
-border-radius:50%;
-
-}
-
-.timeline-item.left .timeline-content::before{
-
-right:-49px;
-
-}
-
-.timeline-item.right .timeline-content::before{
-
-left:-49px;
-
-}
-
-.timeline-year{
-
-display:inline-block;
-
-background:#ffd166;
-
-color:#222;
-
-padding:8px 15px;
-
-border-radius:30px;
-
-font-weight:600;
-
-margin-bottom:15px;
-
-}
-
-/* ==================================================
-   REVEAL ANIMATION
-================================================== */
-
-.reveal{
-
-opacity:0;
-
-transform:translateY(60px);
-
-transition:1s;
-
-}
-
-.reveal.active{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media(max-width:900px){
-
-.profile-container{
-
-grid-template-columns:1fr;
-
-}
-
-.timeline-line{
-
-left:25px;
-
-}
-
-.timeline-item{
-
-width:100%;
-
-padding-left:70px;
-
-padding-right:0;
-
-}
-
-.timeline-item.right,
-.timeline-item.left{
-
-left:0;
-
-}
-
-.timeline-item.left .timeline-content::before,
-.timeline-item.right .timeline-content::before{
-
-left:-54px;
-
-}
-
-}
-
-</style>
-
-<script>
-
-/* ==========================================
-   COUNTER ANIMATION
-========================================== */
-
-const counters =
-document.querySelectorAll(".counter");
-
-const startCounters = () => {
-
-counters.forEach(counter=>{
-
-const target =
-+counter.getAttribute("data-target");
-
-const updateCounter=()=>{
-
-const current=
-+counter.innerText;
-
-const increment=
-target/80;
-
-if(current<target){
-
-counter.innerText=
-Math.ceil(current+increment);
-
-setTimeout(updateCounter,20);
-
-}else{
-
-counter.innerText=target;
-
-}
-
-};
-
-updateCounter();
-
-});
-
-};
-
-startCounters();
-
-/* ==========================================
-   SCROLL REVEAL
-========================================== */
-
-const reveals =
-document.querySelectorAll(".reveal");
-
-function revealElements(){
-
-reveals.forEach(item=>{
-
-const top =
-item.getBoundingClientRect().top;
-
-const windowHeight =
-window.innerHeight;
-
-if(top < windowHeight - 100){
-
-item.classList.add("active");
-
-}
-
-});
-
-}
-
-window.addEventListener(
-"scroll",
-revealElements
-);
-
-revealElements();
-
-</script>
-
-<!--
-====================================================
-BAGIAN 3
-REFLEKSI AKHIR PPL TERBIMBING PREMIUM
-TAB INTERAKTIF + ICON + CARD ANIMATION
-====================================================
--->
-
-<!-- ==================================================
-     REFLEKSI AKHIR PPL TERBIMBING
-================================================== -->
 
 <section id="refleksi">
 
-    <h2 class="section-title">
-        Refleksi Akhir PPL Terbimbing
-    </h2>
-
-    <p class="section-subtitle">
-        Perjalanan belajar, tantangan, serta proses pengembangan diri
-        selama Praktik Pengalaman Lapangan (PPL) Terbimbing.
-    </p>
-
-    <!-- TAB NAVIGATION -->
-
-    <div class="reflection-tabs">
-
-        <button class="reflection-btn active-tab"
-                onclick="openReflection(event,'belajar')">
-
-            📚 Apa yang Telah Saya Pelajari
-
-        </button>
-
-        <button class="reflection-btn"
-                onclick="openReflection(event,'tantangan')">
-
-            🚀 Pengalaman yang Menantang
-
-        </button>
-
-        <button class="reflection-btn"
-                onclick="openReflection(event,'umpanbalik')">
-
-            💬 Umpan Balik dan Saran
-
-        </button>
-
-    </div>
-
-    <!-- TAB 1 -->
-
-    <div id="belajar"
-         class="reflection-content active-content">
-
-        <div class="reflection-grid">
-
-            <div class="glass-card reflection-card reveal">
-
-                <div class="reflection-icon">
-                    🎓
-                </div>
-
-                <h3>
-                    Pengalaman Selama Mengikuti PPG
-                </h3>
-
-                <p>
-                    [ISI_REFLEKSI]
-                </p>
-
-            </div>
-
-            <div class="glass-card reflection-card reveal">
-
-                <div class="reflection-icon">
-                    👀
-                </div>
-
-                <h3>
-                    Observasi Kelas
-                </h3>
-
-                <p>
-                    Melalui observasi kelas, saya memahami karakteristik
-                    peserta didik, strategi pembelajaran, dan manajemen kelas
-                    yang efektif.
-                </p>
-
-            </div>
-
-            <div class="glass-card reflection-card reveal">
-
-                <div class="reflection-icon">
-                    👨‍🏫
-                </div>
-
-                <h3>
-                    Asistensi Mengajar
-                </h3>
-
-                <p>
-                    Saya belajar berkolaborasi dengan guru pamong,
-                    menyusun perangkat pembelajaran,
-                    serta melaksanakan proses belajar mengajar.
-                </p>
-
-            </div>
-
-            <div class="glass-card reflection-card reveal">
-
-                <div class="reflection-icon">
-                    📖
-                </div>
-
-                <h3>
-                    Praktik Pembelajaran Terbimbing
-                </h3>
-
-                <p>
-                    Kegiatan ini melatih kemampuan pedagogik,
-                    profesional, dan refleksi diri secara berkelanjutan.
-                </p>
-
-            </div>
-
-        </div>
-
-        <!-- KOMPETENSI -->
-
-        <div class="competency-wrapper reveal">
-
-            <h3>
-                Perkembangan Kompetensi Guru
-            </h3>
-
-            <div class="skill-item">
-
-                <span>Pedagogik</span>
-
-                <div class="skill-bar">
-
-                    <div class="skill-fill"
-                         style="width:92%">
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="skill-item">
-
-                <span>Profesional</span>
-
-                <div class="skill-bar">
-
-                    <div class="skill-fill"
-                         style="width:88%">
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="skill-item">
-
-                <span>Sosial</span>
-
-                <div class="skill-bar">
-
-                    <div class="skill-fill"
-                         style="width:90%">
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="skill-item">
-
-                <span>Kepribadian</span>
-
-                <div class="skill-bar">
-
-                    <div class="skill-fill"
-                         style="width:95%">
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- TAB 2 -->
-
-    <div id="tantangan"
-         class="reflection-content">
-
-        <div class="challenge-grid">
-
-            <div class="glass-card challenge-card reveal">
-
-                <h3>
-                    ⚡ Tantangan Utama
-                </h3>
-
-                <p>
-                    Mengelola kelas dengan karakter peserta didik yang beragam
-                    serta menjaga keterlibatan aktif selama pembelajaran.
-                </p>
-
-            </div>
-
-            <div class="glass-card challenge-card reveal">
-
-                <h3>
-                    🔍 Permasalahan Pembelajaran
-                </h3>
-
-                <p>
-                    Perbedaan gaya belajar,
-                    tingkat pemahaman,
-                    dan motivasi belajar peserta didik.
-                </p>
-
-            </div>
-
-            <div class="glass-card challenge-card reveal">
-
-                <h3>
-                    🛠 Cara Mengatasi
-                </h3>
-
-                <p>
-                    Menggunakan pembelajaran berdiferensiasi,
-                    media interaktif,
-                    serta pendekatan personal kepada peserta didik.
-                </p>
-
-            </div>
-
-            <div class="glass-card challenge-card reveal">
-
-                <h3>
-                    🌱 Pelajaran Berharga
-                </h3>
-
-                <p>
-                    Setiap tantangan merupakan kesempatan
-                    untuk berkembang menjadi guru yang lebih reflektif
-                    dan adaptif.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- TAB 3 -->
-
-    <div id="umpanbalik"
-         class="reflection-content">
-
-        <div class="feedback-grid">
-
-            <div class="glass-card feedback-card reveal">
-
-                <h3>
-                    👨‍🏫 Guru Pamong
-                </h3>
-
-                <p>
-                    Tingkatkan variasi strategi pembelajaran,
-                    pengelolaan kelas,
-                    serta penguatan asesmen formatif.
-                </p>
-
-            </div>
-
-            <div class="glass-card feedback-card reveal">
-
-                <h3>
-                    🎓 Dosen Pembimbing
-                </h3>
-
-                <p>
-                    Terus mengembangkan kemampuan refleksi,
-                    inovasi media,
-                    dan pembelajaran berbasis kebutuhan murid.
-                </p>
-
-            </div>
-
-            <div class="glass-card feedback-card reveal">
-
-                <h3>
-                    🪞 Refleksi Diri
-                </h3>
-
-                <p>
-                    Saya perlu meningkatkan kemampuan
-                    diferensiasi pembelajaran,
-                    penggunaan teknologi,
-                    serta evaluasi pembelajaran.
-                </p>
-
-            </div>
-
-            <div class="glass-card feedback-card reveal">
-
-                <h3>
-                    🎯 Target Ke Depan
-                </h3>
-
-                <p>
-                    Menjadi guru profesional yang kreatif,
-                    inovatif,
-                    reflektif,
-                    dan mampu memberikan pengalaman belajar terbaik.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+<h2 class="title">Refleksi PPL</h2>
+
+<div class="tabs">
+<button class="tab active" onclick="openTab('a',this)">Pembelajaran</button>
+<button class="tab" onclick="openTab('b',this)">Umpan Balik</button>
+</div>
+
+<div id="a" class="tab-content active card">
+[ISI_REFLEKSI]
+</div>
+
+<div id="b" class="tab-content card">
+Rencana pengembangan diri dan tindak lanjut pembelajaran.
+</div>
 
 </section>
 
-<style>
+<section id="filosofi">
 
-/* ==================================================
-   REFLEKSI
-================================================== */
+<h2 class="title">Filosofi Mengajar</h2>
 
-.section-subtitle{
+<div class="card reveal">
+<p>[ISI_FILOSOFI]</p>
 
-text-align:center;
-
-max-width:850px;
-
-margin:auto;
-margin-bottom:50px;
-
-opacity:.9;
-
-line-height:1.8;
-
-}
-
-/* TABS */
-
-.reflection-tabs{
-
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-
-margin-bottom:40px;
-
-}
-
-.reflection-btn{
-
-padding:15px 25px;
-
-border:none;
-
-cursor:pointer;
-
-border-radius:50px;
-
-background:rgba(255,255,255,.12);
-
-color:white;
-
-font-weight:600;
-
-transition:.4s;
-
-}
-
-.reflection-btn:hover{
-
-transform:translateY(-4px);
-
-}
-
-.active-tab{
-
-background:#ffd166;
-color:#222;
-
-}
-
-/* CONTENT */
-
-.reflection-content{
-
-display:none;
-
-animation:fadeReflection .6s ease;
-
-}
-
-.active-content{
-
-display:block;
-
-}
-
-@keyframes fadeReflection{
-
-from{
-opacity:0;
-transform:translateY(20px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* GRID */
-
-.reflection-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
-
-}
-
-.reflection-card{
-
-text-align:center;
-
-}
-
-.reflection-icon{
-
-font-size:3rem;
-
-margin-bottom:15px;
-
-}
-
-.reflection-card h3{
-
-margin-bottom:15px;
-
-color:#ffd166;
-
-}
-
-/* COMPETENCY */
-
-.competency-wrapper{
-
-margin-top:60px;
-
-padding:30px;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.08);
-
-}
-
-.competency-wrapper h3{
-
-margin-bottom:25px;
-
-text-align:center;
-
-}
-
-.skill-item{
-
-margin-bottom:25px;
-
-}
-
-.skill-item span{
-
-display:block;
-
-margin-bottom:8px;
-
-}
-
-.skill-bar{
-
-height:18px;
-
-background:rgba(255,255,255,.15);
-
-border-radius:50px;
-
-overflow:hidden;
-
-}
-
-.skill-fill{
-
-height:100%;
-
-border-radius:50px;
-
-background:
-linear-gradient(
-90deg,
-#ffd166,
-#ff8c42
-);
-
-animation:growSkill 2s ease;
-
-}
-
-@keyframes growSkill{
-
-from{
-width:0;
-}
-
-}
-
-/* CHALLENGE */
-
-.challenge-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-
-gap:25px;
-
-}
-
-.challenge-card h3{
-
-margin-bottom:15px;
-
-color:#ffd166;
-
-}
-
-/* FEEDBACK */
-
-.feedback-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-
-gap:25px;
-
-}
-
-.feedback-card h3{
-
-margin-bottom:15px;
-
-color:#ffd166;
-
-}
-
-</style>
-
-<script>
-
-/* ======================================
-   REFLECTION TABS
-====================================== */
-
-function openReflection(evt,id){
-
-let contents =
-document.querySelectorAll(
-'.reflection-content'
-);
-
-contents.forEach(content=>{
-
-content.classList.remove(
-'active-content'
-);
-
-});
-
-let buttons =
-document.querySelectorAll(
-'.reflection-btn'
-);
-
-buttons.forEach(btn=>{
-
-btn.classList.remove(
-'active-tab'
-);
-
-});
-
-document.getElementById(id)
-.classList.add(
-'active-content'
-);
-
-evt.currentTarget.classList.add(
-'active-tab'
-);
-
-}
-
-</script>
-
-<!--
-====================================================
-BAGIAN 4
-FILOSOFI MENGAJAR PREMIUM
-JOURNAL STYLE + QUOTE SECTION + PARALLAX
-====================================================
--->
-  
-<!-- ==================================================
-     FILOSOFI MENGAJAR
-================================================== -->
-
-<section id="filosofi" class="philosophy-section">
-
-    <div class="journal-header reveal">
-
-        <span class="journal-tag">
-            ✨ Refleksi Filosofis
-        </span>
-
-        <h2 class="section-title">
-            Filosofi Mengajar Saya
-        </h2>
-
-        <p class="journal-subtitle">
-            Sebuah refleksi mengenai keyakinan, nilai, dan prinsip yang
-            menjadi fondasi dalam perjalanan saya sebagai calon guru profesional.
-        </p>
-
-    </div>
-
-    <!-- JOURNAL PAPER -->
-
-    <div class="journal-paper reveal">
-
-        <div class="journal-date">
-            E-Portfolio Reflektif PPG
-        </div>
-
-        <h3>
-            Menuntun Tumbuhnya Potensi Peserta Didik
-        </h3>
-
-        <p>
-            [ISI_FILOSOFI]
-        </p>
-
-        <p>
-            Saya meyakini bahwa setiap peserta didik merupakan individu unik
-            yang memiliki potensi, minat, bakat, dan kebutuhan belajar yang
-            berbeda. Oleh karena itu, tugas seorang guru bukan sekadar
-            mentransfer pengetahuan, melainkan menjadi fasilitator yang
-            membantu peserta didik menemukan dan mengembangkan potensi terbaik
-            dalam dirinya.
-        </p>
-
-        <p>
-            Dalam proses pembelajaran, saya percaya bahwa peserta didik harus
-            menjadi pusat dari seluruh aktivitas belajar. Guru berperan sebagai
-            pendamping yang menciptakan lingkungan belajar yang aman,
-            menyenangkan, inklusif, dan menantang sehingga peserta didik dapat
-            berkembang secara optimal baik dalam aspek akademik maupun karakter.
-        </p>
-
-        <p>
-            Saya juga meyakini bahwa pendidikan bukan hanya tentang hasil,
-            melainkan proses pembentukan manusia seutuhnya. Oleh karena itu,
-            pembelajaran harus mampu menumbuhkan rasa ingin tahu, kreativitas,
-            kemampuan berpikir kritis, kolaborasi, komunikasi, serta nilai-nilai
-            kemanusiaan yang menjadi bekal peserta didik dalam kehidupan.
-        </p>
-
-    </div>
-
-    <!-- QUOTE PARALLAX -->
-
-    <div class="quote-parallax reveal">
-
-        <div class="quote-overlay">
-
-            <div class="quote-mark">
-                “
-            </div>
-
-            <blockquote>
-
-                Pendidikan adalah proses menuntun segala kekuatan kodrat
-                yang ada pada anak agar mereka mencapai keselamatan dan
-                kebahagiaan yang setinggi-tingginya.
-
-            </blockquote>
-
-            <cite>
-                — Ki Hajar Dewantara
-            </cite>
-
-        </div>
-
-    </div>
-
-    <!-- FILOSOFI CARDS -->
-
-    <div class="philosophy-grid">
-
-        <!-- KHD -->
-
-        <div class="glass-card philosophy-card reveal">
-
-            <div class="philosophy-icon">
-                🌱
-            </div>
-
-            <h3>
-                Ki Hajar Dewantara
-            </h3>
-
-            <p>
-                Filosofi pendidikan yang menempatkan guru sebagai penuntun
-                perkembangan kodrat peserta didik menjadi landasan utama
-                dalam membangun pembelajaran yang berpihak kepada murid.
-            </p>
-
-        </div>
-
-        <!-- KONSTRUKTIVISME -->
-
-        <div class="glass-card philosophy-card reveal">
-
-            <div class="philosophy-icon">
-                🧠
-            </div>
-
-            <h3>
-                Konstruktivisme
-            </h3>
-
-            <p>
-                Pengetahuan dibangun oleh peserta didik melalui pengalaman,
-                eksplorasi, diskusi, dan refleksi sehingga pembelajaran
-                menjadi lebih bermakna.
-            </p>
-
-        </div>
-
-        <!-- DIFERENSIASI -->
-
-        <div class="glass-card philosophy-card reveal">
-
-            <div class="philosophy-icon">
-                🎯
-            </div>
-
-            <h3>
-                Pembelajaran Berdiferensiasi
-            </h3>
-
-            <p>
-                Setiap peserta didik memiliki kebutuhan belajar yang berbeda.
-                Guru perlu menyesuaikan strategi, proses, dan produk belajar
-                sesuai karakteristik peserta didik.
-            </p>
-
-        </div>
-
-        <!-- PSE -->
-
-        <div class="glass-card philosophy-card reveal">
-
-            <div class="philosophy-icon">
-                ❤️
-            </div>
-
-            <h3>
-                Sosial Emosional
-            </h3>
-
-            <p>
-                Pendidikan yang baik membantu peserta didik memahami diri,
-                mengelola emosi, membangun hubungan positif, dan mengambil
-                keputusan yang bertanggung jawab.
-            </p>
-
-        </div>
-
-        <!-- MERDEKA BELAJAR -->
-
-        <div class="glass-card philosophy-card reveal">
-
-            <div class="philosophy-icon">
-                🚀
-            </div>
-
-            <h3>
-                Merdeka Belajar
-            </h3>
-
-            <p>
-                Memberikan ruang kepada peserta didik untuk belajar secara
-                aktif, kreatif, dan mandiri sesuai potensinya agar mampu
-                berkembang secara optimal.
-            </p>
-
-        </div>
-
-        <!-- GURU MASA DEPAN -->
-
-        <div class="glass-card philosophy-card reveal">
-
-            <div class="philosophy-icon">
-                👨‍🏫
-            </div>
-
-            <h3>
-                Guru Masa Depan
-            </h3>
-
-            <p>
-                Guru profesional harus terus belajar, beradaptasi terhadap
-                perkembangan zaman, serta menjadi teladan dalam karakter,
-                integritas, dan pembelajaran sepanjang hayat.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<style>
-
-/* ==================================================
-   FILOSOFI
-================================================== */
-
-.philosophy-section{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.journal-header{
-
-text-align:center;
-
-max-width:900px;
-
-margin:auto;
-
-margin-bottom:60px;
-
-}
-
-.journal-tag{
-
-display:inline-block;
-
-padding:10px 18px;
-
-background:rgba(255,209,102,.2);
-
-border-radius:50px;
-
-margin-bottom:20px;
-
-font-size:.9rem;
-
-}
-
-.journal-subtitle{
-
-line-height:1.8;
-
-opacity:.9;
-
-}
-
-/* JOURNAL PAPER */
-
-.journal-paper{
-
-max-width:1000px;
-
-margin:auto;
-
-padding:60px;
-
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,.95),
-rgba(255,248,235,.95)
-);
-
-color:#222;
-
-border-radius:25px;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.15);
-
-position:relative;
-
-margin-bottom:80px;
-
-}
-
-.journal-paper::before{
-
-content:"";
-
-position:absolute;
-
-left:40px;
-top:0;
-
-width:3px;
-height:100%;
-
-background:#ffd166;
-
-}
-
-.journal-date{
-
-font-size:.9rem;
-
-color:#777;
-
-margin-bottom:15px;
-
-}
-
-.journal-paper h3{
-
-margin-bottom:25px;
-
-font-size:2rem;
-
-font-family:'Playfair Display',serif;
-
-}
-
-.journal-paper p{
-
-line-height:2;
-
-margin-bottom:20px;
-
-}
-
-/* QUOTE SECTION */
-
-.quote-parallax{
-
-margin:100px auto;
-
-max-width:1200px;
-
-border-radius:30px;
-
-overflow:hidden;
-
-position:relative;
-
-background:
-linear-gradient(
-135deg,
-rgba(255,140,66,.9),
-rgba(106,76,147,.9)
-);
-
-min-height:350px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.2);
-
-}
-
-.quote-overlay{
-
-padding:60px;
-
-text-align:center;
-
-max-width:900px;
-
-}
-
-.quote-mark{
-
-font-size:6rem;
-
-opacity:.3;
-
-line-height:1;
-
-}
-
-.quote-overlay blockquote{
-
-font-size:1.8rem;
-
-font-family:'Playfair Display',serif;
-
-line-height:1.7;
-
-margin-bottom:20px;
-
-}
-
-.quote-overlay cite{
-
-font-size:1rem;
-
-opacity:.9;
-
-}
-
-/* PHILOSOPHY GRID */
-
-.philosophy-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-
-gap:25px;
-
-margin-top:80px;
-
-}
-
-.philosophy-card{
-
-text-align:center;
-
-transition:.5s;
-
-}
-
-.philosophy-card:hover{
-
-transform:
-translateY(-10px)
-scale(1.02);
-
-}
-
-.philosophy-icon{
-
-font-size:3rem;
-
-margin-bottom:20px;
-
-}
-
-.philosophy-card h3{
-
-margin-bottom:15px;
-
-color:#ffd166;
-
-}
-
-.philosophy-card p{
-
-line-height:1.8;
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.journal-paper{
-
-padding:35px;
-
-}
-
-.journal-paper h3{
-
-font-size:1.5rem;
-
-}
-
-.quote-overlay blockquote{
-
-font-size:1.3rem;
-
-}
-
-}
-
-</style>
-
-<!--
-====================================================
-BAGIAN 5
-GALERI PERJALANAN PPL PREMIUM
-LIGHTBOX + TIMELINE DOKUMENTASI + HOVER EFFECT
-====================================================
--->
-  
-<!-- ==================================================
-     GALERI PERJALANAN PPL
-================================================== -->
-
-<section id="galeri" class="gallery-section">
-
-    <div class="gallery-header reveal">
-
-        <span class="gallery-tag">
-            📸 Dokumentasi Perjalanan
-        </span>
-
-        <h2 class="section-title">
-            Galeri Perjalanan PPL
-        </h2>
-
-        <p class="gallery-subtitle">
-            Momen-momen berharga selama pelaksanaan Praktik Pengalaman
-            Lapangan yang menjadi bagian penting dalam proses menjadi
-            guru profesional.
-        </p>
-
-    </div>
-
-    <!-- GALLERY GRID -->
-
-    <div class="gallery-grid">
-
-        <div class="gallery-item reveal"
-             onclick="openLightbox(this)">
-
-            <img src="[DOKUMENTASI_PPL]" alt="Dokumentasi PPL">
-
-            <div class="gallery-overlay">
-
-                <h4>Observasi Kelas</h4>
-                <p>Pengamatan proses pembelajaran</p>
-
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal"
-             onclick="openLightbox(this)">
-
-            <img src="[DOKUMENTASI_PPL]" alt="Dokumentasi PPL">
-
-            <div class="gallery-overlay">
-
-                <h4>Asistensi Mengajar</h4>
-                <p>Kolaborasi dengan guru pamong</p>
-
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal"
-             onclick="openLightbox(this)">
-
-            <img src="[DOKUMENTASI_PPL]" alt="Dokumentasi PPL">
-
-            <div class="gallery-overlay">
-
-                <h4>Praktik Mengajar</h4>
-                <p>Pelaksanaan pembelajaran</p>
-
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal"
-             onclick="openLightbox(this)">
-
-            <img src="[DOKUMENTASI_PPL]" alt="Dokumentasi PPL">
-
-            <div class="gallery-overlay">
-
-                <h4>Diskusi Reflektif</h4>
-                <p>Evaluasi dan pengembangan diri</p>
-
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal"
-             onclick="openLightbox(this)">
-
-            <img src="[DOKUMENTASI_PPL]" alt="Dokumentasi PPL">
-
-            <div class="gallery-overlay">
-
-                <h4>Pengembangan Media</h4>
-                <p>Inovasi pembelajaran</p>
-
-            </div>
-
-        </div>
-
-        <div class="gallery-item reveal"
-             onclick="openLightbox(this)">
-
-            <img src="[DOKUMENTASI_PPL]" alt="Dokumentasi PPL">
-
-            <div class="gallery-overlay">
-
-                <h4>Penilaian Peserta Didik</h4>
-                <p>Asesmen pembelajaran</p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- TIMELINE DOKUMENTASI -->
-
-    <div class="activity-timeline">
-
-        <h3 class="timeline-title">
-            Timeline Kegiatan PPL
-        </h3>
-
-        <div class="activity-line"></div>
-
-        <div class="activity-card left reveal">
-
-            <div class="glass-card">
-
-                <span class="activity-date">
-                    Minggu 1
-                </span>
-
-                <h4>
-                    Observasi Lingkungan Sekolah
-                </h4>
-
-                <p>
-                    Mengenal budaya sekolah,
-                    karakteristik peserta didik,
-                    dan sistem pembelajaran.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="activity-card right reveal">
-
-            <div class="glass-card">
-
-                <span class="activity-date">
-                    Minggu 2
-                </span>
-
-                <h4>
-                    Observasi Kelas
-                </h4>
-
-                <p>
-                    Mengamati strategi mengajar,
-                    interaksi pembelajaran,
-                    dan pengelolaan kelas.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="activity-card left reveal">
-
-            <div class="glass-card">
-
-                <span class="activity-date">
-                    Minggu 3
-                </span>
-
-                <h4>
-                    Asistensi Mengajar
-                </h4>
-
-                <p>
-                    Membantu guru pamong dalam proses pembelajaran.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="activity-card right reveal">
-
-            <div class="glass-card">
-
-                <span class="activity-date">
-                    Minggu 4-6
-                </span>
-
-                <h4>
-                    Praktik Pembelajaran
-                </h4>
-
-                <p>
-                    Melaksanakan pembelajaran terbimbing
-                    dan melakukan refleksi berkelanjutan.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="activity-card left reveal">
-
-            <div class="glass-card">
-
-                <span class="activity-date">
-                    Akhir PPL
-                </span>
-
-                <h4>
-                    Refleksi dan Evaluasi
-                </h4>
-
-                <p>
-                    Menyusun refleksi,
-                    menerima umpan balik,
-                    dan menyusun rencana pengembangan diri.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- LIGHTBOX -->
-
-<div class="lightbox" id="lightbox">
-
-    <span class="close-lightbox"
-          onclick="closeLightbox()">
-
-        &times;
-
-    </span>
-
-    <img id="lightboxImage">
-
-    <div id="lightboxCaption"></div>
+<div class="quote">
+“Pendidikan adalah menuntun tumbuhnya potensi anak.”
+— Ki Hajar Dewantara
+</div>
 
 </div>
 
-<style>
+</section>
 
-/* ==================================================
-   GALLERY
-================================================== */
+<section id="nilai">
 
-.gallery-section{
+<h2 class="title">Nilai Guru</h2>
 
-position:relative;
+<div class="values">
 
-}
+<div class="value">
+<div class="circle" style="--p:92%;">92%</div>
+<h4>Integritas</h4>
+</div>
 
-.gallery-header{
+<div class="value">
+<div class="circle" style="--p:90%;">90%</div>
+<h4>Empati</h4>
+</div>
 
-text-align:center;
+<div class="value">
+<div class="circle" style="--p:94%;">94%</div>
+<h4>Kreativitas</h4>
+</div>
 
-max-width:900px;
+<div class="value">
+<div class="circle" style="--p:93%;">93%</div>
+<h4>Kolaborasi</h4>
+</div>
 
-margin:auto;
-
-margin-bottom:60px;
-
-}
-
-.gallery-tag{
-
-display:inline-block;
-
-padding:10px 18px;
-
-border-radius:50px;
-
-background:rgba(255,209,102,.2);
-
-margin-bottom:20px;
-
-}
-
-.gallery-subtitle{
-
-line-height:1.8;
-
-opacity:.9;
-
-}
-
-/* GALLERY GRID */
-
-.gallery-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:25px;
-
-margin-bottom:100px;
-
-}
-
-.gallery-item{
-
-position:relative;
-
-overflow:hidden;
-
-border-radius:25px;
-
-cursor:pointer;
-
-min-height:320px;
-
-box-shadow:
-0 15px 35px rgba(0,0,0,.2);
-
-}
-
-.gallery-item img{
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-transition:.6s;
-
-}
-
-.gallery-item:hover img{
-
-transform:scale(1.1);
-
-}
-
-.gallery-overlay{
-
-position:absolute;
-
-bottom:0;
-left:0;
-right:0;
-
-padding:25px;
-
-background:
-linear-gradient(
-180deg,
-transparent,
-rgba(0,0,0,.85)
-);
-
-transform:translateY(40px);
-
-transition:.5s;
-
-}
-
-.gallery-item:hover .gallery-overlay{
-
-transform:translateY(0);
-
-}
-
-.gallery-overlay h4{
-
-margin-bottom:10px;
-
-color:#ffd166;
-
-}
-
-/* ==================================================
-   LIGHTBOX
-================================================== */
-
-.lightbox{
-
-display:none;
-
-position:fixed;
-
-z-index:999999;
-
-inset:0;
-
-background:
-rgba(0,0,0,.95);
-
-justify-content:center;
-align-items:center;
-flex-direction:column;
-
-padding:30px;
-
-}
-
-.lightbox img{
-
-max-width:90%;
-max-height:80vh;
-
-border-radius:20px;
-
-}
-
-#lightboxCaption{
-
-margin-top:20px;
-
-font-size:1rem;
-
-text-align:center;
-
-}
-
-.close-lightbox{
-
-position:absolute;
-
-top:25px;
-right:40px;
-
-font-size:45px;
-
-cursor:pointer;
-
-}
-
-/* ==================================================
-   TIMELINE DOKUMENTASI
-================================================== */
-
-.timeline-title{
-
-text-align:center;
-
-margin-bottom:60px;
-
-font-size:2rem;
-
-}
-
-.activity-timeline{
-
-position:relative;
-
-max-width:1200px;
-
-margin:auto;
-
-padding-top:50px;
-
-}
-
-.activity-line{
-
-position:absolute;
-
-left:50%;
-
-top:0;
-
-width:4px;
-
-height:100%;
-
-background:#ffd166;
-
-transform:translateX(-50%);
-
-}
-
-.activity-card{
-
-position:relative;
-
-width:50%;
-
-padding:20px 40px;
-
-}
-
-.activity-card.left{
-
-left:0;
-
-}
-
-.activity-card.right{
-
-left:50%;
-
-}
-
-.activity-card::before{
-
-content:"";
-
-position:absolute;
-
-top:45px;
-
-width:20px;
-height:20px;
-
-border-radius:50%;
-
-background:#ffd166;
-
-z-index:10;
-
-}
-
-.activity-card.left::before{
-
-right:-10px;
-
-}
-
-.activity-card.right::before{
-
-left:-10px;
-
-}
-
-.activity-date{
-
-display:inline-block;
-
-padding:8px 15px;
-
-border-radius:30px;
-
-background:#ffd166;
-
-color:#222;
-
-font-weight:600;
-
-margin-bottom:15px;
-
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.activity-line{
-
-left:25px;
-
-}
-
-.activity-card{
-
-width:100%;
-
-left:0 !important;
-
-padding-left:70px;
-
-padding-right:0;
-
-}
-
-.activity-card::before{
-
-left:15px !important;
-
-}
-
-}
-
-</style>
-
-<script>
-
-/* ======================================
-   LIGHTBOX
-====================================== */
-
-function openLightbox(element){
-
-const image =
-element.querySelector("img");
-
-const title =
-element.querySelector("h4");
-
-document.getElementById(
-"lightbox"
-).style.display="flex";
-
-document.getElementById(
-"lightboxImage"
-).src=image.src;
-
-document.getElementById(
-"lightboxCaption"
-).innerText=title.innerText;
-
-}
-
-function closeLightbox(){
-
-document.getElementById(
-"lightbox"
-).style.display="none";
-
-}
-
-/* ESC CLOSE */
-
-document.addEventListener(
-"keydown",
-function(e){
-
-if(e.key==="Escape"){
-
-closeLightbox();
-
-}
-
-});
-
-</script>
-
-<!--
-====================================================
-BAGIAN 6
-NILAI DAN KARAKTER GURU MASA DEPAN
-INFOGRAFIS INTERAKTIF PREMIUM
-====================================================
--->
-
-<!-- ==================================================
-     NILAI & KARAKTER GURU MASA DEPAN
-================================================== -->
-
-<section id="nilai" class="values-section">
-
-    <div class="values-header reveal">
-
-        <span class="values-tag">
-            🌟 Kompetensi & Karakter
-        </span>
-
-        <h2 class="section-title">
-            Nilai Guru Masa Depan
-        </h2>
-
-        <p class="values-subtitle">
-            Fondasi karakter yang menjadi pedoman dalam perjalanan
-            menjadi guru profesional abad 21.
-        </p>
-
-    </div>
-
-    <!-- INFROGRAPHIC GRID -->
-
-    <div class="values-grid">
-
-        <div class="value-card reveal">
-
-            <div class="circle-progress" data-value="95">
-
-                <span>95%</span>
-
-            </div>
-
-            <h3>Integritas</h3>
-
-            <p>
-                Menjunjung tinggi kejujuran, etika, dan tanggung jawab
-                dalam setiap tindakan profesional.
-            </p>
-
-        </div>
-
-        <div class="value-card reveal">
-
-            <div class="circle-progress" data-value="93">
-
-                <span>93%</span>
-
-            </div>
-
-            <h3>Empati</h3>
-
-            <p>
-                Mampu memahami kebutuhan emosional dan akademik peserta didik
-                secara mendalam.
-            </p>
-
-        </div>
-
-        <div class="value-card reveal">
-
-            <div class="circle-progress" data-value="90">
-
-                <span>90%</span>
-
-            </div>
-
-            <h3>Kreativitas</h3>
-
-            <p>
-                Mengembangkan ide pembelajaran inovatif dan menarik
-                untuk meningkatkan motivasi belajar.
-            </p>
-
-        </div>
-
-        <div class="value-card reveal">
-
-            <div class="circle-progress" data-value="92">
-
-                <span>92%</span>
-
-            </div>
-
-            <h3>Kolaborasi</h3>
-
-            <p>
-                Bekerja sama dengan guru, peserta didik, dan komunitas
-                pendidikan secara efektif.
-            </p>
-
-        </div>
-
-        <div class="value-card reveal">
-
-            <div class="circle-progress" data-value="94">
-
-                <span>94%</span>
-
-            </div>
-
-            <h3>Inovasi</h3>
-
-            <p>
-                Menghadirkan pembelajaran berbasis teknologi dan
-                pendekatan baru yang relevan.
-            </p>
-
-        </div>
-
-        <div class="value-card reveal">
-
-            <div class="circle-progress" data-value="96">
-
-                <span>96%</span>
-
-            </div>
-
-            <h3>Tanggung Jawab</h3>
-
-            <p>
-                Menjalankan tugas profesional dengan penuh komitmen
-                dan konsistensi.
-            </p>
-
-        </div>
-
-        <div class="value-card reveal">
-
-            <div class="circle-progress" data-value="98">
-
-                <span>98%</span>
-
-            </div>
-
-            <h3>Lifelong Learning</h3>
-
-            <p>
-                Terus belajar sepanjang hayat untuk meningkatkan kompetensi
-                sebagai pendidik profesional.
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-<style>
-
-/* ==================================================
-   VALUES SECTION
-================================================== */
-
-.values-section{
-
-position:relative;
-
-}
-
-.values-header{
-
-text-align:center;
-
-max-width:900px;
-
-margin:auto;
-
-margin-bottom:60px;
-
-}
-
-.values-tag{
-
-display:inline-block;
-
-padding:10px 18px;
-
-border-radius:50px;
-
-background:rgba(255,209,102,.2);
-
-margin-bottom:20px;
-
-}
-
-.values-subtitle{
-
-line-height:1.8;
-
-opacity:.9;
-
-}
-
-/* GRID */
-
-.values-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-}
-
-/* CARD */
-
-.value-card{
-
-text-align:center;
-
-padding:30px;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(15px);
-
-transition:.4s;
-
-}
-
-.value-card:hover{
-
-transform:translateY(-10px);
-
-}
-
-/* CIRCLE PROGRESS */
-
-.circle-progress{
-
-width:110px;
-
-height:110px;
-
-border-radius:50%;
-
-margin:auto;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-weight:700;
-
-font-size:1.2rem;
-
-color:#ffd166;
-
-background:
-conic-gradient(
-#ffd166 calc(var(--p) * 1%),
-rgba(255,255,255,.1) 0
-);
-
-position:relative;
-
-margin-bottom:20px;
-
-}
-
-.circle-progress span{
-
-position:absolute;
-
-font-size:1.2rem;
-
-}
-
-/* TITLE */
-
-.value-card h3{
-
-margin-bottom:10px;
-
-color:#ffd166;
-
-}
-
-/* ANIMATION HELPERS */
-
-@keyframes fillCircle{
-
-from{
---p:0;
-}
-
-to{
---p:100;
-}
-
-}
-
-</style>
-
-<script>
-
-/* ==================================================
-   CIRCLE PROGRESS ANIMATION
-================================================== */
-
-const circles =
-document.querySelectorAll(".circle-progress");
-
-function animateCircles(){
-
-circles.forEach(circle=>{
-
-const value =
-circle.getAttribute("data-value");
-
-circle.style.setProperty("--p",value);
-
-});
-
-}
-
-animateCircles();
-
-</script>
-
-<!--
-====================================================
-BAGIAN 7
-HARAPAN & KOMITMEN PENUTUP
-FINAL SECTION + CTA + FOOTER PREMIUM
-====================================================
--->
-
-<!-- ==================================================
-     HARAPAN & KOMITMEN
-================================================== -->
-
-<section id="komitmen" class="closing-section">
-
-    <div class="closing-container reveal">
-
-        <span class="closing-tag">
-            🌅 Penutup Perjalanan
-        </span>
-
-        <h2 class="section-title">
-            Harapan & Komitmen
-        </h2>
-
-        <p class="closing-text">
-
-            Menjadi guru profesional bukan hanya sebuah tujuan,
-            tetapi sebuah perjalanan panjang yang penuh pembelajaran,
-            refleksi, dan pengabdian.
-
-            Saya berharap dapat terus berkembang menjadi pendidik
-            yang mampu menghadirkan pembelajaran bermakna,
-            menyenangkan, dan berpihak kepada peserta didik.
-
-        </p>
-
-        <p class="closing-text">
-
-            Saya berkomitmen untuk terus meningkatkan kompetensi
-            pedagogik, profesional, sosial, dan kepribadian
-            melalui refleksi berkelanjutan, kolaborasi,
-            serta pembelajaran sepanjang hayat.
-
-        </p>
-
-        <div class="closing-quote">
-
-            <blockquote>
-
-                “Pendidikan bukan sekadar mengisi pikiran,
-                tetapi menyalakan api dalam jiwa.”
-
-            </blockquote>
-
-        </div>
-
-        <div class="cta-buttons">
-
-            <a href="#profil" class="btn btn-primary">
-                🔍 Lihat Kembali Profil
-            </a>
-
-            <a href="#galeri" class="btn btn-secondary">
-                📸 Lihat Dokumentasi
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
-
-<footer class="footer">
-
-    <div class="footer-container">
-
-        <h3>[NAMA_MAHASISWA]</h3>
-
-        <p>[PROGRAM_STUDI] • E-Portfolio PPG</p>
-
-        <p>Tahun Penyusunan: 2026</p>
-
-        <p class="footer-social">
-
-            <a href="#">Instagram</a> |
-            <a href="#">YouTube</a> |
-            <a href="#">LinkedIn</a>
-
-        </p>
-
-        <p class="footer-thanks">
-            Terima kasih telah mengunjungi E-Portfolio ini 🌿
-        </p>
-
-    </div>
-
+<footer>
+<h3>[NAMA_MAHASISWA]</h3>
+<p>[PROGRAM_STUDI] • PPG 2026</p>
+<p>Terima kasih 🌸</p>
 </footer>
 
-<!-- ==================================================
-     BACK TO TOP BUTTON
-================================================== -->
-
-<button id="backToTop">↑</button>
-
-<!-- ==================================================
-     AUDIO OMBak CONTROL
-================================================== -->
-
-<div class="audio-control">
-
-    <button id="audioBtn">
-        🔊
-    </button>
-
-</div>
-
-<audio id="oceanSound" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_efdd7bcefe.mp3">
-</audio>
-
-<!-- ==================================================
-     FINAL STYLES
-================================================== -->
-
-<style>
-
-/* ==========================
-   CLOSING SECTION
-========================== */
-
-.closing-section{
-
-padding:120px 8%;
-
-text-align:center;
-
-}
-
-.closing-container{
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-.closing-tag{
-
-display:inline-block;
-
-padding:10px 18px;
-
-border-radius:50px;
-
-background:rgba(255,209,102,.2);
-
-margin-bottom:20px;
-
-}
-
-.closing-text{
-
-line-height:2;
-
-margin-bottom:20px;
-
-opacity:.95;
-
-}
-
-.closing-quote{
-
-margin:40px 0;
-
-font-size:1.5rem;
-
-font-family:'Playfair Display',serif;
-
-color:#ffd166;
-
-}
-
-/* CTA */
-
-.cta-buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-margin-top:30px;
-
-}
-
-/* FOOTER */
-
-.footer{
-
-padding:60px 20px;
-
-text-align:center;
-
-background:rgba(0,0,0,.3);
-
-}
-
-.footer-container h3{
-
-margin-bottom:10px;
-
-}
-
-.footer-social a{
-
-color:#ffd166;
-
-text-decoration:none;
-
-}
-
-.footer-thanks{
-
-margin-top:15px;
-
-opacity:.8;
-
-}
-
-/* BACK TO TOP */
-
-#backToTop{
-
-position:fixed;
-
-bottom:30px;
-
-right:30px;
-
-width:50px;
-
-height:50px;
-
-border:none;
-
-border-radius:50%;
-
-background:#ffd166;
-
-cursor:pointer;
-
-display:none;
-
-font-size:18px;
-
-}
-
-/* AUDIO */
-
-.audio-control{
-
-position:fixed;
-
-bottom:30px;
-
-left:30px;
-
-}
-
-#audioBtn{
-
-width:50px;
-
-height:50px;
-
-border-radius:50%;
-
-border:none;
-
-background:#ffd166;
-
-cursor:pointer;
-
-font-size:18px;
-
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-.closing-text{
-
-font-size:.95rem;
-
-}
-
-}
-
-</style>
-
-<!-- ==================================================
-     FINAL JAVASCRIPT
-================================================== -->
-
 <script>
 
-/* ==========================
-   BACK TO TOP
-========================== */
+/* typing */
+const text="[MOTTO_HIDUP]";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text[i++];
+setTimeout(type,80);
+}
+}
+type();
 
-const backToTop =
-document.getElementById("backToTop");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY > 600){
-backToTop.style.display="block";
-}else{
-backToTop.style.display="none";
+/* tabs */
+function openTab(id,btn){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+btn.classList.add('active');
+document.getElementById(id).classList.add('active');
 }
 
-});
-
-backToTop.addEventListener("click",()=>{
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-});
-
-/* ==========================
-   AUDIO CONTROL
-========================== */
-
-const audio =
-document.getElementById("oceanSound");
-
-const audioBtn =
-document.getElementById("audioBtn");
-
-let isPlaying = false;
-
-audioBtn.addEventListener("click",()=>{
-
-if(isPlaying){
-audio.pause();
-audioBtn.textContent="🔊";
-}else{
-audio.play();
-audioBtn.textContent="🔇";
+/* reveal */
+window.addEventListener('scroll',()=>{
+document.querySelectorAll('.reveal').forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-80){
+el.classList.add('active');
 }
-
-isPlaying = !isPlaying;
-
+});
 });
 
-/* ==========================
-   SOFT PARALLAX FINISH
-========================== */
-
-window.addEventListener("scroll",()=>{
-
-document.querySelectorAll(".reveal")
-.forEach(el=>{
-
-let pos =
-el.getBoundingClientRect().top;
-
-if(pos < window.innerHeight - 100){
-
-el.classList.add("active");
-
+/* petals */
+for(let i=0;i<18;i++){
+let p=document.createElement('div');
+p.className='petal';
+p.style.left=Math.random()*100+'vw';
+p.style.animationDuration=6+Math.random()*6+'s';
+document.body.appendChild(p);
 }
-
-});
-
-});
 
 </script>
 
