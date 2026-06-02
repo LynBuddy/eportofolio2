@@ -6,22 +6,21 @@
 
 <title>E-Portfolio PPG | [NAMA_MAHASISWA]</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   SOFT LILAC THEME
-========================= */
+/* ==================================================
+   PROFESSIONAL LILAC DESIGN SYSTEM
+================================================== */
 
 :root{
---bg1:#f7f3ff;
---bg2:#e9ddff;
---card:rgba(255,255,255,.55);
---text:#2b2233;
---primary:#a855f7;
---accent:#c084fc;
---soft:#f3e8ff;
+--bg:#f8f5ff;
+--card:rgba(255,255,255,.6);
+--primary:#8b5cf6;
+--accent:#c4b5fd;
+--text:#1f1b2e;
+--soft:#ede9fe;
 }
 
 *{
@@ -33,130 +32,147 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Poppins',sans-serif;
-background:linear-gradient(180deg,var(--bg1),var(--bg2));
+background:var(--bg);
 color:var(--text);
 overflow-x:hidden;
+line-height:1.6;
 }
 
-/* =========================
-   FLOATING SOFT PETALS
-========================= */
+/* ==================================================
+   SUBTLE FLOATING LILAC PARTICLES
+================================================== */
 
 .petal{
 position:fixed;
 top:-10vh;
-width:8px;
-height:8px;
-background:rgba(168,85,247,.35);
+width:6px;
+height:6px;
+background:rgba(139,92,246,.25);
 border-radius:50%;
-filter:blur(.3px);
-animation:floatDown linear infinite;
+animation:fall linear infinite;
+z-index:0;
 }
 
-@keyframes floatDown{
+@keyframes fall{
 to{
-transform:translateY(120vh) translateX(40px) rotate(180deg);
+transform:translateY(120vh) translateX(30px);
 }
 }
 
-/* =========================
-   NAVBAR (SOFT GLASS)
-========================= */
+/* ==================================================
+   PROFESSIONAL NAVIGATION BAR
+================================================== */
 
 nav{
 position:fixed;
-top:15px;
-left:50%;
-transform:translateX(-50%);
-width:92%;
-max-width:1100px;
+top:0;
+left:0;
+width:100%;
+padding:15px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:12px 18px;
-background:rgba(255,255,255,.45);
-backdrop-filter:blur(14px);
-border-radius:50px;
-border:1px solid rgba(168,85,247,.15);
+background:rgba(255,255,255,.7);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(139,92,246,.1);
 z-index:999;
 }
 
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:600;
+color:var(--primary);
+}
+
+.brand img{
+width:35px;
+height:35px;
+border-radius:50%;
+object-fit:cover;
+}
+
 nav a{
-margin:0 10px;
+margin:0 12px;
 text-decoration:none;
 color:var(--text);
 font-weight:500;
-opacity:.85;
+opacity:.75;
 transition:.3s;
 }
 
 nav a:hover{
+color:var(--primary);
 opacity:1;
-color:var(--primary);
 }
 
-.logo{
-font-weight:700;
+/* ACTIVE INDICATOR */
+nav a.active{
 color:var(--primary);
+font-weight:600;
 }
 
-/* =========================
-   HERO
-========================= */
+/* ==================================================
+   HERO (PROFESSIONAL LANDING STYLE)
+================================================== */
 
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:20px;
+padding:120px 20px 60px;
 position:relative;
+background:
+radial-gradient(circle at top,#ede9fe,transparent 60%),
+radial-gradient(circle at bottom,#c4b5fd33,transparent 60%);
 }
 
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at top,#ffffffaa,transparent 60%),
-radial-gradient(circle at bottom,#c084fc33,transparent 60%);
-z-index:-1;
+.hero-card{
+max-width:800px;
+animation:fadeUp 1s ease forwards;
+opacity:0;
+transform:translateY(20px);
+}
+
+@keyframes fadeUp{
+to{opacity:1;transform:translateY(0);}
 }
 
 .profile{
-width:160px;
-height:160px;
+width:170px;
+height:170px;
 border-radius:50%;
 object-fit:cover;
-border:4px solid white;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.4s;
-}
-
-.profile:hover{
-transform:scale(1.03);
+border:5px solid white;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
 
 h1{
-font-size:2.6rem;
+font-size:2.8rem;
 font-family:'Playfair Display';
-margin-top:12px;
+margin-top:15px;
+}
+
+.subtitle{
+color:var(--primary);
+margin-top:8px;
+font-weight:500;
 }
 
 .typing{
 margin-top:10px;
-height:25px;
-color:var(--primary);
+min-height:25px;
 }
 
-/* BUTTON */
-
+/* CTA */
 .btn{
 display:inline-block;
-margin-top:18px;
-padding:11px 22px;
-border-radius:25px;
+margin-top:20px;
+padding:12px 25px;
+border-radius:30px;
 background:var(--primary);
 color:white;
 text-decoration:none;
@@ -165,69 +181,63 @@ transition:.3s;
 
 .btn:hover{
 transform:translateY(-3px);
-box-shadow:0 10px 20px rgba(168,85,247,.25);
+box-shadow:0 10px 20px rgba(139,92,246,.2);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ==================================================
+   SECTION SYSTEM (PROFESSIONAL CHAPTER STYLE)
+================================================== */
 
 section{
-padding:90px 10%;
+padding:90px 8%;
 }
 
-.title{
+.section-title{
 text-align:center;
 font-size:2rem;
-margin-bottom:40px;
 font-family:'Playfair Display';
+margin-bottom:40px;
 }
 
-/* =========================
-   CARDS (SOFT LIFT)
-========================= */
-
+/* CARD SYSTEM */
 .card{
 background:var(--card);
-backdrop-filter:blur(10px);
-padding:22px;
+backdrop-filter:blur(12px);
+padding:25px;
 border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,.05);
-transition:.35s;
+border:1px solid rgba(139,92,246,.1);
+transition:.3s;
 }
 
 .card:hover{
 transform:translateY(-6px);
 }
 
-/* =========================
-   PROFILE
-========================= */
-
-.profile-grid{
+/* GRID */
+.grid-2{
 display:grid;
 grid-template-columns:1fr 2fr;
 gap:25px;
 }
 
 @media(max-width:768px){
-.profile-grid{grid-template-columns:1fr;}
+.grid-2{grid-template-columns:1fr;}
 }
 
-/* =========================
-   TABS (SMOOTH)
-========================= */
+/* ==================================================
+   TABS (REFLECTION PANEL)
+================================================== */
 
 .tabs{
 display:flex;
 justify-content:center;
 gap:10px;
+margin-bottom:20px;
 flex-wrap:wrap;
-margin-bottom:25px;
 }
 
 .tab{
-padding:9px 16px;
+padding:10px 18px;
 border:none;
 border-radius:20px;
 cursor:pointer;
@@ -254,38 +264,26 @@ from{opacity:0;transform:translateY(10px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* =========================
-   QUOTE
-========================= */
-
-.quote{
-margin-top:20px;
-padding:18px;
-border-left:4px solid var(--primary);
-background:rgba(255,255,255,.5);
-font-style:italic;
-}
-
-/* =========================
-   VALUES
-========================= */
+/* ==================================================
+   VALUES GRID (PROFESSIONAL DASHBOARD STYLE)
+================================================== */
 
 .values{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:18px;
+gap:20px;
 }
 
 .value{
-padding:18px;
+background:rgba(255,255,255,.55);
+padding:20px;
+border-radius:16px;
 text-align:center;
-border-radius:15px;
-background:rgba(255,255,255,.5);
 transition:.3s;
 }
 
 .value:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
 .circle{
@@ -299,13 +297,13 @@ justify-content:center;
 background:conic-gradient(var(--primary) var(--p),#eee 0);
 }
 
-/* =========================
-   REVEAL
-========================= */
+/* ==================================================
+   REVEAL ANIMATION (PROFESSIONAL SOFT MOTION)
+================================================== */
 
 .reveal{
 opacity:0;
-transform:translateY(25px);
+transform:translateY(30px);
 transition:1s ease;
 }
 
@@ -314,11 +312,20 @@ opacity:1;
 transform:translateY(0);
 }
 
+/* ==================================================
+   FOOTER (INSTITUTION STYLE)
+================================================== */
+
 footer{
 text-align:center;
 padding:60px 20px;
-background:rgba(255,255,255,.4);
+background:white;
+border-top:1px solid #eee;
 margin-top:80px;
+}
+
+footer h3{
+color:var(--primary);
 }
 
 </style>
@@ -326,147 +333,182 @@ margin-top:80px;
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-<div class="logo">PPG Portfolio</div>
+
+<div class="brand">
+<img src="[LOGO_UNIVERSITAS]">
+PPG Portfolio
+</div>
+
 <div>
 <a href="#profil">Profil</a>
 <a href="#refleksi">Refleksi</a>
 <a href="#filosofi">Filosofi</a>
 <a href="#nilai">Nilai</a>
 </div>
+
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 
-<div>
+<div class="hero-card">
+
 <img src="[FOTO_PROFIL]" class="profile">
+
 <h1>[NAMA_MAHASISWA]</h1>
-<p>[PROGRAM_STUDI]</p>
+
+<div class="subtitle">[PROGRAM_STUDI]</div>
+
 <div class="typing" id="typing"></div>
-<a class="btn" href="#profil">Mulai Jelajah</a>
+
+<a class="btn" href="#profil">Masuk ke Portofolio</a>
+
 </div>
 
 </section>
 
+<!-- PROFIL -->
 <section id="profil">
-<h2 class="title">Profil</h2>
 
-<div class="profile-grid">
+<h2 class="section-title">Profil Mahasiswa PPG</h2>
 
-<div class="card reveal">
-<img src="[FOTO_PROFIL]" style="width:100%;border-radius:12px;">
+<div class="card grid-2 reveal">
+
+<img src="[FOTO_PROFIL]" style="width:100%;border-radius:15px;">
+
+<div>
+[ISI PROFIL]
 </div>
 
-<div class="card reveal">
-<p>[ISI PROFIL]</p>
 </div>
 
-</div>
 </section>
 
+<!-- REFLEKSI -->
 <section id="refleksi">
 
-<h2 class="title">Refleksi PPL</h2>
+<h2 class="section-title">Refleksi Pembelajaran</h2>
+
+<div class="card reveal">
 
 <div class="tabs">
+
 <button class="tab active" onclick="openTab('a',this)">Pembelajaran</button>
 <button class="tab" onclick="openTab('b',this)">Umpan Balik</button>
+
 </div>
 
-<div id="a" class="tab-content active card">
+<div id="a" class="tab-content active">
 [ISI_REFLEKSI]
 </div>
 
-<div id="b" class="tab-content card">
-Rencana pengembangan diri dan tindak lanjut pembelajaran.
+<div id="b" class="tab-content">
+Rencana tindak lanjut & pengembangan profesional.
+</div>
+
 </div>
 
 </section>
 
+<!-- FILOSOFI -->
 <section id="filosofi">
 
-<h2 class="title">Filosofi Mengajar</h2>
+<h2 class="section-title">Filosofi Mengajar</h2>
 
 <div class="card reveal">
+
 <p>[ISI_FILOSOFI]</p>
 
-<div class="quote">
-“Pendidikan adalah menuntun tumbuhnya potensi anak.”
+<br>
+
+<blockquote style="border-left:4px solid var(--primary);padding-left:15px;font-style:italic;">
+“Pendidikan adalah menuntun tumbuhnya potensi manusia.”
 — Ki Hajar Dewantara
-</div>
+</blockquote>
 
 </div>
 
 </section>
 
+<!-- NILAI -->
 <section id="nilai">
 
-<h2 class="title">Nilai Guru</h2>
+<h2 class="section-title">Nilai Guru Profesional</h2>
 
-<div class="values">
+<div class="values reveal">
 
-<div class="value">
-<div class="circle" style="--p:92%;">92%</div>
-<h4>Integritas</h4>
-</div>
-
-<div class="value">
-<div class="circle" style="--p:90%;">90%</div>
-<h4>Empati</h4>
-</div>
-
-<div class="value">
-<div class="circle" style="--p:94%;">94%</div>
-<h4>Kreativitas</h4>
-</div>
-
-<div class="value">
-<div class="circle" style="--p:93%;">93%</div>
-<h4>Kolaborasi</h4>
-</div>
+<div class="value"><div class="circle" style="--p:92%;">92%</div><p>Integritas</p></div>
+<div class="value"><div class="circle" style="--p:90%;">90%</div><p>Empati</p></div>
+<div class="value"><div class="circle" style="--p:94%;">94%</div><p>Kreativitas</p></div>
+<div class="value"><div class="circle" style="--p:93%;">93%</div><p>Kolaborasi</p></div>
 
 </div>
 
 </section>
 
+<!-- FOOTER -->
 <footer>
+
 <h3>[NAMA_MAHASISWA]</h3>
 <p>[PROGRAM_STUDI] • PPG 2026</p>
-<p>Terima kasih 🌸</p>
+<p>Terima kasih telah mengunjungi E-Portfolio ini 🌸</p>
+
 </footer>
 
 <script>
 
-/* typing */
+/* =========================
+   TYPING EFFECT
+========================= */
+
 const text="[MOTTO_HIDUP]";
 let i=0;
+
 function type(){
 if(i<text.length){
 document.getElementById("typing").innerHTML+=text[i++];
-setTimeout(type,80);
+setTimeout(type,70);
 }
 }
 type();
 
-/* tabs */
+/* =========================
+   TABS
+========================= */
+
 function openTab(id,btn){
+
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+
 btn.classList.add('active');
 document.getElementById(id).classList.add('active');
+
 }
 
-/* reveal */
+/* =========================
+   SCROLL REVEAL
+========================= */
+
 window.addEventListener('scroll',()=>{
+
 document.querySelectorAll('.reveal').forEach(el=>{
+
 if(el.getBoundingClientRect().top < window.innerHeight-80){
 el.classList.add('active');
 }
-});
+
 });
 
-/* petals */
-for(let i=0;i<18;i++){
+});
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+for(let i=0;i<20;i++){
 let p=document.createElement('div');
 p.className='petal';
 p.style.left=Math.random()*100+'vw';
