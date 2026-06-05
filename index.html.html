@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Portfolio 2 | Refleksi Akhir PPL Terbimbing PPG Calon Guru</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & THEME SETUP --- */
+        :root {
+            --soft-lilac: #DCD0FF;
+            --medium-lilac: #B57EDC;
+            --rich-lilac: #9966CC;
+            --bg-cream: #FDFBF7;
+            --text-dark: #2C2536;
+            --text-muted: #5A5266;
+            --paper-shadow: 0 8px 24px rgba(153, 102, 204, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            --tape-color: rgba(220, 208, 255, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F6F3FA;
+            background-image: radial-gradient(var(--soft-lilac) 0.75px, #F6F3FA 0.75px);
+            background-size: 24px 24px;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, .philosophy-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- STICKY NAVIGATION --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(253, 251, 247, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px dashed var(--soft-lilac);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--rich-lilac);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--rich-lilac);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--medium-lilac);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* --- CONTAINER & LAYOUT --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            padding: 2rem 0 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '✿';
+            display: block;
+            font-size: 1.2rem;
+            color: var(--medium-lilac);
+            margin-top: 0.5rem;
+        }
+
+        /* --- SCRAPBOOK CARD COMPONENT --- */
+        .scrapbook-card {
+            background-color: var(--bg-cream);
+            border: 1px solid rgba(181, 126, 220, 0.2);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--paper-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Washi Tape Effect */
+        .scrapbook-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 40%;
+            width: 120px;
+            height: 30px;
+            background-color: var(--tape-color);
+            transform: rotate(-2deg);
+            border-left: 2px dashed rgba(0,0,0,0.05);
+            border-right: 2px dashed rgba(0,0,0,0.05);
+        }
+
+        /* --- HOMEPAGE / PROFIL --- */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-frame {
+            position: relative;
+            justify-self: center;
+        }
+
+        .profile-img {
+            width: 260px;
+            height: 340px;
+            object-fit: cover;
+            border: 12px solid #FFF;
+            border-bottom: 40px solid #FFF;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transform: rotate(-3deg);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-frame:hover .profile-img {
+            transform: rotate(0deg);
+        }
+
+        .profile-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-dark);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--rich-lilac);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            background-color: #FFF;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--soft-lilac);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--rich-lilac);
+            color: #FFF;
+            transform: translateY(-2px);
+        }
+
+        /* --- ARTIFAK INTERAKTIF (TABS) --- */
+        .tabs-container {
+            margin-top: 2rem;
+        }
+
+        .tab-menu {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.8rem;
+            background-color: #FFF;
+            border: 1px solid var(--soft-lilac);
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--rich-lilac);
+            color: #FFF;
+            border-color: var(--rich-lilac);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .artifact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed var(--medium-lilac);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .artifact-meta {
+            font-size: 0.85rem;
+            background-color: var(--soft-lilac);
+            color: var(--text-dark);
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .matrix-box {
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 4px solid var(--medium-lilac);
+            padding: 1.2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .matrix-box h4 {
+            color: var(--rich-lilac);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .theory-box {
+            grid-column: span 2;
+            background: #FFF;
+            border: 1px dashed var(--medium-lilac);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .theory-box h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #E6E1EB;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            border: 2px dashed var(--medium-lilac);
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        /* --- REFLEKSI AKHIR --- */
+        .reflection-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .reflection-item {
+            background: #FFF;
+            border: 1px solid rgba(181, 126, 220, 0.15);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+        }
+
+        .reflection-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--rich-lilac);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .rtl-box {
+            background-color: #F5F0FA;
+            border-top: 2px solid var(--medium-lilac);
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
+            border-radius: 0 0 6px 6px;
+            font-size: 0.95rem;
+        }
+
+        /* --- FILOSOFI MENGAJAR (NEWSPAPER STYLE) --- */
+        .philosophy-layout {
+            column-count: 2;
+            column-gap: 2.5rem;
+            column-rule: 1px dashed var(--soft-lilac);
+            text-align: justify;
+        }
+
+        .philosophy-layout p {
+            margin-bottom: 1.5rem;
+            text-indent: 2rem;
+        }
+
+        .philosophy-layout p::first-letter {
+            float: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            padding-right: 8px;
+            padding-top: 4px;
+            color: var(--rich-lilac);
+            font-weight: bold;
+        }
+
+        .philosophy-layout p:not(:first-child)::first-letter {
+            float: none;
+            font-size: inherit;
+            line-height: inherit;
+            padding: 0;
+            color: inherit;
+            font-weight: normal;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-cream);
+            border-top: 2px dashed var(--soft-lilac);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- ANIMATIONS & RESPONSIVENESS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .matrix-grid {
+                grid-template-columns: 1fr;
+            }
+            .theory-box {
+                grid-column: span 1;
+            }
+            .philosophy-layout {
+                column-count: 1;
+                column-rule: none;
+            }
+            .scrapbook-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">E-Portfolio II</a>
+            <ul class="nav-links">
+                <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+                <li><a href="#artifak" class="nav-link">Artifak Pembelajaran</a></li>
+                <li><a href="#refleksi" class="nav-link">Refleksi Kritis</a></li>
+                <li><a href="#filosofi" class="nav-link">Filosofi Mengajar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section id="beranda">
+            <div class="scrapbook-card hero-grid">
+                <div class="profile-frame">
+                    <img src="https://via.placeholder.com/260x340/E6E1EB/9966CC?text=Foto+Profil+Guru" alt="Foto Profil Guru" class="profile-img">
+                </div>
+                <div class="profile-info">
+                    <h1>Nama Lengkap Guru, S.Pd.</h1>
+                    <div class="subtitle">Mahasiswa PPG Calon Guru - Gelombang X</div>
+                    
+                    <p class="intro-text">
+                        Selamat datang di E-Portfolio Refleksi Akhir Praktik Pengalaman Lapangan (PPL) Terbimbing. 
+                        Website interaktif ini dirancang sebagai ruang pemaknaan holistik terhadap transformasi diri saya 
+                        sebagai pendidik profesional sepanjang tahapan PPL. Melalui instrumen ini, seluruh artifak pembelajaran, 
+                        analisis kritis berbasis teori pedagogi, serta komparasi empiris disajikan secara terstruktur guna memenuhi 
+                        rubrik penilaian akhir substansi pemahaman pengajaran.
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="mailto:emailanda@institusi.ac.id" class="btn-contact"><i class="fa-solid fa-envelope"></i> Email</a>
+                        <a href="https://linkedin.com/in/username" target="_blank" class="btn-contact"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/username" target="_blank" class="btn-contact"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="artifak">
+            <h2 class="section-title">Artifak & Analisis Pembelajaran</h2>
+            
+            <div class="tabs-container">
+                <ul class="tab-menu">
+                    <li><button class="tab-btn active" onclick="openTab(event, 'artifak1')">Artifak 1: Modul Ajar / RPP</button></li>
+                    <li><button class="tab-btn" onclick="openTab(event, 'artifak2')">Artifak 2: Media & Hasil Kerja</button></li>
+                    <li><button class="tab-btn" onclick="openTab(event, 'artifak3')">Artifak 3: Penilaian & Video</button></li>
+                </ul>
+
+                <div id="artifak1" class="scrapbook-card tab-content active">
+                    <div class="artifact-header">
+                        <h3>Analisis Modul Ajar / RPP Berbasis Lingkungan Belajar</h3>
+                        <span class="artifact-meta">Artifak Utama</span>
+                    </div>
+                    <p><em>Deskripsi Dokumen:</em> Modul Ajar ini disusun mengintegrasikan diferensiasi konten dan proses berdasarkan pemetaan kesiapan belajar peserta didik pada materi esensial di kelas mitra PPL.</p>
+                    
+                    <div class="matrix-grid">
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-circle-info"></i> Konteks & Tujuan</h4>
+                            <p>Diterapkan pada kelas heterogen dengan variasi gaya belajar dominan visual-spasial. Bertujuan memfasilitasi pencapaian Alur Tujuan Pembelajaran (ATP) secara mandiri melalui pemecahan masalah kontekstual.</p>
+                        </div>
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-star"></i> Kelebihan</h4>
+                            <p>Sintaks model pembelajaran <em>Problem-Based Learning</em> (PBL) tertuang kronologis, memicu retensi berpikir kritis tinggi (HOTS), serta memuat asesmen diagnostik non-kognitif awal yang komprehensif.</p>
+                        </div>
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-triangle-exclamation"></i> Kekurangan</h4>
+                            <p>Alokasi waktu manajemen kelompok pada fase pembimbingan penyelidikan individu sering kali melewati batas estimasi akibat dinamika diskusi yang dominan berpusat pada siswa aktif.</p>
+                        </div>
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-chart-line"></i> Tindak Lanjut</h4>
+                            <p>Merancang struktur pembagian peran internal kelompok (seperti juru bicara, pencatat, penata waktu) secara eksplisit dalam LKPD untuk efisiensi durasi performa.</p>
+                        </div>
+                        <div class="theory-box">
+                            <h4><i class="fa-solid fa-book-open"></i> Analisis Teori Integrasi Mata Kuliah</h4>
+                            <p>Penyusunan modul ini mentransformasikan konsep mata kuliah <strong>Pemahaman tentang Peserta Didik dan Pembelajarannya (PPDP)</strong>. Penerapan diferensiasi proses berakar kuat pada kerangka kerja <em>Zone of Proximal Development</em> (ZPD) oleh Vygotsky, di mana perancangan <em>scaffolding</em> disesuaikan dengan kapasitas awal kognitif yang telah diidentifikasi pada asesmen diagnostik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="artifak2" class="scrapbook-card tab-content">
+                    <div class="artifact-header">
+                        <h3>Eksplorasi Media Interaktif & Hasil Kerja Siswa</h3>
+                        <span class="artifact-meta">Artifak 2</span>
+                    </div>
+                    <p><em>Deskripsi Dokumen:</em> Dokumentasi pemanfaatan media pembelajaran berbasis teknologi digital (PPT Interaktif & Quizizz) beserta sampel representatif lembar kerja pasca-intervensi tindakan.</p>
+
+                    <div class="matrix-grid">
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Analisis Media</h4>
+                            <p>Penggunaan media manipulatif digital terbukti meningkatkan atensi siswa sebesar 85% berdasarkan lembar observasi motivasi internal. Media bertindak sebagai jembatan dari konsep abstrak menuju semi-konkrit.</p>
+                        </div>
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-square-poll-vertical"></i> Analisis Hasil Kerja Siswa</h4>
+                            <p>Sampel kategori tinggi menunjukkan kemampuan metakognisi analitis mendalam, sedangkan sampel kategori rendah memperlihatkan peningkatan pemahaman konseptual dasar meskipun struktur penulisan argumentasi masih terbatas.</p>
+                        </div>
+                        <div class="theory-box">
+                            <h4><i class="fa-solid fa-graduation-cap"></i> Landasan Teori Pendukung</h4>
+                            <p>Efektivitas media ini bersandar pada <strong>Dual-Coding Theory (Allan Paivio)</strong> yang menegaskan bahwa pemrosesan informasi manusia menjadi jauh lebih optimal bila stimulasi verbal (teks/narasi) dikombinasikan secara sinkron dengan stimulasi visual (grafis/animasi interaktif), mereduksi beban kognitif berlebih (*cognitive overload*).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="artifak3" class="scrapbook-card tab-content">
+                    <div class="artifact-header">
+                        <h3>Lembar Validasi & Rekaman Praktik Mengajar</h3>
+                        <span class="artifact-meta">Artifak 3</span>
+                    </div>
+                    
+                    <div class="matrix-grid">
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-user-check"></i> Umpan Balik Guru Pamong (GP)</h4>
+                            <p>"Manajemen pengelolaan kelas instruksional sangat baik, pendekatan personal pada siswa yang pasif terlihat masif dilakukan. Namun, penguatan (*reinforcement*) verbal positif perlu divariasikan kembali."</p>
+                        </div>
+                        <div class="matrix-box">
+                            <h4><i class="fa-solid fa-user-tie"></i> Catatan Dosen Pembimbing (DPL)</h4>
+                            <p>"Artikulasi sintaks model sudah sinkron dengan rencana aksi awal. Konsistensi dalam melakukan refleksi di akhir sesi pembelajaran bersama siswa patut dipertahankan."</p>
+                        </div>
+                    </div>
+
+                    <div class="video-placeholder">
+                        <i class="fa-solid fa-circle-play fa-3x" style="color: var(--rich-lilac); margin-bottom: 1rem;"></i>
+                        <p><strong>[Placeholder Link Video Praktik Mengajar]</strong></p>
+                        <p style="font-size: 0.85rem; max-width: 80%; text-align: center;">Hubungkan bagian ini dengan tautan embed video YouTube atau Google Drive dokumentasi durasi penuh mengajar Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="refleksi">
+            <h2 class="section-title">Refleksi Kritis Praktik Terbimbing</h2>
+            
+            <div class="reflection-accordion">
+                <div class="reflection-item">
+                    <h3 class="reflection-question">
+                        <span>1.</span> Apa esensi pembelajaran yang telah dipelajari sebagai peserta PPG Calon Guru sepanjang tahapan PPL Terbimbing?
+                    </h3>
+                    <p style="text-align: justify; color: var(--text-muted);">
+                        Sepanjang siklus PPL Terbimbing, saya menginternalisasi bahwa esensi mengajar bukan sekadar mentransfer pengetahuan linear (*teacher-centered*), melainkan seni mengorkestrasi lingkungan belajar yang responsif kultur dan kemampuan (*Culturally Responsive Teaching & Teaching at the Right Level*). Saya belajar menempatkan refleksi berkala sebagai kompas utama pembenahan kualitas instruksional, serta menyadari pentingnya kolaborasi kesejawatan bersama Guru Pamong dan DPL untuk mengikis bias asumsi keefektifan mengajar secara mandiri.
+                    </p>
+                </div>
+
+                <div class="reflection-item">
+                    <h3 class="reflection-question">
+                        <span>2.</span> Pengalaman menantang apa yang paling krusial dan bagaimana solusi konkret yang dieksekusi?
+                    </h3>
+                    <p style="text-align: justify; color: var(--text-muted);">
+                        Tantangan paling krusial yang ditemui adalah resistensi beberapa peserta didik terhadap model pembelajaran kolaboratif terbuka akibat telah terbiasa bertahun-tahun pasif menerima ceramah satu arah. Solusi konkret yang saya terapkan adalah mengimplementasikan teknik *Scaffolding secara bertahap*, memperkecil skala kelompok diskusi, menyusun LKPD dengan panduan langkah bertingkat (*guided inquiry*), serta menerapkan sistem apresiasi berbasis skor tim guna memicu motivasi ekstrinsik awal sebelum menumbuhkan motivasi intrinsik.
+                    </p>
+                </div>
+
+                <div class="reflection-item">
+                    <h3 class="reflection-question">
+                        <span>3.</span> Bagaimana dinamika diskusi refleksi akhir bersama GP/DPL dan bentuk Rencana Tindak Lanjut (RTL) ke depan?
+                    </h3>
+                    <p style="text-align: justify; color: var(--text-muted);">
+                        Diskusi refleksi akhir menekankan urgensi ketepatan waktu dalam menutup sesi inti serta ketajaman instrumen asesmen performa otentik. Masukan konstruktif tersebut saya konversikan menjadi draf peta pengembangan diri yang eksplisit.
+                    </p>
+                    <div class="rtl-box">
+                        <strong><i class="fa-solid fa-compass"></i> Rencana Tindak Lanjut (RTL) - Kesiapan PPL Mandiri:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Mengikuti bimtek/workshop penyusunan instrumen asesmen berbasis rubrik performa otentik berskala nasional.</li>
+                            <li>Mengembangkan bank aktivitas <em>ice breaking</em> terintegrasi muatan materi kognitif guna menyiasati penurunan fokus siswa pada jam pelajaran siang.</li>
+                            <li>Secara berkala melakukan teknik perekaman video mandiri (*micro-teaching reflection*) sebagai instrumen evaluasi diri berkelanjutan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="filosofi">
+            <h2 class="section-title">Filosofi Mengajar</h2>
+            
+            <div class="scrapbook-card">
+                <div class="philosophy-layout">
+                    <p>
+                        Filosofi pendidikan saya berakar mendalam pada asas <strong>"Ing Ngarsa Sung Tulada, Ing Madya Mangun Karsa, Tut Wuri Handayani"</strong> yang digagas oleh Ki Hadjar Dewantara. Saya memandang kodrat keadaan peserta didik mencakup kodrat alam dan kodrat zaman yang dinamis. Oleh karena itu, kehadiran pendidik di dalam ruang kelas bukan untuk memaksakan pembentukan karakter seragam layaknya mencetak bata, melainkan merawat tumbuh kembang benih keunikan fitrah individu siswa agar mampu mencapai keselamatan dan kebahagiaan setinggi-tingginya sebagai manusia dan anggota masyarakat.
+                    </p>
+                    
+                    <p>
+                        Dalam implementasi praktisnya, integrasi pemikiran konstruktivisme sosial menjadi fondasi bagaimana interaksi instruksional dibangun. Merujuk pada pandangan <strong>Lev Vygotsky</strong>, proses konstruksi pengetahuan terjadi melalui proses intersubjektif bermakna yang dimediasi oleh bahasa dan lingkungan sosial sekitar. Melalui tahapan asisten mengajar hingga praktik terbimbing, saya menempatkan diri sebagai desainer lingkungan yang menyediakan bantuan bertahap (*scaffolding*) bagi siswa di dalam batas kemampuan aktual mereka, sehingga mereka percaya diri dalam memecahkan masalah kontekstual nyata.
+                    </p>
+                    
+                    <p>
+                        Prinsip profesionalisme ini menuntut refleksi tanpa henti (*reflective practitioner*). Pengalaman empiris selama membimbing siswa menegaskan keyakinan bahwa emosi positif memegang peranan krusial sebelum transfer kognisi dapat terjadi secara permanen. Pengajaran sejati senantiasa melibatkan penyelarasan hati antara guru dan murid. Berbekal landasan filosofis ini, komitmen saya pada fase PPL Mandiri berikutnya adalah terus berinovasi mengintegrasikan teknologi digital abad ke-21 tanpa mencabut akar nilai budaya orisinil leluhur kemanusiaan para peserta didik.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nama Lengkap Anda. All Rights Reserved.</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: rgba(0,0,0,0.3);">Dibuat dengan dedikasi untuk Portofolio Digital PPG Calon Guru.</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabId) {
+            // Get all elements with class="tab-content" and hide them
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Get all elements with class="tab-btn" and remove the class "active"
+            const tabBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Simple Active State Listener for Sticky Navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
