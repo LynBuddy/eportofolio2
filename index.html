@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Portfolio 2 | Refleksi Akhir PPL Terbimbing PPG Calon Guru</title>
     
-    <!-- Google Fonts: Patrick Hand (Aesthetic Handwriting) & Playfair Display (Elegant Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:ital,wght=0,400..900;1,400..900&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -35,14 +33,13 @@
         }
 
         body {
-            /* Menerapkan jenis tulisan handwriting yang sangat mudah dibaca */
             font-family: 'Patrick Hand', cursive, sans-serif;
             background-color: #F8F5FC;
             background-image: radial-gradient(var(--soft-lilac) 1.5px, #F8F5FC 1.5px);
             background-size: 30px 30px;
             color: var(--text-dark);
             line-height: 1.5;
-            font-size: 1.35rem; /* Menyesuaikan ukuran font tulisan tangan agar nyaman dibaca */
+            font-size: 1.35rem; 
             position: relative;
             overflow-x: hidden;
         }
@@ -53,7 +50,7 @@
             color: var(--dark-lilac);
         }
 
-        /* --- ANIMASI BUNGA MELAYANG (FLOATING LILAC PETALS) --- */
+        /* --- ANIMASI BUNGA MELAYANG --- */
         .flower-bg-container {
             position: fixed;
             top: 0;
@@ -145,7 +142,7 @@
             background-color: var(--soft-lilac);
         }
 
-        /* --- DEKORASI BUNGA DI SUDUT HALAMAN --- */
+        /* --- DEKORASI BUNGA --- */
         .decor-flower {
             position: absolute;
             width: 120px;
@@ -175,10 +172,11 @@
             font-size: 2.8rem;
             margin-bottom: 2.5rem;
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
             color: var(--dark-lilac);
+            width: max-content;
         }
 
         .section-title::after {
@@ -198,19 +196,18 @@
             padding: 2.5rem;
             box-shadow: var(--paper-shadow);
             position: relative;
-            overflow: visible; /* Diperlukan agar stiker bunga bisa menonjol keluar card */
+            overflow: visible; 
         }
 
-        /* Efek Washi Tape Khas Scrapbook */
         .scrapbook-card::before {
             content: '';
             position: absolute;
             top: -15px;
-            left: 42%;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1.5deg);
             width: 140px;
             height: 35px;
             background-color: var(--tape-color);
-            transform: rotate(-1.5deg);
             border-left: 3px dashed rgba(0,0,0,0.06);
             border-right: 3px dashed rgba(0,0,0,0.06);
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
@@ -233,10 +230,12 @@
             position: relative;
             display: inline-block;
             margin-bottom: 1.5rem;
+            max-width: 100%;
         }
 
         .profile-img {
             width: 240px;
+            max-width: 100%;
             height: 300px;
             object-fit: cover;
             border: 12px solid #FFF;
@@ -251,7 +250,6 @@
             transform: rotate(2deg) scale(1.03);
         }
 
-        /* Sticker Bunga di Foto */
         .flower-sticker {
             position: absolute;
             bottom: 30px;
@@ -283,13 +281,14 @@
             gap: 0.5rem;
         }
 
-        /* SUB-MENU PROFIL (3 SUB-MENU) */
+        /* SUB-MENU PROFIL */
         .profile-tabs-nav {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1.5rem;
             border-bottom: 2px dashed var(--medium-lilac);
             padding-bottom: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .profile-tab-btn {
@@ -319,7 +318,6 @@
             display: block;
         }
 
-        /* List Styling khas Scrapbook */
         .scrapbook-list {
             list-style: none;
         }
@@ -343,7 +341,6 @@
             border: 2px dashed var(--medium-lilac);
             padding: 1.5rem;
             border-radius: 15px;
-            font-style: italic;
             position: relative;
         }
 
@@ -363,6 +360,7 @@
             gap: 1rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn-contact {
@@ -388,7 +386,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- ARTIFAK INTERAKTIF (TABS) --- */
+        /* --- ARTIFAK INTERAKTIF --- */
         .tabs-container {
             margin-top: 1rem;
         }
@@ -460,7 +458,6 @@
 
         .matrix-box {
             background: rgba(255, 255, 255, 0.7);
-            border-left: 5px solid var(--medium-lilac);
             padding: 1.2rem;
             border-radius: 0 15px 15px 0;
             border: 1px solid rgba(181, 126, 220, 0.15);
@@ -526,7 +523,6 @@
             position: relative;
         }
 
-        /* Ornamen Klip Kertas Estetik */
         .reflection-item::before {
             content: '📎';
             position: absolute;
@@ -553,7 +549,7 @@
             border-radius: 0 0 12px 12px;
         }
 
-        /* --- FILOSOFI MENGAJAR (NEWSPAPER/DIARY STYLE) --- */
+        /* --- FILOSOFI MENGAJAR --- */
         .philosophy-layout {
             column-count: 2;
             column-gap: 3rem;
@@ -564,6 +560,7 @@
         .philosophy-layout p {
             margin-bottom: 1.5rem;
             text-indent: 2rem;
+            break-inside: avoid; /* Mencegah paragraf terputus di tengah kolom */
         }
 
         .philosophy-layout p::first-letter {
@@ -586,7 +583,6 @@
             font-weight: normal;
         }
 
-        /* Sticker Bunga di sudut-sudut Diary */
         .corner-sticker {
             position: absolute;
             font-size: 2.2rem;
@@ -607,7 +603,7 @@
             position: relative;
         }
 
-        /* --- ANIMATIONS & RESPONSIVENESS --- */
+        /* --- RESPONSIVENESS --- */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
@@ -624,6 +620,8 @@
             .nav-links {
                 gap: 1rem;
                 font-size: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -643,17 +641,18 @@
                 padding: 1.5rem;
             }
             .decor-flower {
-                display: none; /* Menyederhanakan tampilan mobile agar tidak menumpuk */
+                display: none; 
+            }
+            .section-title {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- CONTAINER ANIMASI BUNGA MELAYANG (FLOATING LILAC PETALS) -->
     <div class="flower-bg-container" id="petalContainer"></div>
 
-    <!-- STICKY NAVIGATION BAR -->
     <header>
         <nav class="navbar">
             <a href="#" class="logo">✿ E-Portfolio II</a>
@@ -668,21 +667,19 @@
 
     <div class="container">
 
-        <!-- ================= SECTION A: BERANDA ================= -->
         <section id="beranda">
             <div class="scrapbook-card hero-grid">
                 
-                <!-- Ornamen Sticker Bunga Tambahan -->
                 <div class="corner-sticker cs-top-right">🌸</div>
                 
                 <div class="profile-container">
                     <div class="profile-frame">
-                        <!-- Placeholder Foto Profil Guru -->
-                        <img src="https://via.placeholder.com/240x300/E8DFFF/9052DE?text=Foto+Profil+Guru" alt="Foto Profil Guru" class="profile-img">
+                        <div style="width: 240px; max-width: 100%; height: 300px; background: var(--soft-lilac); border: 12px solid #FFF; border-bottom: 45px solid #FFF; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: rotate(-3deg); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-user-gradient fa-4x" style="color: var(--rich-lilac)"></i>
+                        </div>
                         <span class="flower-sticker">🪻</span>
                     </div>
                     
-                    <!-- Kontak -->
                     <div class="contact-links">
                         <a href="mailto:emailanda@institusi.ac.id" class="btn-contact"><i class="fa-solid fa-envelope"></i> Email</a>
                         <a href="https://linkedin.com/in/username" target="_blank" class="btn-contact"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
@@ -694,14 +691,12 @@
                     <h1>Nama Lengkap Guru, S.Pd.</h1>
                     <div class="subtitle">Mahasiswa PPG Calon Guru - Bidang Studi Matematika 🪻</div>
                     
-                    <!-- SUB-MENU PROFIL INTERAKTIF (3 SUB-MENU) -->
                     <div class="profile-tabs-nav">
                         <button class="profile-tab-btn active" onclick="openProfileTab(event, 'sub-biodata')">1. Biodata Diri</button>
                         <button class="profile-tab-btn" onclick="openProfileTab(event, 'sub-pendidikan')">2. Riwayat Pendidikan</button>
                         <button class="profile-tab-btn" onclick="openProfileTab(event, 'sub-motto')">3. Motto Mengajar</button>
                     </div>
 
-                    <!-- Sub-menu 1: Biodata Diri -->
                     <div id="sub-biodata" class="profile-tab-content active">
                         <ul class="scrapbook-list">
                             <li><strong>Nama Lengkap:</strong> Nama Lengkap Guru, S.Pd.</li>
@@ -715,7 +710,6 @@
                         </p>
                     </div>
 
-                    <!-- Sub-menu 2: Riwayat Pendidikan -->
                     <div id="sub-pendidikan" class="profile-tab-content">
                         <ul class="scrapbook-list">
                             <li><strong>Pendidikan Profesi Guru (PPG) Calon Guru (2026 - Sekarang)</strong><br><small>Universitas Negeri Pendidikan - Konsentrasi Pendidikan Matematika</small></li>
@@ -724,10 +718,9 @@
                         </ul>
                     </div>
 
-                    <!-- Sub-menu 3: Kutipan atau Motto Diri -->
                     <div id="sub-motto" class="profile-tab-content">
                         <div class="motto-box">
-                            <p style="font-size: 1.4rem; color: var(--dark-lilac); line-height: 1.4;">
+                            <p style="font-size: 1.4rem; color: var(--dark-lilac); line-height: 1.4; font-style: italic;">
                                 "Mendidik bukanlah sekadar menuangkan air ke dalam cawan kosong, melainkan upaya menyalakan api kesadaran, menuntun kekuatan kodrat kemanusiaan anak agar tumbuh merdeka seutuhnya."
                             </p>
                             <span style="display: block; text-align: right; margin-top: 0.8rem; font-weight: bold; color: var(--rich-lilac);">— Filosofi Pendidikan Menuntun</span>
@@ -738,19 +731,16 @@
             </div>
         </section>
 
-        <!-- ================= SECTION B: ARTIFAK & ANALISIS ================= -->
         <section id="artifak">
             <h2 class="section-title">Artifak & Analisis Mengajar</h2>
             
             <div class="tabs-container">
-                <!-- Tab Menu Buttons -->
                 <ul class="tab-menu">
                     <li><button class="tab-btn active" onclick="openArtifactTab(event, 'artifak1')">Artifak 1: Modul Ajar</button></li>
                     <li><button class="tab-btn" onclick="openArtifactTab(event, 'artifak2')">Artifak 2: Media & Hasil Siswa</button></li>
                     <li><button class="tab-btn" onclick="openArtifactTab(event, 'artifak3')">Artifak 3: Penilaian & Video</button></li>
                 </ul>
 
-                <!-- Tab Content 1: Modul Ajar -->
                 <div id="artifak1" class="scrapbook-card tab-content active">
                     <div class="corner-sticker cs-top-right">🪻</div>
                     <div class="artifact-header">
@@ -783,7 +773,6 @@
                     </div>
                 </div>
 
-                <!-- Tab Content 2: Media Pembelajaran -->
                 <div id="artifak2" class="scrapbook-card tab-content">
                     <div class="corner-sticker cs-top-right">🌸</div>
                     <div class="artifact-header">
@@ -808,7 +797,6 @@
                     </div>
                 </div>
 
-                <!-- Tab Content 3: Lembar Penilaian & Video -->
                 <div id="artifak3" class="scrapbook-card tab-content">
                     <div class="corner-sticker cs-top-right">🪻</div>
                     <div class="artifact-header">
@@ -836,12 +824,10 @@
             </div>
         </section>
 
-        <!-- ================= SECTION C: REFLEKSI AKHIR ================= -->
         <section id="refleksi">
             <h2 class="section-title">Refleksi Kritis Tahapan PPL Terbimbing</h2>
             
             <div class="reflection-accordion">
-                <!-- Pertanyaan 1 -->
                 <div class="reflection-item">
                     <div class="corner-sticker cs-top-right" style="font-size: 1.5rem;">🌸</div>
                     <h3 class="reflection-question">
@@ -852,7 +838,6 @@
                     </p>
                 </div>
 
-                <!-- Pertanyaan 2 -->
                 <div class="reflection-item">
                     <div class="corner-sticker cs-top-right" style="font-size: 1.5rem;">🪻</div>
                     <h3 class="reflection-question">
@@ -863,7 +848,6 @@
                     </p>
                 </div>
 
-                <!-- Pertanyaan 3 -->
                 <div class="reflection-item">
                     <div class="corner-sticker cs-top-right" style="font-size: 1.5rem;">🌸</div>
                     <h3 class="reflection-question">
@@ -884,7 +868,6 @@
             </div>
         </section>
 
-        <!-- ================= SECTION D: FILOSOFI MENGAJAR ================= -->
         <section id="filosofi">
             <h2 class="section-title">Filosofi Mengajar</h2>
             
@@ -910,88 +893,75 @@
 
     </div>
 
-    <!-- FOOTER -->
     <footer>
-        <p>🌸 &copy; 2026 Nama Lengkap Anda. Portofolio Digital PPG Calon Guru. 🌸</p>
+        <p>🌸 &copy; 2026 Nama Lengkap Guru, S.Pd. Portofolio Digital PPG Calon Guru. 🌸</p>
         <p style="font-size: 1.1rem; margin-top: 0.5rem; color: var(--text-muted);">Dihiasi dengan cinta, kertas scrapbook estetik, dan kelopak bunga lilac mekar.</p>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT -->
     <script>
-        // --- 1. JAVASCRIPT UNTUK MEMBUAT ANIMASI KELOPAK BUNGA MELAYANG ---
+        // --- 1. JAVASCRIPT ANIMASI KELOPAK BUNGA ---
         const petalContainer = document.getElementById('petalContainer');
-        const petalEmojis = ['🌸', '🪻', '✿', '❀']; // Varian emoji bunga lilac/pink
+        const petalEmojis = ['🌸', '🪻', '✿', '❀']; 
 
         function createPetal() {
+            if (!petalContainer) return;
             const petal = document.createElement('div');
             petal.className = 'floating-petal';
             
-            // Set emoji bunga acak
             const randomEmoji = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
             petal.innerHTML = randomEmoji;
-            petal.style.background = 'none'; // menghilangkan warna background default css agar murni menampilkan emoji
-            petal.style.fontSize = (Math.random() * 20 + 15) + 'px'; // ukuran acak 15px - 35px
+            petal.style.background = 'none'; 
+            petal.style.fontSize = (Math.random() * 20 + 15) + 'px'; 
             
-            // Set posisi awal acak secara horizontal
             petal.style.left = Math.random() * 100 + '%';
             
-            // Durasi jatuh acak antara 6s sampai 12s
             const duration = Math.random() * 6 + 6;
             petal.style.animationDuration = duration + 's';
             
-            // Delay acak agar tidak jatuh bersamaan
             petal.style.animationDelay = Math.random() * 3 + 's';
 
             petalContainer.appendChild(petal);
 
-            // Bersihkan elemen bunga setelah selesai animasi agar RAM tidak bocor
             setTimeout(() => {
                 petal.remove();
             }, (duration + 3) * 1000);
         }
 
-        // Jalankan generator kelopak bunga secara periodik
-        setInterval(createPetal, 300);
+        setInterval(createPetal, 400); // Sedikit memperlambat interval rilis agar lebih anggun
 
         // --- 2. SWITCH TAB UNTUK SUB-MENU PROFIL ---
         function openProfileTab(evt, subTabId) {
-            // Sembunyikan semua sub-tab content profil
             const profileContents = document.getElementsByClassName("profile-tab-content");
             for (let i = 0; i < profileContents.length; i++) {
                 profileContents[i].classList.remove("active");
             }
 
-            // Hapus kelas active dari semua tombol sub-tab profil
             const profileTabBtns = document.getElementsByClassName("profile-tab-btn");
             for (let i = 0; i < profileTabBtns.length; i++) {
                 profileTabBtns[i].classList.remove("active");
             }
 
-            // Tampilkan sub-tab content aktif dan beri tanda tombol aktif
             document.getElementById(subTabId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
 
         // --- 3. SWITCH TAB UNTUK ARTIFAK PEMBELAJARAN ---
         function openArtifactTab(evt, tabId) {
-            // Sembunyikan semua content tab artifak
             const tabContents = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabContents.length; i++) {
                 tabContents[i].classList.remove("active");
             }
 
-            // Hapus kelas active dari semua tombol tab artifak
             const tabBtns = document.getElementsByClassName("tab-btn");
             for (let i = 0; i < tabBtns.length; i++) {
                 tabBtns[i].classList.remove("active");
             }
 
-            // Tampilkan tab content aktif dan beri tanda tombol aktif
             document.getElementById(tabId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
 
-        // --- 4. SCROLL LISTENER UNTUK DETEKSI AKTIF NAVIGASI UTAMA ---
+        // --- 4. SCROLL LISTENER MODERN ---
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
@@ -999,7 +969,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
+                if (window.pageYOffset >= sectionTop - 180) {
                     current = section.getAttribute('id');
                 }
             });
