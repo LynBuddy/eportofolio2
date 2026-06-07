@@ -686,11 +686,82 @@
             .modal-container { width: 95%; height: 90%; }
         }
         /* Mengatur letak Infografis di kiri (1 bagian) dan Tombol di kanan (2 bagian) */
+/* ===== ARTIFAK ===== */
 .artifact-magazine-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 2rem;
     align-items: center;
+}
+
+.infographic-polaroid-frame {
+    background: #FFF;
+    padding: 14px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    width: 100%;
+}
+
+.infographic-polaroid-frame img{
+    width:100%;
+    display:block;
+    border-radius:10px;
+}
+
+.button-columns-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+}
+
+.button-column{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+
+.drive-popup-btn{
+    min-height:85px;
+    padding:1rem;
+    border-radius:16px;
+    font-size:1.2rem;
+    line-height:1.3;
+}
+
+.content-magazine-layout{
+    display:flex;
+    flex-direction:column;
+    gap:2rem;
+}
+
+.large-infographic-frame{
+    width:92%;
+    margin:0 auto;
+    background:#FFF;
+    padding:15px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.large-infographic-frame img{
+    width:100%;
+    display:block;
+    border-radius:12px;
+}
+
+.text-content{
+    text-align:justify;
+    line-height:1.8;
+}
+
+.text-content p{
+    margin-bottom:1.3rem;
+}
+
+@media(max-width:850px){
+    .artifact-magazine-layout{grid-template-columns:1fr;}
+    .button-columns-container{grid-template-columns:1fr;}
+    .large-infographic-frame{width:100%;}
 }
 
 /* Membuat frame kotak infografis di sisi kiri */
