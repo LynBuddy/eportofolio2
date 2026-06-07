@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Portfolio 2 | Refleksi Akhir PPL Terbimbing PPG Calon Guru</title>
     
-    <!-- Google Fonts: Patrick Hand (Aesthetic Handwriting) & Playfair Display (Elegant Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -217,7 +215,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* REVISI: UKURAN FOTO PROFIL BIAR PROPORSIONAL */
         .profile-img {
             width: 250px;
             height: 250px;
@@ -265,7 +262,6 @@
             gap: 0.5rem;
         }
 
-        /* SUB-MENU PROFIL (TANPA PENOMORAN) */
         .profile-tabs-nav {
             display: flex;
             gap: 0.5rem;
@@ -402,47 +398,156 @@
             font-weight: 600;
         }
 
-        .matrix-grid {
+        /* --- REVISI: TATA LETAK MAJALAH INFOGRAFIS & TOMBOL --- */
+        .artifact-magazine-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .matrix-box {
-            background: rgba(255, 255, 255, 0.7);
-            border-left: 5px solid var(--medium-lilac);
-            padding: 1.2rem;
-            border-radius: 0 15px 15px 0;
-            border: 1px solid rgba(181, 126, 220, 0.15);
-            border-left: 5px solid var(--rich-lilac);
-        }
-
-        .matrix-box h4 {
-            color: var(--dark-lilac);
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-            display: flex;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2.5rem;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .theory-box {
-            grid-column: span 2;
+        /* FRAME FOTO INFOGRAFIS PROPORSIONAL */
+        .infographic-polaroid-frame {
             background: #FFF;
-            border: 2px dashed var(--medium-lilac);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-top: 1rem;
+            padding: 15px 15px 20px 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+            border-radius: 6px;
+            width: 100%;
         }
 
-        .theory-box h4 {
+        .infographic-image-inner {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3; /* Memastikan foto tetap proporsional tinggi dan lebarnya */
+            background-color: var(--soft-lilac);
+            border: 2px dashed var(--medium-lilac);
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: var(--dark-lilac);
-            margin-bottom: 0.5rem;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+
+        /* CONTAINER TOMBOL DOCKING */
+        .artifact-button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            justify-content: center;
+        }
+
+        .drive-popup-btn {
+            background-color: #FFF;
+            color: var(--dark-lilac);
+            border: 2px solid var(--medium-lilac);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            font-family: 'Patrick Hand', cursive, sans-serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .drive-popup-btn:hover {
+            background-color: var(--rich-lilac);
+            color: #FFF;
+            border-color: var(--rich-lilac);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(144, 82, 222, 0.2);
+        }
+
+        /* --- STYLING MODAL WINDOW POP-UP --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(42, 31, 61, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            background-color: var(--bg-cream);
+            width: 85%;
+            height: 85%;
+            max-width: 1000px;
+            border-radius: 20px;
+            border: 3px solid var(--medium-lilac);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            background-color: var(--soft-lilac);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--medium-lilac);
+        }
+
+        .modal-title {
+            font-size: 1.6rem;
+            color: var(--dark-lilac);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1.5rem;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            color: red;
+        }
+
+        .modal-body {
+            flex: 1;
+            background-color: #FFF;
+            position: relative;
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* --- REFLEKSI AKHIR --- */
@@ -487,7 +592,16 @@
             border-radius: 0 0 12px 12px;
         }
 
-        /* --- MAGAZINE LAYOUT PATTERN (REFERENSI: image_86374c.png) --- */
+        .corner-sticker {
+            position: absolute;
+            font-size: 2.2rem;
+            opacity: 0.85;
+            pointer-events: none;
+        }
+        .cs-top-right { top: 15px; right: 15px; }
+        .cs-bottom-left { bottom: 15px; left: 15px; }
+
+        /* --- FILOSOFI MENGAJAR MAGAZINE LAYOUT --- */
         .magazine-grid-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -498,18 +612,13 @@
         .polaroid-magazine-frame {
             background: #FFF;
             padding: 12px 12px 32px 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.06), 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             border: 1px solid rgba(0,0,0,0.05);
             text-align: center;
             border-radius: 4px;
             width: 100%;
             margin-top: 1.5rem;
             transform: rotate(-1deg);
-            transition: transform 0.3s ease;
-        }
-        
-        .polaroid-magazine-frame:hover {
-            transform: rotate(0deg) scale(1.02);
         }
         
         .photo-magazine-inner {
@@ -525,15 +634,6 @@
             font-weight: bold;
             font-size: 1.5rem;
         }
-
-        .corner-sticker {
-            position: absolute;
-            font-size: 2.2rem;
-            opacity: 0.85;
-            pointer-events: none;
-        }
-        .cs-top-right { top: 15px; right: 15px; }
-        .cs-bottom-left { bottom: 15px; left: 15px; }
 
         /* --- STYLING REVISI: CUKUP 1 QUOTES --- */
         .single-quote-box {
@@ -555,17 +655,6 @@
             position: absolute;
             top: -10px;
             left: 30px;
-            color: var(--soft-lilac);
-            line-height: 1;
-        }
-
-        .single-quote-box::after {
-            content: '”';
-            font-family: 'Playfair Display', serif;
-            font-size: 6rem;
-            position: absolute;
-            bottom: -50px;
-            right: 30px;
             color: var(--soft-lilac);
             line-height: 1;
         }
@@ -592,19 +681,16 @@
             .nav-links { gap: 0.8rem; font-size: 1rem; flex-wrap: wrap; justify-content: center; }
             .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
             .profile-container { display: flex; justify-content: center; }
-            .matrix-grid { grid-template-columns: 1fr; }
-            .theory-box { grid-column: span 1; }
-            .scrapbook-card { padding: 1.5rem; }
+            .artifact-magazine-layout { grid-template-columns: 1fr; gap: 1.5rem; }
             .magazine-grid-layout { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+            .modal-container { width: 95%; height: 90%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- CONTAINER ANIMASI BUNGA MELAYANG (FLOATING LILAC PETALS) -->
     <div class="flower-bg-container" id="petalContainer"></div>
 
-    <!-- STICKY NAVIGATION BAR -->
     <header>
         <nav class="navbar">
             <a href="#" class="logo">✿ E-Portfolio II</a>
@@ -620,15 +706,12 @@
 
     <div class="container">
 
-        <!-- ================= SECTION A: BERANDA ================= -->
         <section id="beranda">
             <div class="scrapbook-card hero-grid">
-                
                 <div class="corner-sticker cs-top-right">🌸</div>
                 
                 <div class="profile-container">
                     <div class="profile-frame">
-                        <!-- FIX: UKURAN FOTO PROFIL PROPORSIONAL (KOTAK SEIMBANG) -->
                         <img src="https://via.placeholder.com/250x250/E8DFFF/9052DE?text=Foto+Profil+Guru" alt="Foto Profil Guru" class="profile-img">
                         <span class="flower-sticker">🪻</span>
                     </div>
@@ -638,294 +721,192 @@
                     <h1>Nama Lengkap Guru, S.Pd.</h1>
                     <div class="subtitle">Mahasiswa PPG Calon Guru - Bidang Studi Matematika 🪻</div>
                     
-                    <!-- REVISI: SUB-MENU PROFIL TANPA PENOMORAN -->
                     <div class="profile-tabs-nav">
                         <button class="profile-tab-btn active" onclick="openProfileTab(event, 'sub-biodata')">Biodata Diri</button>
                         <button class="profile-tab-btn" onclick="openProfileTab(event, 'sub-pendidikan')">Riwayat Pendidikan</button>
                         <button class="profile-tab-btn" onclick="openProfileTab(event, 'sub-motto')">Motto Mengajar</button>
                     </div>
 
-                    <!-- Sub-menu: Biodata Diri -->
                     <div id="sub-biodata" class="profile-tab-content active">
                         <ul class="scrapbook-list">
                             <li><strong>Nama Lengkap:</strong> Nama Lengkap Guru, S.Pd.</li>
                             <li><strong>Nomor UKG / NIM:</strong> 202699887766 / PPG20261102</li>
-                            <li><strong>LPTK Penyelenggara:</strong> Universitas Negeri Pendidikan (LPTK Unggul)</li>
+                            <li><strong>LPTK Penyelenggara:</strong> Universitas Negeri Pendidikan</li>
                             <li><strong>Sekolah PPL Terbimbing:</strong> SMA Negeri 1 Harmoni Bangsa</li>
                             <li><strong>Mata Pelajaran Diampu:</strong> Matematika / Tematik Terpadu</li>
                         </ul>
-                        <p class="intro-text" style="margin-top: 1rem; text-align: justify; color: var(--text-muted);">
-                            E-portfolio interaktif ini disusun sebagai wujud pemaknaan holistik refleksi akhir proses pembelajaran saya sepanjang mengikuti program PPL Terbimbing PPG Calon Guru.
-                        </p>
                     </div>
 
-                    <!-- Sub-menu: Riwayat Pendidikan -->
                     <div id="sub-pendidikan" class="profile-tab-content">
                         <ul class="scrapbook-list">
-                            <li><strong>Pendidikan Profesi Guru (PPG) Calon Guru (2026 - Sekarang)</strong><br><small>Universitas Negeri Pendidikan - Konsentrasi Pendidikan Matematika</small></li>
-                            <li><strong>Sarjana Pendidikan (S1) - IPK: 3.85 (2021 - 2025)</strong><br><small>Universitas Negeri Pendidikan - S1 Pendidikan Matematika (Lulusan Terbaik)</small></li>
-                            <li><strong>Pendidikan Menengah Atas (SMA) (2018 - 2021)</strong><br><small>SMA Negeri 1 Harmoni Bangsa - Peminatan MIPA</small></li>
+                            <li><strong>Pendidikan Profesi Guru (PPG) Calon Guru (2026 - Sekarang)</strong></li>
+                            <li><strong>Sarjana Pendidikan (S1) - IPK: 3.85 (2021 - 2025)</strong></li>
+                            <li><strong>Pendidikan Menengah Atas (SMA) (2018 - 2021)</strong></li>
                         </ul>
                     </div>
 
-                    <!-- Sub-menu: Kutipan atau Motto Diri -->
                     <div id="sub-motto" class="profile-tab-content">
                         <div class="motto-box">
                             <p style="font-size: 1.4rem; color: var(--dark-lilac); line-height: 1.4;">
-                                "Mendidik bukanlah sekadar menuangkan air ke dalam cawan kosong, melainkan upaya menyalakan api kesadaran, menuntun kekuatan kodrat kemainan anak agar tumbuh merdeka seutuhnya."
+                                "Mendidik bukanlah sekadar menuangkan air ke dalam cawan kosong, melainkan upaya menyalakan api kesadaran, menuntun kekuatan kodrat kemanusiaan anak agar tumbuh merdeka seutuhnya."
                             </p>
-                            <span style="display: block; text-align: right; margin-top: 0.8rem; font-weight: bold; color: var(--rich-lilac);">—  Filosofi Pendidikan Menuntun</span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ================= SECTION B: ARTIFAK & ANALISIS ================= -->
         <section id="artifak">
-            <h2 class="section-title">Artifak & Analisis Mengajar</h2>
+            <h2 class="section-title">Artifak Pembelajaran</h2>
             
             <div class="tabs-container">
                 <ul class="tab-menu">
                     <li><button class="tab-btn active" onclick="openArtifactTab(event, 'artifak1')">Artifak 1: Modul Ajar</button></li>
-                    <li><button class="tab-btn" onclick="openArtifactTab(event, 'artifak2')">Artifak 2: Media & Hasil Siswa</button></li>
+                    <li><button class="tab-btn" onclick="openArtifactTab(event, 'artifak2')">Artifak 2: LKPD</button></li>
                     <li><button class="tab-btn" onclick="openArtifactTab(event, 'artifak3')">Artifak 3: Penilaian Akhir</button></li>
                 </ul>
 
-                <!-- Tab Content 1: Modul Ajar -->
                 <div id="artifak1" class="scrapbook-card tab-content active">
                     <div class="corner-sticker cs-top-right">🪻</div>
                     <div class="artifact-header">
-                        <h3>Analisis Modul Ajar / RPP Berbasis Diferensiasi</h3>
-                        <span class="artifact-meta">Modul Ajar Pembelajaran</span>
+                        <h3>Infografis & Berkas Modul Ajar</h3>
+                        <span class="artifact-meta">Modul Pembelajaran</span>
                     </div>
                     
-                    <!-- TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
-                    <div class="magazine-grid-layout">
-                        <!-- SISI KIRI: Analisis Konteks & Box Foto Hasil Modul -->
-                        <div style="display: flex; flex-direction: column; text-align: justify;">
-                            <p style="color: var(--text-muted); margin-bottom: 1rem;"><em>Konteks Pembelajaran:</em> Modul Ajar ini diintegrasikan dengan model <em>Problem-Based Learning</em> (PBL) dan dirancang berdasarkan asesmen diagnostik non-kognitif profil gaya belajar peserta didik.</p>
-                            
-                            <div class="matrix-box" style="margin-bottom: 1.5rem;">
-                                <h4><i class="fa-solid fa-compass"></i> Konteks & Tujuan</h4>
-                                <p>Modul diterapkan di kelas XI dengan heterogenitas kemampuan matematika tinggi. Memfokuskan tujuan pada pencapaian kemampuan representasi matematis mandiri lewat eksplorasi pemecahan masalah.</p>
-                            </div>
-
-                            <div class="polaroid-magazine-frame">
-                                <div class="photo-magazine-inner">
-                                    <i class="fa-solid fa-file-pdf fa-2x" style="opacity: 0.5; margin-right: 10px;"></i> FOTO ARTEFAK 1
-                                </div>
-                                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold;">
-                                    Dokumentasi Lembar Rencana Pelaksanaan Pembelajaran
-                                </div>
+                    <div class="artifact-magazine-layout">
+                        <div class="infographic-polaroid-frame">
+                            <div class="infographic-image-inner">
+                                <i class="fa-solid fa-chart-pie fa-2x" style="opacity: 0.4; margin-right: 15px;"></i> FOTO INFOGRAFIS MODUL AJAR (1, 2, 3)
                             </div>
                         </div>
-
-                        <!-- SISI KANAN: Kelebihan, Kekurangan, Solusi, dan Teori -->
-                        <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            <div class="matrix-box">
-                                <h4><i class="fa-solid fa-thumbs-up"></i> Kelebihan</h4>
-                                <p>Penyajian LKPD adaptif sukses mendorong kolaborasi aktif antar-siswa, sintaks PBL berjalan sistematis, dan integrasi muatan sosial-emosional (KSE) mampu menurunkan kecemasan belajar matematika.</p>
-                            </div>
-                            <div class="matrix-box">
-                                <h4><i class="fa-solid fa-triangle-exclamation"></i> Kekurangan</h4>
-                                <p>Alokasi durasi waktu pada fase pembimbingan penyelidikan sempat molor dikarenakan beberapa kelompok membutuhkan bantuan scaffolding kognitif dasar yang lebih intensif.</p>
-                            </div>
-                            <div class="matrix-box">
-                                <h4><i class="fa-solid fa-arrows-spin"></i> Solusi Integratif</h4>
-                                <p>Merancang kelompok heterogen dengan konsep tutor sebaya terstruktur di masa depan, agar distribusi penyelesaian masalah dapat terakselerasi dengan baik.</p>
-                            </div>
-                            <div class="theory-box">
-                                <h4><i class="fa-solid fa-book-open"></i> Analisis Teori Integrasi</h4>
-                                <p>Modul ini menerapkan konsep teoretis dari mata kuliah <strong>PPDP</strong>. Kerangka kerja <em>Zone of Proximal Development</em> (ZPD) oleh Vygotsky dipraktikkan dengan menyediakan dukungan bertahap.</p>
-                            </div>
+                        <div class="artifact-button-group">
+                            <button class="drive-popup-btn" onclick="openPdfModal('Modul Ajar 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan Modul Ajar 1
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Modul Ajar 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan Modul Ajar 2
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Modul Ajar 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan Modul Ajar 3
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab Content 2: Media Pembelajaran -->
                 <div id="artifak2" class="scrapbook-card tab-content">
                     <div class="corner-sticker cs-top-right">🌸</div>
                     <div class="artifact-header">
-                        <h3>Media Interaktif & Hasil Kerja Peserta Didik</h3>
-                        <span class="artifact-meta">Media Digital</span>
+                        <h3>Infografis & Lembar Kerja Peserta Didik</h3>
+                        <span class="artifact-meta">LKPD Dokumen</span>
                     </div>
 
-                    <!-- TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
-                    <div class="magazine-grid-layout">
-                        <!-- SISI KIRI: Uraian dan Foto Media -->
-                        <div style="display: flex; flex-direction: column; text-align: justify;">
-                            <p style="color: var(--text-muted); margin-bottom: 1rem;"><em>Konteks Pembelajaran:</em> Pemanfaatan platform teknologi berupa papan tulis interaktif digital dipadukan dengan kuis berbasis gamifikasi interaktif.</p>
-                            
-                            <div class="matrix-box" style="margin-bottom: 1.5rem;">
-                                <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Analisis Media</h4>
-                                <p>Visualisasi grafik dinamis mempermudah pemahaman siswa dari konsep konkrit ke abstrak. Antusiasme keterlibatan kelas meningkat 90% dibanding menggunakan metode konvensional.</p>
-                            </div>
-
-                            <div class="polaroid-magazine-frame">
-                                <div class="photo-magazine-inner">
-                                    <i class="fa-solid fa-laptop-code fa-2x" style="opacity: 0.5; margin-right: 10px;"></i> FOTO ARTEFAK 2
-                                </div>
-                                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold;">
-                                    Tampilan Media Pembelajaran Interaktif
-                                </div>
+                    <div class="artifact-magazine-layout">
+                        <div class="infographic-polaroid-frame">
+                            <div class="infographic-image-inner">
+                                <i class="fa-solid fa-pen-to-square fa-2x" style="opacity: 0.4; margin-right: 15px;"></i> FOTO INFOGRAFIS LKPD (1, 2, 3)
                             </div>
                         </div>
-
-                        <!-- SISI KANAN: Hasil Kerja & Landasan Teori -->
-                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                            <div class="matrix-box">
-                                <h4><i class="fa-solid fa-square-check"></i> Analisis Hasil Kerja</h4>
-                                <p>Hasil portofolio LKPD menunjukkan peningkatan penguasaan materi esensial secara rata-rata kelas. Siswa berkemampuan rendah terbantu dengan visualisasi warna-warni yang mengelompokkan variabel.</p>
-                            </div>
-                            <div class="theory-box">
-                                <h4><i class="fa-solid fa-graduation-cap"></i> Landasan Teori Pendidikan</h4>
-                                <p>Pengembangan media visual ini divalidasi oleh teori <strong>Dual-Coding Theory (Allan Paivio)</strong> yang menyatakan representasi kognitif visual dan verbal secara bersamaan dapat meningkatkan memori kerja siswa secara substansial.</p>
-                            </div>
+                        <div class="artifact-button-group">
+                            <button class="drive-popup-btn" onclick="openPdfModal('LKPD 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan LKPD 1
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('LKPD 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan LKPD 2
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('LKPD 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan LKPD 3
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab Content 3: Lembar Penilaian -->
                 <div id="artifak3" class="scrapbook-card tab-content">
                     <div class="corner-sticker cs-top-right">🪻</div>
                     <div class="artifact-header">
-                        <h3>Lembar Penilaian GP / DPL & Dokumentasi Praktik</h3>
-                        <span class="artifact-meta">Lembar Asesmen</span>
+                        <h3>Infografis & Instrumen Penilaian</h3>
+                        <span class="artifact-meta">Asesmen Dokumen</span>
                     </div>
                     
-                    <!-- TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
-                    <div class="magazine-grid-layout">
-                        <!-- SISI KIRI: Evaluasi GP & Foto Asesmen Dokumen -->
-                        <div style="display: flex; flex-direction: column; text-align: justify;">
-                            <div class="matrix-box" style="margin-bottom: 1.5rem;">
-                                <h4><i class="fa-solid fa-user-check"></i> Evaluasi Guru Pamong (GP)</h4>
-                                <p>"Pendekatan persuasif guru muda sangat disukai siswa. Penguasaan materi matang, namun disarankan untuk memperkuat intonasi suara saat kelas mengalami dinamika kegaduhan diskusi kelompok."</p>
-                            </div>
-
-                            <div class="polaroid-magazine-frame">
-                                <div class="photo-magazine-inner">
-                                    <i class="fa-solid fa-signature fa-2x" style="opacity: 0.5; margin-right: 10px;"></i> FOTO ARTEFAK 3
-                                </div>
-                                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold;">
-                                    Lembar Penilaian & Rubrik yang Dinilai GP/DPL
-                                </div>
+                    <div class="artifact-magazine-layout">
+                        <div class="infographic-polaroid-frame">
+                            <div class="infographic-image-inner">
+                                <i class="fa-solid fa-clipboard-check fa-2x" style="opacity: 0.4; margin-right: 15px;"></i> FOTO INFOGRAFIS ASESMEN (1, 2, 3)
                             </div>
                         </div>
-
-                        <!-- SISI KANAN: Penilaian DPL & Catatan Tambahan -->
-                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                            <div class="matrix-box">
-                                <h4><i class="fa-solid fa-chalkboard-user"></i> Penilaian Dosen Pembimbing (DPL)</h4>
-                                <p>"Penerapan sintaks kooperatif dan interaksi sosial sudah selaras dengan RPP. Catatan khusus agar asesmen sumatif harian dikembangkan secara bervariasi sesuai tingkat kesiapan."</p>
-                            </div>
-                            <div class="theory-box">
-                                <h4><i class="fa-solid fa-chart-line"></i> Tindak Lanjut Penilaian</h4>
-                                <p>Rekomendasi dari lembar evaluasi ini langsung diintegrasikan secara komprehensif ke dalam rancangan pelaksanaan pembelajaran mandiri tahap berikutnya demi peningkatan efisiensi pedagogik.</p>
-                            </div>
+                        <div class="artifact-button-group">
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Akhir 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan Penilaian 1
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Akhir 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan Penilaian 2
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Akhir 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf"></i> Tampilkan Penilaian 3
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SECTION C: REFLEKSI AKHIR ================= -->
+        <div class="modal-overlay" id="pdfModalOverlay">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <div class="modal-title" id="modalDocTitle"><i class="fa-solid fa-file-pdf" style="color:red"></i> Pratinjau Dokumen</div>
+                    <button class="modal-close-btn" onclick="closePdfModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <iframe class="modal-iframe" id="modalIframe" src=""></iframe>
+                </div>
+            </div>
+        </div>
+
         <section id="refleksi">
-            <h2 class="section-title">Refleksi Kritis Tahapan PPL Terbimbing</h2>
-            
+            <h2 class="section-title">Refleksi Kritis</h2>
             <div class="reflection-accordion">
                 <div class="reflection-item">
-                    <div class="corner-sticker cs-top-right" style="font-size: 1.5rem;">🌸</div>
-                    <h3 class="reflection-question">
-                        <span>1.</span> Apa yang telah dipelajari sebagai peserta PPG Calon Guru sepanjang tahapan PPL Terbimbing?
-                    </h3>
+                    <h3 class="reflection-question"><span>1.</span> Apa yang telah dipelajari sepanjang tahapan PPL Terbimbing?</h3>
                     <p style="text-align: justify; color: var(--text-muted);">
-                        Melalui rangkaian asistensi mengajar hingga praktek mandiri terbimbing, saya menyadari bahwa merencanakan pembelajaran bukanlah aktivitas administrasi formal semata, melainkan proses merancang pengalaman emosional intelektual siswa. Saya belajar menyelaraskan teori perkembangan kognitif Piaget ke dalam penahapan materi nyata, memosisikan diri sebagai fasilitator yang luwes, serta membangun pemahaman bahwa refleksi mengajar harian merupakan instrumen terpenting seorang pendidik yang visioner.
+                        Saya menyadari bahwa merencanakan pembelajaran bukanlah aktivitas administrasi formal semata, melainkan proses merancang pengalaman emosional intelektual siswa yang adaptif dan merdeka.
                     </p>
                 </div>
-
                 <div class="reflection-item">
-                    <div class="corner-sticker cs-top-right" style="font-size: 1.5rem;">🪻</div>
-                    <h3 class="reflection-question">
-                        <span>2.</span> Pengalaman menantang apa yang dihadapi dan bagaimana solusi konkret yang dieksekusi?
-                    </h3>
+                    <h3 class="reflection-question"><span>2.</span> Pengalaman menantang apa yang dihadapi dan solusinya?</h3>
                     <p style="text-align: justify; color: var(--text-muted);">
-                        Pengalaman paling menantang adalah mengelola keaktifan kelas instruksional yang cenderung didominasi hanya oleh beberapa peserta didik yang ekstrover, sementara kelompok yang pasif tenggelam dalam keheningan. Solusi konkretnya adalah mengimplementasikan metode diskusi kelompok berbasis pembagian kartu peran (*role card*). Cara ini memotivasi setiap anak memikul kewajiban menyelesaikan bagian tugas tertentu secara proporsional.
+                        Mengelola keaktifan kelas instruksional agar merata. Solusinya adalah mengimplementasikan metode diskusi kelompok berbasis pembagian kartu peran (*role card*).
                     </p>
-                </div>
-
-                <div class="reflection-item">
-                    <div class="corner-sticker cs-top-right" style="font-size: 1.5rem;">🌸</div>
-                    <h3 class="reflection-question">
-                        <span>3.</span> Bagaimana umpan balik konstruktif dari GP/DPL dalam diskusi refleksi akhir untuk PPL Mandiri?
-                    </h3>
-                    <p style="text-align: justify; color: var(--text-muted);">
-                        Saran konstruktif menuntut saya untuk lebih adaptif merancang instrumen penilaian autentik performa psikomotorik yang aplikatif di lapangan. Masukan berharga ini secara adaptif saya tuangkan ke dalam draf strategi tindak lanjut kesiapan diri secara terstruktur.
-                    </p>
-                    <div class="rtl-box">
-                        <strong><i class="fa-solid fa-calendar-check"></i> Rencana Tindak Lanjut (RTL) Kesiapan PPL Mandiri:</strong>
-                        <ul class="scrapbook-list" style="margin-top: 0.5rem;">
-                            <li>Melakukan diseminasi internal modul ajar berdiferensiasi interaktif bersama rekan mahasiswa sejawat LPTK.</li>
-                            <li>Mengembangkan instrumen rubrik penilaian harian yang lebih berfokus pada progres belajar (*formative growth*), bukan sekadar skor akhir.</li>
-                            <li>Menghadiri forum komunitas praktisi KKG/MGMP sekolah mitra untuk memperluas jejaring taktik manajemen kelas.</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SECTION D: FILOSOFI MENGAJAR ================= -->
         <section id="filosofi">
             <h2 class="section-title">Filosofi Mengajar</h2>
-            
             <div class="scrapbook-card">
                 <div class="corner-sticker cs-top-right">🌸</div>
-                <div class="corner-sticker cs-bottom-left">🪻</div>
-                
-                <!-- TATA LETAK GRID BERDASARKAN REFERENSI UTUH DARI image_86374c.png -->
                 <div class="magazine-grid-layout">
-                    
-                    <!-- SISI KIRI: Esai Paragraf 1 & Slot Foto di Bawahnya -->
                     <div style="display: flex; flex-direction: column; text-align: justify;">
                         <p style="margin-bottom: 1.5rem;">
-                            <span style="float: left; font-family: 'Playfair Display', serif; font-size: 3.8rem; line-height: 0.75; padding-right: 12px; padding-top: 6px; color: var(--rich-lilac); font-weight: bold;">B</span>agi saya, mengajar adalah seni menuntun kodrat anak dengan landasan filosofi pendidikan yang memanusiakan manusia. Langkah awal yang paling krusial adalah melakukan pengenalan peserta didik secara mendalam, karena setiap anak membawa latar belakang sosio-kultural yang unik. Dengan memahami lingkungan sosial, budaya, dan bekal awal mereka, kita dapat menciptakan ruang kelas yang inklusif, relevan, dan aman secara psikologis bagi semua siswa untuk tumbuh.
+                            <span style="float: left; font-family: 'Playfair Display', serif; font-size: 3.8rem; line-height: 0.75; padding-right: 12px; padding-top: 6px; color: var(--rich-lilac); font-weight: bold;">B</span>agi saya, mengajar adalah seni menuntun kodrat anak dengan landasan filosofi pendidikan yang memanusiakan manusia. Langkah awal yang paling krusial adalah melakukan pengenalan peserta didik secara mendalam, karena setiap anak membawa latar belakang sosio-kultural yang unik.
                         </p>
-                        
-                        <!-- Tempat Peletakan Foto Sisi Kiri Bawah Sesuai Gambar Referensi -->
                         <div class="polaroid-magazine-frame">
                             <div class="photo-magazine-inner">
                                 <i class="fa-solid fa-image fa-2x" style="opacity: 0.5; margin-right: 10px;"></i> foto
                             </div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold;">
-                                Dokumentasi Aksi Nyata Kelas
-                            </div>
                         </div>
                     </div>
-                    
-                    <!-- SISI KANAN: Esai Paragraf 2 & Paragraf 3 -->
                     <div style="display: flex; flex-direction: column; text-align: justify; gap: 1.5rem;">
                         <p>
-                            Dalam ruang kelas tersebut, proses belajar tidak boleh berhenti di permukaan. Pembelajaran harus dirancang secara kontekstual untuk mendorong pembelajaran mendalam (*deep learning*), di mana fokus utama kita adalah mengasah kemampuan berpikir kritis dan pemecahan masalah, bukan sekadar menghafal materi untuk ujian. Melalui pendekatan ini, siswa diajak untuk mengaitkan apa yang mereka pelajari dengan realitas kehidupan di sekitar mereka.
-                        </p>
-                        
-                        <p>
-                            Akhirnya, muara dari seluruh proses ini adalah menanamkan *growth mindset* (pola pikir bertumbuh) pada diri siswa. Saya ingin mereka percaya bahwa kecerdasan dan kemampuan bukanlah sesuatu yang kaku, melainkan otot yang bisa terus dilatih melalui usaha, strategi yang tepat, dan refleksi dari kegagalan. Dengan menyatukan pilar-pilar ini, mengajar menjadi sebuah upaya bermakna untuk membentuk pembelajar sepanjang hayat yang tangguh dan adaptif.
+                            Dalam ruang kelas tersebut, proses belajar tidak boleh berhenti di permukaan. Pembelajaran harus dirancang secara konteksual untuk mendorong pembelajaran mendalam (*deep learning*), di mana fokus utama kita adalah mengasah kemampuan berpikir kritis.
                         </p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- ================= SECTION E: MENU QUOTES (CUKUP 1) ================= -->
         <section id="quotes">
             <h2 class="section-title">Quotes Pendidikan Favorit</h2>
-            
             <div class="scrapbook-card">
                 <div class="corner-sticker cs-top-right">🌸</div>
-                
-                <!-- REVISI: CUKUP 1 QUOTES INSPIRATIF -->
                 <div class="single-quote-box">
                     <p style="font-size: 1.6rem; color: var(--dark-lilac); font-style: italic; line-height: 1.5; margin-bottom: 1.5rem;">
                         "Anak-anak hidup dan tumbuh sesuai kodratnya sendiri. Pendidik hanya dapat merawat dan menuntun tumbuhnya kodrat itu."
@@ -939,15 +920,29 @@
 
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>🌸 &copy; 2026 Nama Lengkap Anda. Portofolio Digital PPG Calon Guru. 🌸</p>
-        <p style="font-size: 1.1rem; margin-top: 0.5rem; color: var(--text-muted);">Dihiasi dengan cinta, kertas scrapbook estetik, dan kelopak bunga lilac mekar.</p>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT -->
     <script>
-        // --- 1. JAVASCRIPT UNTUK MEMBUAT ANIMASI KELOPAK BUNGA MELAYANG ---
+        // --- 1. POP-UP MODAL HANDLER FOR GOOGLE DRIVE VIEW ---
+        const modalOverlay = document.getElementById('pdfModalOverlay');
+        const modalIframe = document.getElementById('modalIframe');
+        const modalDocTitle = document.getElementById('modalDocTitle');
+
+        function openPdfModal(title, driveEmbedUrl) {
+            modalDocTitle.innerHTML = `<i class="fa-solid fa-file-pdf" style="color:red"></i> Pratinjau: ${title}`;
+            // Memasukkan URL embed drive ke iframe
+            modalIframe.src = driveEmbedUrl; 
+            modalOverlay.classList.add('active');
+        }
+
+        function closePdfModal() {
+            modalOverlay.classList.remove('active');
+            modalIframe.src = ''; // Menyetel ulang src agar loading berhenti saat ditutup
+        }
+
+        // --- 2. JAVASCRIPT UNTUK ANIMASI KELOPAK BUNGA MELAYANG ---
         const petalContainer = document.getElementById('petalContainer');
         const petalEmojis = ['🌸', '🪻', '✿', '❀'];
 
@@ -955,9 +950,7 @@
             if (!petalContainer) return;
             const petal = document.createElement('div');
             petal.className = 'floating-petal';
-            
-            const randomEmoji = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
-            petal.innerHTML = randomEmoji;
+            petal.innerHTML = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
             petal.style.background = 'none';
             petal.style.fontSize = (Math.random() * 20 + 15) + 'px';
             petal.style.left = Math.random() * 100 + '%';
@@ -965,61 +958,44 @@
             const duration = Math.random() * 6 + 6;
             petal.style.animationDuration = duration + 's';
             petal.style.animationDelay = Math.random() * 3 + 's';
-
             petalContainer.appendChild(petal);
 
-            setTimeout(() => {
-                petal.remove();
-            }, (duration + 3) * 1000);
+            setTimeout(() => { petal.remove(); }, (duration + 3) * 1000);
         }
         setInterval(createPetal, 400);
 
-        // --- 2. SWITCH TAB UNTUK SUB-MENU PROFIL ---
+        // --- 3. SWITCH TAB UNTUK SUB-MENU PROFIL ---
         function openProfileTab(evt, subTabId) {
             const profileContents = document.getElementsByClassName("profile-tab-content");
-            for (let i = 0; i < profileContents.length; i++) {
-                profileContents[i].classList.remove("active");
-            }
+            for (let i = 0; i < profileContents.length; i++) { profileContents[i].classList.remove("active"); }
             const profileTabBtns = document.getElementsByClassName("profile-tab-btn");
-            for (let i = 0; i < profileTabBtns.length; i++) {
-                profileTabBtns[i].classList.remove("active");
-            }
+            for (let i = 0; i < profileTabBtns.length; i++) { profileTabBtns[i].classList.remove("active"); }
             document.getElementById(subTabId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
 
-        // --- 3. SWITCH TAB UNTUK ARTIFAK PEMBELAJARAN ---
+        // --- 4. SWITCH TAB UNTUK ARTIFAK PEMBELAJARAN ---
         function openArtifactTab(evt, tabId) {
             const tabContents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
+            for (let i = 0; i < tabContents.length; i++) { tabContents[i].classList.remove("active"); }
             const tabBtns = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-            }
+            for (let i = 0; i < tabBtns.length; i++) { tabBtns[i].classList.remove("active"); }
             document.getElementById(tabId).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
 
-        // --- 4. SCROLL LISTENER UNTUK DETEKSI AKTIF NAVIGASI UTAMA ---
+        // --- 5. SCROLL LISTENER UNTUK DETEKSI AKTIF NAVIGASI UTAMA ---
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
-            
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
+                if (pageYOffset >= sectionTop - 150) { current = section.getAttribute('id'); }
             });
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href').includes(current)) { link.classList.add('active'); }
             });
         });
     </script>
