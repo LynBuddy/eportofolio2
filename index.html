@@ -217,29 +217,30 @@
             margin-bottom: 0.5rem;
         }
 
+        /* REVISI: UKURAN FOTO PROFIL BIAR PROPORSIONAL */
         .profile-img {
-            width: 240px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             object-fit: cover;
             border: 12px solid #FFF;
-            border-bottom: 45px solid #FFF;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transform: rotate(-3deg);
+            border-bottom: 40px solid #FFF;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            transform: rotate(-2deg);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-radius: 4px;
         }
 
         .profile-frame:hover .profile-img {
-            transform: rotate(2deg) scale(1.03);
+            transform: rotate(1deg) scale(1.02);
         }
 
         .flower-sticker {
             position: absolute;
-            bottom: 30px;
-            right: -10px;
-            font-size: 2.5rem;
+            bottom: 25px;
+            right: -8px;
+            font-size: 2.3rem;
             z-index: 10;
-            filter: drop-shadow(2px 3px 2px rgba(0,0,0,0.15));
+            filter: drop-shadow(2px 3px 2px rgba(0,0,0,0.12));
             animation: pulse 2s infinite ease-in-out;
         }
 
@@ -534,30 +535,37 @@
         .cs-top-right { top: 15px; right: 15px; }
         .cs-bottom-left { bottom: 15px; left: 15px; }
 
-        /* --- STYLING KHAS UNTUK MENU QUOTES --- */
-        .quotes-masonry {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .quote-card-item {
+        /* --- STYLING REVISI: CUKUP 1 QUOTES --- */
+        .single-quote-box {
+            max-width: 750px;
+            margin: 0 auto;
             background: #FFF;
-            border: 2px solid var(--soft-lilac);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border: 2px dashed var(--medium-lilac);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            text-align: center;
             position: relative;
+            box-shadow: 0 5px 15px rgba(144, 82, 222, 0.04);
         }
 
-        .quote-card-item::before {
+        .single-quote-box::before {
             content: '“';
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-size: 6rem;
             position: absolute;
-            top: -15px;
-            left: 15px;
+            top: -10px;
+            left: 30px;
+            color: var(--soft-lilac);
+            line-height: 1;
+        }
+
+        .single-quote-box::after {
+            content: '”';
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            position: absolute;
+            bottom: -50px;
+            right: 30px;
             color: var(--soft-lilac);
             line-height: 1;
         }
@@ -583,11 +591,11 @@
             .navbar { flex-direction: column; gap: 1rem; }
             .nav-links { gap: 0.8rem; font-size: 1rem; flex-wrap: wrap; justify-content: center; }
             .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .profile-container { display: flex; justify-content: center; }
             .matrix-grid { grid-template-columns: 1fr; }
             .theory-box { grid-column: span 1; }
             .scrapbook-card { padding: 1.5rem; }
             .magazine-grid-layout { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-            .quotes-masonry { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -620,7 +628,8 @@
                 
                 <div class="profile-container">
                     <div class="profile-frame">
-                        <img src="https://via.placeholder.com/240x300/E8DFFF/9052DE?text=Foto+Profil+Guru" alt="Foto Profil Guru" class="profile-img">
+                        <!-- FIX: UKURAN FOTO PROFIL PROPORSIONAL (KOTAK SEIMBANG) -->
+                        <img src="https://via.placeholder.com/250x250/E8DFFF/9052DE?text=Foto+Profil+Guru" alt="Foto Profil Guru" class="profile-img">
                         <span class="flower-sticker">🪻</span>
                     </div>
                 </div>
@@ -663,7 +672,7 @@
                     <div id="sub-motto" class="profile-tab-content">
                         <div class="motto-box">
                             <p style="font-size: 1.4rem; color: var(--dark-lilac); line-height: 1.4;">
-                                "Mendidik bukanlah sekadar menuangkan air ke dalam cawan kosong, melainkan upaya menyalakan api kesadaran, menuntun kekuatan kodrat kemanusiaan anak agar tumbuh merdeka seutuhnya."
+                                "Mendidik bukanlah sekadar menuangkan air ke dalam cawan kosong, melainkan upaya menyalakan api kesadaran, menuntun kekuatan kodrat kemainan anak agar tumbuh merdeka seutuhnya."
                             </p>
                             <span style="display: block; text-align: right; margin-top: 0.8rem; font-weight: bold; color: var(--rich-lilac);">—  Filosofi Pendidikan Menuntun</span>
                         </div>
@@ -692,7 +701,7 @@
                         <span class="artifact-meta">Modul Ajar Pembelajaran</span>
                     </div>
                     
-                    <!-- REVISI: TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
+                    <!-- TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
                     <div class="magazine-grid-layout">
                         <!-- SISI KIRI: Analisis Konteks & Box Foto Hasil Modul -->
                         <div style="display: flex; flex-direction: column; text-align: justify;">
@@ -743,7 +752,7 @@
                         <span class="artifact-meta">Media Digital</span>
                     </div>
 
-                    <!-- REVISI: TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
+                    <!-- TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
                     <div class="magazine-grid-layout">
                         <!-- SISI KIRI: Uraian dan Foto Media -->
                         <div style="display: flex; flex-direction: column; text-align: justify;">
@@ -772,7 +781,7 @@
                             </div>
                             <div class="theory-box">
                                 <h4><i class="fa-solid fa-graduation-cap"></i> Landasan Teori Pendidikan</h4>
-                                <p>Pengembangan media visual ini divalidasi oleh teori <strong>Dual-Coding Theory (Allan Paivio)</strong> yang menyatakan representasi kognitif visual dan verbal secara bersamaan dapat meningkatkan memori kerja (*working memory*) siswa secara substansial.</p>
+                                <p>Pengembangan media visual ini divalidasi oleh teori <strong>Dual-Coding Theory (Allan Paivio)</strong> yang menyatakan representasi kognitif visual dan verbal secara bersamaan dapat meningkatkan memori kerja siswa secara substansial.</p>
                             </div>
                         </div>
                     </div>
@@ -786,7 +795,7 @@
                         <span class="artifact-meta">Lembar Asesmen</span>
                     </div>
                     
-                    <!-- REVISI: TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png & HILANGKAN VIDEO -->
+                    <!-- TATA LETAK MAJALAH BERDASARKAN KETENTUAN image_86374c.png -->
                     <div class="magazine-grid-layout">
                         <!-- SISI KIRI: Evaluasi GP & Foto Asesmen Dokumen -->
                         <div style="display: flex; flex-direction: column; text-align: justify;">
@@ -909,41 +918,21 @@
             </div>
         </section>
 
-        <!-- ================= SECTION E: NEW MENU QUOTES ================= -->
+        <!-- ================= SECTION E: MENU QUOTES (CUKUP 1) ================= -->
         <section id="quotes">
             <h2 class="section-title">Quotes Pendidikan Favorit</h2>
             
             <div class="scrapbook-card">
-                <div class="corner-sticker cs-top-right">🪻</div>
+                <div class="corner-sticker cs-top-right">🌸</div>
                 
-                <div class="quotes-masonry">
-                    <div class="quote-card-item">
-                        <p style="font-size: 1.4rem; color: var(--dark-lilac); font-style: italic; margin-top: 1rem;">
-                            "Anak-anak hidup dan tumbuh sesuai kodratnya sendiri. Pendidik hanya dapat merawat dan menuntun tumbuhnya kodrat itu."
-                        </p>
-                        <strong style="display: block; text-align: right; margin-top: 1rem; color: var(--rich-lilac);">— Ki Hadjar Dewantara</strong>
-                    </div>
-
-                    <div class="quote-card-item">
-                        <p style="font-size: 1.4rem; color: var(--dark-lilac); font-style: italic; margin-top: 1rem;">
-                            "Education is the most powerful weapon which you can use to change the world."
-                        </p>
-                        <strong style="display: block; text-align: right; margin-top: 1rem; color: var(--rich-lilac);">— Nelson Mandela</strong>
-                    </div>
-
-                    <div class="quote-card-item">
-                        <p style="font-size: 1.4rem; color: var(--dark-lilac); font-style: italic; margin-top: 1rem;">
-                            "Mengajar bukanlah sekadar mentransfer pengetahuan, melainkan proses menumbuhkan rasa ingin tahu yang tak terbatas."
-                        </p>
-                        <strong style="display: block; text-align: right; margin-top: 1rem; color: var(--rich-lilac);">— Refleksi Pedagogik</strong>
-                    </div>
-
-                    <div class="quote-card-item">
-                        <p style="font-size: 1.4rem; color: var(--dark-lilac); font-style: italic; margin-top: 1rem;">
-                            "Pola pikir bertumbuh (*growth mindset*) di dalam kelas dimulai ketika guru merayakan usaha siswa, bukan sekadar nilai sempurna."
-                        </p>
-                        <strong style="display: block; text-align: right; margin-top: 1rem; color: var(--rich-lilac);">— Carol S. Dweck</strong>
-                    </div>
+                <!-- REVISI: CUKUP 1 QUOTES INSPIRATIF -->
+                <div class="single-quote-box">
+                    <p style="font-size: 1.6rem; color: var(--dark-lilac); font-style: italic; line-height: 1.5; margin-bottom: 1.5rem;">
+                        "Anak-anak hidup dan tumbuh sesuai kodratnya sendiri. Pendidik hanya dapat merawat dan menuntun tumbuhnya kodrat itu."
+                    </p>
+                    <strong style="display: block; text-align: right; font-size: 1.3rem; color: var(--rich-lilac); font-family: 'Playfair Display', serif;">
+                        — Ki Hadjar Dewantara
+                    </strong>
                 </div>
             </div>
         </section>
