@@ -223,7 +223,6 @@
         .philosophy-layout p:not(:first-child)::first-letter { float: none; font-size: inherit; line-height: inherit; padding: 0; color: inherit; font-weight: normal; }
 
         /* --- QUOTES KERTAS SOBEK (RIPPED EFFECT) --- */
-        .philosophy-footer-layout { display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: center; margin-top: 3rem; border-top: 1.5px dashed var(--soft-lilac); padding-top: 2.5rem; }
         .ripped-paper-quote { background-color: #FFF; padding: 2.5rem 2rem; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; border-left: 1px solid rgba(0,0,0,0.02); border-right: 1px solid rgba(0,0,0,0.02); }
         .ripped-paper-quote::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 12px; background: linear-gradient(135deg, var(--bg-cream) 5px, transparent 0), linear-gradient(-135deg, var(--bg-cream) 5px, transparent 0); background-size: 12px 24px; transform: translateY(-1px); }
         .ripped-paper-quote::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 12px; background: linear-gradient(45deg, var(--bg-cream) 5px, transparent 0), linear-gradient(-45deg, var(--bg-cream) 5px, transparent 0); background-size: 12px 24px; transform: translateY(1px); }
@@ -240,8 +239,8 @@
 
         /* --- RESPONSIVENESS ADJUSTMENT --- */
         @media (max-width: 900px) {
-            .hero-grid, .content-layout-wm, .content-layout-wm.reverse, .philosophy-footer-layout { grid-template-columns: 1fr !important; gap: 2.5rem; }
-            .philosophy-layout { column-count: 1; column-rule: none; }
+            .hero-grid, .content-layout-wm, .content-layout-wm.reverse { grid-template-columns: 1fr !important; gap: 2.5rem; }
+            #filosofi .scrapbook-card > div { grid-template-columns: 1fr !important; gap: 2rem !important; }
             .polaroid-frame { max-width: 280px; }
             .matrix-grid { grid-template-columns: 1fr; }
             .theory-box { grid-column: span 1; }
@@ -323,7 +322,7 @@
                     <div id="sub-motto" class="profile-tab-content">
                         <div class="motto-box">
                             <p style="font-size: 1.65rem; color: var(--dark-lilac); line-height: 1.4; font-style: italic;">
-                                "Mendidik bukanlah sekadar mentransfer pengetahuan formal, melainkan menyalakan lentera potensi dan memperkuat kodrat kemanusiaan unik milik setiap anak didik."
+                                "Mendidik bukanlah sekadar mentransfer pengetahuan formal, melainkan menyalakan lentera potensi dan memperkuat kodrat kemainan unik milik setiap anak didik."
                             </p>
                         </div>
                     </div>
@@ -489,44 +488,55 @@
             
             <div class="scrapbook-card">
                 <div class="corner-sticker cs-top-right">🪷</div>
-                
-                <!-- SLOT FOTO FILOSOFI 1 (Gaya Floating Profesional di Atas Teks) -->
-                <div style="float: right; margin-left: 2.5rem; margin-bottom: 1.5rem;" class="polaroid-wrapper">
-                    <div class="polaroid-frame rot-right" style="max-width: 210px; padding-bottom: 25px;">
-                        <div class="photo-box-inner" style="height: 140px;"><i class="fa-solid fa-seedling fa-lg"></i></div>
-                        <div class="photo-caption">Filosofi Aksi 1</div>
+
+                <!-- MODEL GRID MAJALAH EDITORIAL BERSIH BEBAS ERROR -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr 260px; gap: 2.5rem; align-items: start;">
+                    
+                    <!-- Kolom Majalah 1: Paragraf Pertama & Kedua -->
+                    <div style="text-align: justify; font-size: 1.65rem;">
+                        <p style="margin-bottom: 1.5rem; text-indent: 1.5rem;">
+                            <span style="float: left; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3.5rem; line-height: 0.8; padding-right: 12px; padding-top: 4px; color: var(--rich-lilac); font-weight: bold;">F</span>ilosofi pengajaran saya menempatkan guru sebagai seorang petani yang hanya dapat menuntun tumbuhnya padi, menyediakan pupuk terbaik, menggemburkan tanah, dan membasmi hama penggangu. Sebagaimana gagasan Ki Hadjar Dewantara, anak bukanlah kertas putih kosong yang bisa dilukis sesuka hati orang dewasa melainkan kertas samar bertuliskan potensi baik yang harus kita tebalkan bersama.
+                        </p>
+                        <p style="text-indent: 1.5rem;">
+                            Dalam praktiknya, paradigma pembelajaran konstruktivisme sosial yang dirumuskan oleh Lev Vygotsky menjadi mercusuar saya di kelas. Belajar adalah penciptaan makna secara sosial yang terjalin lewat interaksi intensif antara pembelajar yang cakap dengan rekan sejawat secara kolaboratif demi memecahkan masalah kontekstual.
+                        </p>
                     </div>
-                </div>
 
-                <div class="philosophy-layout">
-                    <p>
-                        Filosofi pengajaran saya menempatkan guru sebagai seorang petani yang hanya dapat menuntun tumbuhnya padi, menyediakan pupuk terbaik, menggemburkan tanah, dan membasmi hama penggangu. Sebagaimana gagasan Ki Hadjar Dewantara, anak bukanlah kertas putih kosong yang bisa dilukis sesuka hati orang dewasa melainkan kertas samar bertuliskan potensi baik yang harus kita tebalkan.
-                    </p>
-                    <p>
-                        Dalam praktiknya, paradigma pembelajaran konstruktivisme sosial yang dirumuskan oleh Lev Vygotsky menjadi mercusuar saya di kelas. Belajar adalah penciptaan makna secara sosial yang terjalin lewat interaksi intensif antara pembelajar yang cakap dengan rekan sejawat secara kolaboratif demi memecahkan masalah kontekstual yang dihadapi bersama.
-                    </p>
-                    <p>
-                        Menghadirkan lingkungan belajar yang humanis, menyenangkan, penuh keindahan cinta kasih, serta sarat teknologi abad 21 adalah garis arah pengabdian saya. Semoga filosofi dasar mengajar ini menjadi panduan moral utama kesiapan melangkah mengemban tugas di masa depan.
-                    </p>
-                </div>
-
-                <!-- LAYOUT BAWAH: FOTO FILOSOFI 2 BERSANDINGAN PROPORSIONAL DENGAN RIPPED QUOTE -->
-                <div class="philosophy-footer-layout">
-                    <!-- SLOT FOTO FILOSOFI 2 -->
-                    <div class="polaroid-wrapper">
-                        <div class="polaroid-frame rot-left" style="max-width: 220px; padding-bottom: 25px;">
-                            <div class="photo-box-inner" style="height: 130px;"><i class="fa-solid fa-users fa-lg"></i></div>
-                            <div class="photo-caption">Filosofi Aksi 2</div>
+                    <!-- Kolom Majalah 2: Paragraf Ketiga & Foto Esai Atas -->
+                    <div style="text-align: justify; font-size: 1.65rem; display: flex; flex-direction: column; gap: 2rem;">
+                        <p style="text-indent: 1.5rem;">
+                            Menghadirkan lingkungan belajar yang humanis, menyenangkan, penuh keindahan cinta kasih, serta sarat teknologi abad 21 adalah garis arah pengabdian saya. Semoga filosofi dasar mengajar ini menjadi panduan moral utama kesiapan melangkah mengemban tugas di masa depan yang dinamis.
+                        </p>
+                        
+                        <!-- SLOT FOTO FILOSOFI 1 (Foto Esai Atas) -->
+                        <div class="polaroid-wrapper" style="justify-content: flex-start;">
+                            <div class="polaroid-frame rot-left" style="max-width: 100%; width: 100%; padding-bottom: 22px;">
+                                <div class="photo-box-inner" style="height: 125px;"><i class="fa-solid fa-seedling fa-lg"></i></div>
+                                <div class="photo-caption" style="font-size: 0.7rem; letter-spacing: 1px;">Filosofi Aksi 1: Menyemai Potensi</div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- RUANG QUOTES DENGAN EFEK KERTAS SOBEK -->
-                    <div class="ripped-paper-quote">
-                        <p class="quote-text">
-                            "The art of teaching is the art of assisting discovery."
-                        </p>
-                        <span class="quote-author">— MARK VAN DOREN</span>
+                    <!-- Kolom Majalah 3: Sisi Kanan Side-Panel (Foto Esai Kedua & Ripped Quote) -->
+                    <div style="display: flex; flex-direction: column; gap: 2.5rem; height: 100%; justify-content: space-between;">
+                        
+                        <!-- SLOT FOTO FILOSOFI 2 (Foto Esai Samping) -->
+                        <div class="polaroid-wrapper">
+                            <div class="polaroid-frame rot-right" style="max-width: 100%; width: 100%; padding-bottom: 22px;">
+                                <div class="photo-box-inner" style="height: 125px;"><i class="fa-solid fa-users fa-lg"></i></div>
+                                <div class="photo-caption" style="font-size: 0.7rem; letter-spacing: 1px;">Filosofi Aksi 2: Kolaborasi Kelas</div>
+                            </div>
+                        </div>
+
+                        <!-- RUANG QUOTES EDITORIAL KERTAS SOBEK -->
+                        <div class="ripped-paper-quote" style="padding: 2rem 1rem; margin-top: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.02);">
+                            <p class="quote-text" style="font-size: 1.5rem; line-height: 1.3;">
+                                "The art of teaching is the art of assisting discovery."
+                            </p>
+                            <span class="quote-author" style="font-size: 0.75rem; margin-top: 0.8rem; letter-spacing: 1.5px;">— MARK VAN DOREN</span>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -546,7 +556,7 @@
 
         function createParticel() {
             if (!petalContainer) return;
-            const isSnow = Math.random() < 0.12; // Intensitas salju diatur konstan 12% (jarang-jarang)
+            const isSnow = Math.random() < 0.12; 
             const element = document.createElement('div');
             
             if (isSnow) {
@@ -570,7 +580,7 @@
                 setTimeout(() => { element.remove(); }, (duration + 2) * 1000);
             }
         }
-        setInterval(createParticel, 600); // Durasi jeda kemunculan diatur seimbang agar anggun
+        setInterval(createParticel, 600); 
 
         // --- 2. SWITCH TAB UNTUK SUB-MENU PROFIL ---
         function openProfileTab(evt, subTabId) {
