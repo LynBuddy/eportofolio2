@@ -325,7 +325,7 @@
         }
 
         .motto-box::before {
-            content: '“';
+            content: '"';
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             position: absolute;
@@ -401,26 +401,30 @@
         /* --- REVISI: TATA LETAK MAJALAH INFOGRAFIS & TOMBOL --- */
         .artifact-magazine-layout {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 2.5rem;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 2rem;
             align-items: center;
         }
 
         /* FRAME FOTO INFOGRAFIS PROPORSIONAL */
         .infographic-polaroid-frame {
             background: #FFF;
-            padding: 15px 15px 20px 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.05);
-            text-align: center;
-            border-radius: 6px;
+            padding: 14px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             width: 100%;
+        }
+
+        .infographic-polaroid-frame img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
         }
 
         .infographic-image-inner {
             width: 100%;
             height: auto;
-            aspect-ratio: 4 / 3; /* Memastikan foto tetap proporsional tinggi dan lebarnya */
+            aspect-ratio: 4 / 3;
             background-color: var(--soft-lilac);
             border: 2px dashed var(--medium-lilac);
             border-radius: 4px;
@@ -456,6 +460,8 @@
             gap: 0.8rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-height: 70px;
+            text-align: center;
         }
 
         .drive-popup-btn:hover {
@@ -601,7 +607,7 @@
         .cs-top-right { top: 15px; right: 15px; }
         .cs-bottom-left { bottom: 15px; left: 15px; }
 
-        /* --- FILOSOFI MENGAJAR MAGAZINE LAYOUT --- */
+        /* --- FILOSOFI MENGAJAR & REFLEKSI MAGAZINE LAYOUT --- */
         .magazine-grid-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -611,14 +617,19 @@
 
         .polaroid-magazine-frame {
             background: #FFF;
-            padding: 12px 12px 32px 12px;
+            padding: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             border: 1px solid rgba(0,0,0,0.05);
             text-align: center;
-            border-radius: 4px;
+            border-radius: 12px;
             width: 100%;
-            margin-top: 1.5rem;
-            transform: rotate(-1deg);
+        }
+
+        .polaroid-magazine-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
         }
         
         .photo-magazine-inner {
@@ -635,6 +646,25 @@
             font-size: 1.5rem;
         }
 
+        .content-magazine-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .text-content {
+            text-align: justify;
+            line-height: 1.8;
+            background: rgba(220, 208, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--rich-lilac);
+        }
+
+        .text-content p {
+            margin-bottom: 1.3rem;
+        }
+
         /* --- STYLING REVISI: CUKUP 1 QUOTES --- */
         .single-quote-box {
             max-width: 750px;
@@ -649,7 +679,7 @@
         }
 
         .single-quote-box::before {
-            content: '“';
+            content: '"';
             font-family: 'Playfair Display', serif;
             font-size: 6rem;
             position: absolute;
@@ -684,138 +714,27 @@
             .artifact-magazine-layout { grid-template-columns: 1fr; gap: 1.5rem; }
             .magazine-grid-layout { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
             .modal-container { width: 95%; height: 90%; }
+            .button-columns-container { grid-template-columns: 1fr !important; }
+            .button-row-container { grid-template-columns: 1fr !important; }
         }
-        /* Mengatur letak Infografis di kiri (1 bagian) dan Tombol di kanan (2 bagian) */
-/* ===== ARTIFAK ===== */
-.artifact-magazine-layout {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 2rem;
-    align-items: center;
-}
 
-.infographic-polaroid-frame {
-    background: #FFF;
-    padding: 14px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    width: 100%;
-}
+        /* --- ARTIFAK 3: LANDSCAPE BUTTONS --- */
+        .button-row-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
 
-.infographic-polaroid-frame img{
-    width:100%;
-    display:block;
-    border-radius:10px;
-}
+        .button-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.8rem;
+        }
 
-.button-columns-container{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:1rem;
-}
-
-.button-column{
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
-}
-
-.drive-popup-btn{
-    min-height:85px;
-    padding:1rem;
-    border-radius:16px;
-    font-size:1.2rem;
-    line-height:1.3;
-}
-
-.content-magazine-layout{
-    display:flex;
-    flex-direction:column;
-    gap:2rem;
-}
-
-.large-infographic-frame{
-    width:92%;
-    margin:0 auto;
-    background:#FFF;
-    padding:15px;
-    border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-.large-infographic-frame img{
-    width:100%;
-    display:block;
-    border-radius:12px;
-}
-
-.text-content{
-    text-align:justify;
-    line-height:1.8;
-}
-
-.text-content p{
-    margin-bottom:1.3rem;
-}
-
-@media(max-width:850px){
-    .artifact-magazine-layout{grid-template-columns:1fr;}
-    .button-columns-container{grid-template-columns:1fr;}
-    .large-infographic-frame{width:100%;}
-}
-
-/* Membuat frame kotak infografis di sisi kiri */
-.infographic-polaroid-frame {
-    background: #FFF;
-    padding: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 12px;
-    width: 100%;
-}
-.infographic-image-inner {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Membuatnya berbentuk kotak simetris proporsional */
-    background-color: rgba(220, 208, 255, 0.2);
-    border: 2px dashed #CDB7F6;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #5D2E9D;
-    font-weight: bold;
-}
-
-/* Membagi area tombol sisi kanan menjadi 2 kolom sejajar */
-.button-columns-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-}
-
-/* Mengatur agar tombol di setiap kolom tersusun ke bawah */
-.button-column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-/* Memastikan tinggi tombol seragam dan teks rapi di tengah */
-.drive-popup-btn {
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.6rem;
-}
-
-/* Responsif untuk tampilan HP/Layar Kecil agar tidak rusak */
-@media (max-width: 850px) {
-    .artifact-magazine-layout, .button-columns-container {
-        grid-template-columns: 1fr !important;
-    }
-}
+        .button-row .drive-popup-btn {
+            min-height: 60px;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -879,7 +798,7 @@
                     <div id="sub-motto" class="profile-tab-content">
                         <div class="motto-box">
                             <p style="font-size: 1.4rem; color: var(--dark-lilac); line-height: 1.4;">
-                                "Mendidik bukanlah sekadar menuangkan air ke dalam cawan kosong, melainkan upaya menyalakan api kesadaran, menuntun kekuatan kodrat kemanusiaan anak agar tumbuh merdeka seutuhnya."
+                                "Mendidik bukanlah sekadar menuangkan air ke dalam cawan kosong, melainkan upaya menyalakan api kesadaran, menuntun kekuatan kodrat kemanusiaan anak agar tumbuh merdeka[...]
                             </p>
                         </div>
                     </div>
@@ -958,193 +877,240 @@
                         <div class="infographic-polaroid-frame">
                            <img src="Raport_Keberhasilan_Praktik_Pembelajaran_Guru.png" alt="Infografis Artifak" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
                         </div>
-                       <!-- BUNGKUSAN UTAMA: Mengatur tata letak Infografis di kiri, dan Tombol di kanan -->
-<div class="artifact-magazine-layout">
-    <!-- SISI KANAN: Dibagi menjadi 2 Kolom Tombol Sejajar -->
-    <div class="button-columns-container">
-        
-        <!-- KOLOM 1: Penilaian Praktik Mengajar (1-3) -->
-        <div class="button-column">
-            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik Mengajar 1 
-            </button>
-            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik Mengajar  2
-            </button>
-            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik Mengajar  3
-            </button>
-        </div>
+                        <!-- TOMBOL LANDSCAPE: Dibagi 2 Baris, Masing-masing 3 Tombol -->
+                        <div class="button-row-container">
+                            <!-- BARIS 1: Penilaian Praktik Mengajar (1-3) -->
+                            <div class="button-row">
+                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                    <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 1 
+                                </button>
+                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                    <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 2
+                                </button>
+                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                    <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 3
+                                </button>
+                            </div>
 
-        <!-- KOLOM 2: Penilaian Penyusunan Perangkat Pembelajaran (1-3) -->
-        <div class="button-column">
-            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat Pembelajaran 1
-            </button>
-            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat Pembelajaran 2
-            </button>
-            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat Pembelajaran 3
-            </button>
-        </div>
-
-    </div>
-</div>
+                            <!-- BARIS 2: Penilaian Penyusunan Perangkat Pembelajaran (1-3) -->
+                            <div class="button-row">
+                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                    <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 1
+                                </button>
+                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                    <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 2
+                                </button>
+                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                    <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 3
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="modal-overlay" id="pdfModalOverlay">
-            <div class="modal-container">
-                <div class="modal-header">
-                    <div class="modal-title" id="modalDocTitle"><i class="fa-solid fa-file-pdf" style="color:red"></i> Pratinjau Dokumen</div>
-                    <button class="modal-close-btn" onclick="closePdfModal()">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <iframe class="modal-iframe" id="modalIframe" src=""></iframe>
-                </div>
-            </div>
-        </div>
-
         <section id="refleksi">
             <h2 class="section-title">Refleksi Kritis</h2>
+            
             <div class="reflection-accordion">
-                <div class="reflection-item">
-                    <h3 class="reflection-question"><span>1.</span> Apa yang telah dipelajari sepanjang tahapan PPL Terbimbing?</h3>
-                    <p style="text-align: justify; color: var(--text-muted);">
-                        Saya menyadari bahwa merencanakan pembelajaran bukanlah aktivitas administrasi formal semata, melainkan proses merancang pengalaman emosional intelektual siswa yang adaptif dan merdeka.
-                    </p>
+                <div class="scrapbook-card reflection-item">
+                    <div class="corner-sticker cs-top-right">🌸</div>
+                    <div class="magazine-grid-layout">
+                        <div class="polaroid-magazine-frame">
+                            <img src="placeholder-reflection-1.png" alt="Refleksi Praktik Mengajar" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
+                        </div>
+                        <div class="content-magazine-layout">
+                            <div class="reflection-question">
+                                <span>📌</span>
+                                <strong>Bagaimana pengalaman Anda dalam praktik mengajar?</strong>
+                            </div>
+                            <div class="text-content">
+                                <p>
+                                    Pengalaman saya dalam praktik mengajar merupakan perjalanan transformatif yang penuh dengan pembelajaran berharga. Setiap pertemuan dengan siswa membawa dinamika unik dan kesempatan untuk terus berkembang sebagai seorang pendidik...
+                                </p>
+                                <p>
+                                    Tantangan yang saya hadapi menjadi batu loncatan untuk meningkatkan strategi pembelajaran dan pendekatan pedagogis yang lebih efektif dan inklusif.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="reflection-item">
-                    <h3 class="reflection-question"><span>2.</span> Pengalaman menantang apa yang dihadapi dan solusinya?</h3>
-                    <p style="text-align: justify; color: var(--text-muted);">
-                        Mengelola keaktifan kelas instruksional agar merata. Solusinya adalah mengimplementasikan metode diskusi kelompok berbasis pembagian kartu peran (*role card*).
-                    </p>
+
+                <div class="scrapbook-card reflection-item">
+                    <div class="corner-sticker cs-bottom-left">🪻</div>
+                    <div class="magazine-grid-layout">
+                        <div class="polaroid-magazine-frame">
+                            <img src="placeholder-reflection-2.png" alt="Refleksi Kesulitan" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
+                        </div>
+                        <div class="content-magazine-layout">
+                            <div class="reflection-question">
+                                <span>💡</span>
+                                <strong>Apa kesulitan terbesar yang Anda alami dan bagaimana Anda mengatasinya?</strong>
+                            </div>
+                            <div class="text-content">
+                                <p>
+                                    Kesulitan terbesar saya adalah mengelola heterogenitas pembelajaran siswa dengan latar belakang yang berbeda-beda. Beberapa siswa memahami dengan cepat, sementara yang lain memerlukan pendekatan yang lebih personal.
+                                </p>
+                                <p>
+                                    Solusi yang saya lakukan adalah merancang pembelajaran yang diferensiasi, memberikan tugas tambahan yang disesuaikan dengan kemampuan masing-masing siswa, dan membangun komunikasi yang lebih intensif dengan orang tua.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scrapbook-card reflection-item">
+                    <div class="corner-sticker cs-top-right">🌸</div>
+                    <div class="magazine-grid-layout">
+                        <div class="polaroid-magazine-frame">
+                            <img src="placeholder-reflection-3.png" alt="Refleksi Prestasi" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
+                        </div>
+                        <div class="content-magazine-layout">
+                            <div class="reflection-question">
+                                <span>✨</span>
+                                <strong>Apa pencapaian yang paling membanggakan dari praktik mengajar Anda?</strong>
+                            </div>
+                            <div class="text-content">
+                                <p>
+                                    Pencapaian yang paling membanggakan adalah ketika siswa yang awalnya tidak percaya diri mulai aktif berpartisipasi dan menunjukkan peningkatan prestasi akademik yang signifikan.
+                                </p>
+                                <p>
+                                    Melihat antusiasme mereka terhadap informatika dan bagaimana mereka saling membantu dalam kelompok belajar menjadi bukti bahwa pendekatan pembelajaran yang saya terapkan berhasil menciptakan lingkungan yang positif dan mendukung.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="filosofi">
             <h2 class="section-title">Filosofi Mengajar</h2>
+            
             <div class="scrapbook-card">
-                <div class="corner-sticker cs-top-right">🌸</div>
+                <div class="corner-sticker cs-top-right">🪻</div>
                 <div class="magazine-grid-layout">
-                    <div style="display: flex; flex-direction: column; text-align: justify;">
-                        <p style="margin-bottom: 1.5rem;">
-                            <span style="float: left; font-family: 'Playfair Display', serif; font-size: 3.8rem; line-height: 0.75; padding-right: 12px; padding-top: 6px; color: var(--rich-lilac); font-weight: bold;">M</span>mengajar adalah proses menuntun peserta didik untuk mengembangkan potensi yang dimilikinya, bukan sekadar menyampaikan materi pelajaran. Melalui pengalaman observasi, asistensi, dan praktik pembelajaran terbimbing, saya menyadari bahwa setiap peserta didik memiliki karakteristik, kemampuan, minat, dan kebutuhan belajar yang berbeda. Oleh karena itu, pemahaman terhadap peserta didik menjadi dasar penting dalam merancang pembelajaran yang bermakna dan sesuai dengan kebutuhan mereka.
-
-Saya meyakini bahwa pembelajaran yang efektif adalah pembelajaran yang berpusat pada peserta didik. Sejalan dengan konsep Pembelajaran Mendalam (Deep Learning), saya berusaha menciptakan pengalaman belajar yang mendorong siswa untuk aktif berpikir, berdiskusi, memecahkan masalah, dan menghubungkan materi dengan kehidupan sehari-hari. Dengan demikian, pembelajaran tidak hanya menghasilkan pemahaman konsep, tetapi juga membangun keterampilan berpikir kritis, kreativitas, kolaborasi, dan komunikasi.
-                        </p>
-                        <div class="polaroid-magazine-frame">
-                           <img src="Filosofi_Mengajar_dan_Pembentukan_Karakter.png" alt="Infografis Artifak" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
-                        </div>
+                    <div class="polaroid-magazine-frame">
+                        <img src="filosofi-mengajar.png" alt="Filosofi Mengajar" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
                     </div>
-                    <div style="display: flex; flex-direction: column; text-align: justify; gap: 1.5rem;">
-                        <p>
-                            Saya juga percaya bahwa setiap peserta didik memiliki kemampuan untuk berkembang melalui usaha dan proses belajar yang berkelanjutan. Prinsip ini sejalan dengan konsep Growth Mindset, yang memandang bahwa kemampuan dapat ditingkatkan melalui kerja keras, ketekunan, dan dukungan yang tepat. Karena itu, saya berupaya menciptakan lingkungan belajar yang aman, positif, dan menghargai proses sehingga peserta didik berani mencoba, belajar dari kesalahan, dan terus berkembang.
-
-Filosofi mengajar saya berlandaskan pemikiran Ki Hajar Dewantara bahwa pendidikan adalah proses menuntun kodrat anak agar mencapai keselamatan dan kebahagiaan setinggi-tingginya. Selain itu, saya memahami bahwa latar belakang sosial dan budaya peserta didik turut memengaruhi proses belajar mereka. Oleh karena itu, saya berkomitmen untuk menjadi guru yang menghargai keberagaman, membangun hubungan yang positif dengan peserta didik, serta menerapkan prinsip Ing Ngarsa Sung Tuladha, Ing Madya Mangun Karsa, Tut Wuri Handayani dalam menjalankan peran sebagai guru profesional.
-                        </p>
+                    <div class="content-magazine-layout">
+                        <h3 style="color: var(--dark-lilac); margin-bottom: 1rem;">Filosofi Pendidikan Saya</h3>
+                        <div class="text-content">
+                            <p>
+                                Filosofi mengajar saya berpijak pada kepercayaan bahwa setiap siswa memiliki potensi unik yang perlu digali dan dikembangkan. Pendidikan bukan hanya tentang transfer pengetahuan, melainkan tentang membangun karakter, keterampilan berpikir kritis, dan kapasitas untuk menjadi anggota masyarakat yang produktif dan bermakna.
+                            </p>
+                            <p>
+                                Saya percaya pada pendekatan student-centered yang menempatkan siswa di pusat proses pembelajaran. Dengan menciptakan lingkungan yang aman, inklusif, dan mendorong kreativitas, siswa dapat mengembangkan rasa tanggung jawab terhadap pembelajaran mereka sendiri.
+                            </p>
+                            <p>
+                                Dalam mengajar informatika khususnya, saya berusaha menunjukkan relevansi disiplin ilmu ini dengan kehidupan nyata siswa, sehingga mereka tidak hanya mengerti teori tetapi juga mampu mengaplikasikannya untuk memecahkan masalah praktis dan berkontribusi pada masyarakat digital.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="quotes">
-            <h2 class="section-title">Quotes Pendidikan Favorit</h2>
-            <div class="scrapbook-card">
-                <div class="corner-sticker cs-top-right">🌸</div>
-                <div class="single-quote-box">
-                    <p style="font-size: 1.6rem; color: var(--dark-lilac); font-style: italic; line-height: 1.5; margin-bottom: 1.5rem;">
-                        "Anak-anak hidup dan tumbuh sesuai kodratnya sendiri. Pendidik hanya dapat merawat dan menuntun tumbuhnya kodrat itu."
-                    </p>
-                    <strong style="display: block; text-align: right; font-size: 1.3rem; color: var(--rich-lilac); font-family: 'Playfair Display', serif;">
-                        — Ki Hadjar Dewantara
-                    </strong>
-                </div>
+            <h2 class="section-title">Kutipan Motivasi</h2>
+            <div class="single-quote-box">
+                <p style="font-size: 1.5rem; color: var(--dark-lilac); line-height: 1.6;">
+                    "Mengajar adalah seni untuk menyalakan api dalam pikiran siswa, bukan mengisi mereka dengan air pengetahuan. Setiap hari adalah kesempatan baru untuk membuat perbedaan dalam hidup mereka."
+                </p>
             </div>
         </section>
+
+        <div class="modal-overlay" id="pdfModalOverlay">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3 class="modal-title">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span id="modalTitle">Dokumen</span>
+                    </h3>
+                    <button class="modal-close-btn" onclick="closePdfModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <iframe class="modal-iframe" id="pdfFrame"></iframe>
+                </div>
+            </div>
+        </div>
 
     </div>
 
     <footer>
-        <p>🌸 &copy; 2026 Ni Luh Erna Budiartini. E-Portofolio PPG Calon Guru. 🌸</p>
+        <p>&copy; 2024 E-Portfolio Ni Luh Erna Budiartini, S.Pd. | Mahasiswa PPG Calon Guru - Informatika | Universitas Pendidikan Ganesha</p>
     </footer>
 
     <script>
-        // --- 1. POP-UP MODAL HANDLER FOR GOOGLE DRIVE VIEW ---
-        const modalOverlay = document.getElementById('pdfModalOverlay');
-        const modalIframe = document.getElementById('modalIframe');
-        const modalDocTitle = document.getElementById('modalDocTitle');
+        function openProfileTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.querySelectorAll('.profile-tab-content');
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove('active');
+            }
+            tabbuttons = document.querySelectorAll('.profile-tab-btn');
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove('active');
+            }
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
 
-        function openPdfModal(title, driveEmbedUrl) {
-            modalDocTitle.innerHTML = `<i class="fa-solid fa-file-pdf" style="color:red"></i> Pratinjau: ${title}`;
-            // Memasukkan URL embed drive ke iframe
-            modalIframe.src = driveEmbedUrl; 
-            modalOverlay.classList.add('active');
+        function openArtifactTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.querySelectorAll('.tab-content');
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove('active');
+            }
+            tabbuttons = document.querySelectorAll('.tab-btn');
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove('active');
+            }
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function openPdfModal(title, pdfUrl) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('pdfFrame').src = pdfUrl;
+            document.getElementById('pdfModalOverlay').classList.add('active');
         }
 
         function closePdfModal() {
-            modalOverlay.classList.remove('active');
-            modalIframe.src = ''; // Menyetel ulang src agar loading berhenti saat ditutup
+            document.getElementById('pdfModalOverlay').classList.remove('active');
+            document.getElementById('pdfFrame').src = '';
         }
 
-        // --- 2. JAVASCRIPT UNTUK ANIMASI KELOPAK BUNGA MELAYANG ---
-        const petalContainer = document.getElementById('petalContainer');
-        const petalEmojis = ['🌸', '🪻', '✿', '❀'];
+        document.getElementById('pdfModalOverlay').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closePdfModal();
+            }
+        });
 
-        function createPetal() {
-            if (!petalContainer) return;
-            const petal = document.createElement('div');
-            petal.className = 'floating-petal';
-            petal.innerHTML = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
-            petal.style.background = 'none';
-            petal.style.fontSize = (Math.random() * 20 + 15) + 'px';
-            petal.style.left = Math.random() * 100 + '%';
-            
-            const duration = Math.random() * 6 + 6;
-            petal.style.animationDuration = duration + 's';
-            petal.style.animationDelay = Math.random() * 3 + 's';
-            petalContainer.appendChild(petal);
-
-            setTimeout(() => { petal.remove(); }, (duration + 3) * 1000);
-        }
-        setInterval(createPetal, 400);
-
-        // --- 3. SWITCH TAB UNTUK SUB-MENU PROFIL ---
-        function openProfileTab(evt, subTabId) {
-            const profileContents = document.getElementsByClassName("profile-tab-content");
-            for (let i = 0; i < profileContents.length; i++) { profileContents[i].classList.remove("active"); }
-            const profileTabBtns = document.getElementsByClassName("profile-tab-btn");
-            for (let i = 0; i < profileTabBtns.length; i++) { profileTabBtns[i].classList.remove("active"); }
-            document.getElementById(subTabId).classList.add("active");
-            evt.currentTarget.classList.add("active");
+        // Floating Petals Animation
+        function createFloatingPetals() {
+            const container = document.getElementById('petalContainer');
+            for (let i = 0; i < 8; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('floating-petal');
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (Math.random() * 8 + 6) + 's';
+                petal.style.animationDelay = Math.random() * 2 + 's';
+                petal.style.width = (Math.random() * 30 + 20) + 'px';
+                petal.style.height = petal.style.width;
+                container.appendChild(petal);
+            }
         }
 
-        // --- 4. SWITCH TAB UNTUK ARTIFAK PEMBELAJARAN ---
-        function openArtifactTab(evt, tabId) {
-            const tabContents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabContents.length; i++) { tabContents[i].classList.remove("active"); }
-            const tabBtns = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < tabBtns.length; i++) { tabBtns[i].classList.remove("active"); }
-            document.getElementById(tabId).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
+        window.addEventListener('load', createFloatingPetals);
 
-        // --- 5. SCROLL LISTENER UNTUK DETEKSI AKTIF NAVIGASI UTAMA ---
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) { current = section.getAttribute('id'); }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) { link.classList.add('active'); }
+        // Navigation Link Active State
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
             });
         });
     </script>
