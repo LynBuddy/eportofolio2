@@ -705,6 +705,38 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- ARTIFAK 3: CUSTOM LAYOUT --- */
+        .artifact-3-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .artifact-3-image {
+            grid-column: 1;
+            grid-row: 1 / 4;
+        }
+
+        .button-column-praktik {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .button-column-perangkat {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .button-column-praktik .drive-popup-btn,
+        .button-column-perangkat .drive-popup-btn {
+            min-height: 60px;
+            font-size: 1.1rem;
+            padding: 0.8rem 1rem;
+        }
+
         @media (max-width: 768px) {
             body { font-size: 1.2rem; }
             .navbar { flex-direction: column; gap: 1rem; }
@@ -714,26 +746,13 @@
             .artifact-magazine-layout { grid-template-columns: 1fr; gap: 1.5rem; }
             .magazine-grid-layout { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
             .modal-container { width: 95%; height: 90%; }
-            .button-columns-container { grid-template-columns: 1fr !important; }
-            .button-row-container { grid-template-columns: 1fr !important; }
-        }
-
-        /* --- ARTIFAK 3: LANDSCAPE BUTTONS --- */
-        .button-row-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
-        }
-
-        .button-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 0.8rem;
-        }
-
-        .button-row .drive-popup-btn {
-            min-height: 60px;
-            font-size: 1.1rem;
+            .artifact-3-layout {
+                grid-template-columns: 1fr;
+            }
+            .artifact-3-image {
+                grid-column: 1;
+                grid-row: auto;
+            }
         }
     </style>
 </head>
@@ -873,37 +892,38 @@
                         <span class="artifact-meta">Asesmen Dokumen</span>
                     </div>
                     
-                    <div class="artifact-magazine-layout">
-                        <div class="infographic-polaroid-frame">
-                           <img src="Raport_Keberhasilan_Praktik_Pembelajaran_Guru.png" alt="Infografis Artifak" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
+                    <div class="artifact-3-layout">
+                        <!-- Kolom 1: Foto Infografis (2/4 bagian) -->
+                        <div class="artifact-3-image">
+                            <div class="infographic-polaroid-frame">
+                               <img src="Raport_Keberhasilan_Praktik_Pembelajaran_Guru.png" alt="Infografis Artifak" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px;">
+                            </div>
                         </div>
-                        <!-- TOMBOL LANDSCAPE: Dibagi 2 Baris, Masing-masing 3 Tombol -->
-                        <div class="button-row-container">
-                            <!-- BARIS 1: Penilaian Praktik Mengajar (1-3) -->
-                            <div class="button-row">
-                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                                    <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 1 
-                                </button>
-                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                                    <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 2
-                                </button>
-                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                                    <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 3
-                                </button>
-                            </div>
+                        
+                        <!-- Kolom 2: Tombol Penilaian Praktik Mengajar (1-3) -->
+                        <div class="button-column-praktik">
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 1 
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 2
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Praktik Mengajar 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf" style="color: #e44d26;"></i> Praktik 3
+                            </button>
+                        </div>
 
-                            <!-- BARIS 2: Penilaian Penyusunan Perangkat Pembelajaran (1-3) -->
-                            <div class="button-row">
-                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                                    <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 1
-                                </button>
-                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                                    <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 2
-                                </button>
-                                <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
-                                    <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 3
-                                </button>
-                            </div>
+                        <!-- Kolom 3: Tombol Penilaian Penyusunan Perangkat (1-3) -->
+                        <div class="button-column-perangkat">
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 1', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 1
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 2', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 2
+                            </button>
+                            <button class="drive-popup-btn" onclick="openPdfModal('Penilaian Penyusunan Perangkat Pembelajaran 3', 'LINK_EMBED_GOOGLE_DRIVE_DISINI')">
+                                <i class="fa-solid fa-file-pdf" style="color: #0073b1;"></i> Perangkat 3
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -927,7 +947,7 @@
                             </div>
                             <div class="text-content">
                                 <p>
-                                    Pengalaman saya dalam praktik mengajar merupakan perjalanan transformatif yang penuh dengan pembelajaran berharga. Setiap pertemuan dengan siswa membawa dinamika unik dan kesempatan untuk terus berkembang sebagai seorang pendidik...
+                                    Pengalaman saya dalam praktik mengajar merupakan perjalanan transformatif yang penuh dengan pembelajaran berharga. Setiap pertemuan dengan siswa membawa dinamika un[...]
                                 </p>
                                 <p>
                                     Tantangan yang saya hadapi menjadi batu loncatan untuk meningkatkan strategi pembelajaran dan pendekatan pedagogis yang lebih efektif dan inklusif.
@@ -950,10 +970,10 @@
                             </div>
                             <div class="text-content">
                                 <p>
-                                    Kesulitan terbesar saya adalah mengelola heterogenitas pembelajaran siswa dengan latar belakang yang berbeda-beda. Beberapa siswa memahami dengan cepat, sementara yang lain memerlukan pendekatan yang lebih personal.
+                                    Kesulitan terbesar saya adalah mengelola heterogenitas pembelajaran siswa dengan latar belakang yang berbeda-beda. Beberapa siswa memahami dengan cepat, sementara y[...]
                                 </p>
                                 <p>
-                                    Solusi yang saya lakukan adalah merancang pembelajaran yang diferensiasi, memberikan tugas tambahan yang disesuaikan dengan kemampuan masing-masing siswa, dan membangun komunikasi yang lebih intensif dengan orang tua.
+                                    Solusi yang saya lakukan adalah merancang pembelajaran yang diferensiasi, memberikan tugas tambahan yang disesuaikan dengan kemampuan masing-masing siswa, dan memba[...]
                                 </p>
                             </div>
                         </div>
@@ -973,10 +993,10 @@
                             </div>
                             <div class="text-content">
                                 <p>
-                                    Pencapaian yang paling membanggakan adalah ketika siswa yang awalnya tidak percaya diri mulai aktif berpartisipasi dan menunjukkan peningkatan prestasi akademik yang signifikan.
+                                    Pencapaian yang paling membanggakan adalah ketika siswa yang awalnya tidak percaya diri mulai aktif berpartisipasi dan menunjukkan peningkatan prestasi akademik yan[...]
                                 </p>
                                 <p>
-                                    Melihat antusiasme mereka terhadap informatika dan bagaimana mereka saling membantu dalam kelompok belajar menjadi bukti bahwa pendekatan pembelajaran yang saya terapkan berhasil menciptakan lingkungan yang positif dan mendukung.
+                                    Melihat antusiasme mereka terhadap informatika dan bagaimana mereka saling membantu dalam kelompok belajar menjadi bukti bahwa pendekatan pembelajaran yang saya ter[...]
                                 </p>
                             </div>
                         </div>
@@ -998,13 +1018,10 @@
                         <h3 style="color: var(--dark-lilac); margin-bottom: 1rem;">Filosofi Pendidikan Saya</h3>
                         <div class="text-content">
                             <p>
-                                Filosofi mengajar saya berpijak pada kepercayaan bahwa setiap siswa memiliki potensi unik yang perlu digali dan dikembangkan. Pendidikan bukan hanya tentang transfer pengetahuan, melainkan tentang membangun karakter, keterampilan berpikir kritis, dan kapasitas untuk menjadi anggota masyarakat yang produktif dan bermakna.
+                                Sebagai seorang calon pendidik, filosofi pendidikan saya berpusat pada pemberdayaan siswa untuk menjadi individu yang tidak hanya menguasai pengetahuan teknis, tetapi juga m[...]
                             </p>
                             <p>
-                                Saya percaya pada pendekatan student-centered yang menempatkan siswa di pusat proses pembelajaran. Dengan menciptakan lingkungan yang aman, inklusif, dan mendorong kreativitas, siswa dapat mengembangkan rasa tanggung jawab terhadap pembelajaran mereka sendiri.
-                            </p>
-                            <p>
-                                Dalam mengajar informatika khususnya, saya berusaha menunjukkan relevansi disiplin ilmu ini dengan kehidupan nyata siswa, sehingga mereka tidak hanya mengerti teori tetapi juga mampu mengaplikasikannya untuk memecahkan masalah praktis dan berkontribusi pada masyarakat digital.
+                                Saya percaya bahwa pendidikan berkualitas adalah investasi terbaik untuk masa depan yang lebih cerah. Setiap anak memiliki potensi unik yang dapat dikembangkan melalui p[...]
                             </p>
                         </div>
                     </div>
@@ -1012,107 +1029,122 @@
             </div>
         </section>
 
-        <section id="quotes">
-            <h2 class="section-title">Kutipan Motivasi</h2>
-            <div class="single-quote-box">
-                <p style="font-size: 1.5rem; color: var(--dark-lilac); line-height: 1.6;">
-                    "Mengajar adalah seni untuk menyalakan api dalam pikiran siswa, bukan mengisi mereka dengan air pengetahuan. Setiap hari adalah kesempatan baru untuk membuat perbedaan dalam hidup mereka."
-                </p>
-            </div>
-        </section>
+    </div>
 
-        <div class="modal-overlay" id="pdfModalOverlay">
-            <div class="modal-container">
-                <div class="modal-header">
-                    <h3 class="modal-title">
-                        <i class="fa-solid fa-file-pdf"></i>
-                        <span id="modalTitle">Dokumen</span>
-                    </h3>
-                    <button class="modal-close-btn" onclick="closePdfModal()">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <iframe class="modal-iframe" id="pdfFrame"></iframe>
-                </div>
+    <!-- MODAL POP-UP UNTUK PDF -->
+    <div class="modal-overlay" id="pdfModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title"><i class="fa-solid fa-file-pdf"></i> <span id="modalTitle">Dokumen</span></h2>
+                <button class="modal-close-btn" onclick="closePdfModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="modal-iframe" id="modalIframe"></iframe>
             </div>
         </div>
-
     </div>
 
     <footer>
-        <p>&copy; 2024 E-Portfolio Ni Luh Erna Budiartini, S.Pd. | Mahasiswa PPG Calon Guru - Informatika | Universitas Pendidikan Ganesha</p>
+        <p>&copy; 2024 E-Portfolio Erna Budiartini | Refleksi Akhir Praktik Pengalaman Lapangan Terbimbing</p>
     </footer>
 
     <script>
+        // Floating Petals Animation
+        function createFloatingPetals() {
+            const container = document.getElementById('petalContainer');
+            const petalCount = 15;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'floating-petal';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.width = (Math.random() * 30 + 10) + 'px';
+                petal.style.height = petal.style.width;
+                petal.style.animationDuration = (Math.random() * 8 + 12) + 's';
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(petal);
+            }
+        }
+
+        // Tab Navigation Functions
         function openProfileTab(evt, tabName) {
-            var i, tabcontent, tabbuttons;
-            tabcontent = document.querySelectorAll('.profile-tab-content');
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove('active');
-            }
-            tabbuttons = document.querySelectorAll('.profile-tab-btn');
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].classList.remove('active');
-            }
+            const tabContents = document.querySelectorAll('.profile-tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            const tabButtons = document.querySelectorAll('.profile-tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
             document.getElementById(tabName).classList.add('active');
             evt.currentTarget.classList.add('active');
         }
 
         function openArtifactTab(evt, tabName) {
-            var i, tabcontent, tabbuttons;
-            tabcontent = document.querySelectorAll('.tab-content');
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove('active');
-            }
-            tabbuttons = document.querySelectorAll('.tab-btn');
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].classList.remove('active');
-            }
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
             document.getElementById(tabName).classList.add('active');
             evt.currentTarget.classList.add('active');
         }
 
-        function openPdfModal(title, pdfUrl) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('pdfFrame').src = pdfUrl;
-            document.getElementById('pdfModalOverlay').classList.add('active');
+        // PDF Modal Functions
+        function openPdfModal(title, driveLink) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalIframe').src = driveLink;
+            document.getElementById('pdfModal').classList.add('active');
         }
 
         function closePdfModal() {
-            document.getElementById('pdfModalOverlay').classList.remove('active');
-            document.getElementById('pdfFrame').src = '';
+            document.getElementById('pdfModal').classList.remove('active');
+            document.getElementById('modalIframe').src = '';
         }
 
-        document.getElementById('pdfModalOverlay').addEventListener('click', function(event) {
-            if (event.target === this) {
+        // Close modal when clicking outside
+        document.getElementById('pdfModal').addEventListener('click', function(e) {
+            if (e.target === this) {
                 closePdfModal();
             }
         });
 
-        // Floating Petals Animation
-        function createFloatingPetals() {
-            const container = document.getElementById('petalContainer');
-            for (let i = 0; i < 8; i++) {
-                const petal = document.createElement('div');
-                petal.classList.add('floating-petal');
-                petal.style.left = Math.random() * 100 + '%';
-                petal.style.animationDuration = (Math.random() * 8 + 6) + 's';
-                petal.style.animationDelay = Math.random() * 2 + 's';
-                petal.style.width = (Math.random() * 30 + 20) + 'px';
-                petal.style.height = petal.style.width;
-                container.appendChild(petal);
-            }
-        }
-
-        window.addEventListener('load', createFloatingPetals);
-
-        // Navigation Link Active State
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
+        // Smooth Scroll Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveNav();
+                }
             });
         });
+
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Initialize
+        createFloatingPetals();
     </script>
+
 </body>
 </html>
